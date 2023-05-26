@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'app-landing',
@@ -9,5 +10,9 @@ export class LandingComponent implements OnInit{
     constructor() {}
 
     ngOnInit() {}
+
+    navigationChange(){
+      this.router.navigateByUrl('/fare');
+    }
     
 }
