@@ -7,12 +7,12 @@ import { Router } from "@angular/router";
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit{
-    constructor() {}
+    constructor(private router: Router) {}
 
     ngOnInit() {}
 
     navigationChange(){
-      this.router.navigateByUrl('/fare');
+      this.router.navigateByUrl('/login');
     }
     
 }
