@@ -5,8 +5,11 @@
 .navI{
     width: 90%;
     color: rgba(40,40,40,1);
-    
+    font-family: Open Sans;
+    font-weight: Regular;
+    font-size: 18px; 
 }
+
 
 .navI:hover{
     border: 1px solid rgba(53,53,105,1);
@@ -20,6 +23,3 @@
     border-radius: 15px;
 }
 
-.nav-link{
-
-}

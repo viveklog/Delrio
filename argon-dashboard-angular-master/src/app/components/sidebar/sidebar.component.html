@@ -6,7 +6,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <!-- Brand -->
-    <a class="navbar-brand pt-0"  [routerLink]="['/dashboard']">
+    <a class="navbar-brand pt-4"  [routerLink]="['/dashboard']">
       <img src="./assets/img/brand/DelRio/logo.png" class="navbar-brand-img" alt="...">
     </a>
     <!-- User -->
@@ -88,9 +88,9 @@
         </div>
       </form>
       <!-- Navigation -->
-      <ul class="navbar-nav p-3">
-          <li *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item navI my-2">
-              <a routerLinkActive="active" [routerLink]="[menuItem.path]" class="nav-link">
+      <ul class="navbar-nav p-3 pt-5">
+          <li *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item navI  my-2">
+              <a routerLinkActive="active" [routerLink]="[menuItem.path]" class="nav-link p-3">
                   <i class="ni {{menuItem.icon}}"></i>
                   {{menuItem.title}}
               </a>
