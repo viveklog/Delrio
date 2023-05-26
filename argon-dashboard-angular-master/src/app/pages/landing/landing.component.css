@@ -1,0 +1,154 @@
+.navItem {
+  color: rgba(40, 40, 40, 1);
+  font-family: Open Sans;
+  font-weight: Regular;
+  font-size: 18px;
+  opacity: 1;
+  text-align: center;
+}
+
+.btn_Login {
+  color: white;
+  width: 130px;
+  background: rgba(137, 197, 65, 1);
+  border-radius: 25px;
+  text-align: center;
+}
+
+.mainH {
+  width: 914px;
+  color: rgba(40, 40, 40, 1);
+  font-family: Open Sans;
+  font-weight: SemiBold;
+  font-size: 60px;
+  opacity: 1;
+  text-align: left;
+  margin-left: 80px;
+  margin-top: 80px;
+}
+
+.mainP {
+  width: 68%;
+  color: rgba(40, 40, 40, 1);
+  font-family: Open Sans;
+  font-weight: Regular;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+  margin-left: 80px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.mainB {
+  width: 230px;
+  color: rgba(253, 254, 255, 1);
+  font-family: Open Sans;
+  font-weight: SemiBold;
+  font-size: 18px;
+  opacity: 1;
+  text-align: center;
+}
+
+.btnPass {
+  width: 360px;
+  background: rgba(137, 197, 65, 1);
+  border-radius: 25px;
+  text-align: center;
+  margin-left: 80px;
+}
+
+.secondH {
+  width: 671px;
+  color: rgba(40, 40, 40, 1);
+  font-family: Open Sans;
+  font-weight: SemiBold;
+  font-size: 60px;
+  opacity: 1;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.secondP {
+  width: 689px;
+  color: rgba(40, 40, 40, 1);
+  font-family: Open Sans;
+  font-weight: Regular;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.card {
+  background: rgba(253, 254, 255, 1);
+  border-radius: 10px;
+  box-shadow: 3px 4px 7px rgba(0, 0, 0, 0.07000000029802322);
+}
+
+.cardH {
+  width: 100%;
+  color: rgba(40, 40, 40, 1);
+  font-family: Open Sans;
+  font-weight: Regular;
+  font-size: 32px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.cardP {
+  width: 90%;
+  color: rgba(40, 40, 40, 1);
+  font-family: Open Sans;
+  font-weight: Regular;
+  font-size: 20px;
+  text-align: left;
+}
+
+.contact {
+  background: rgba(40, 40, 54, 1);
+}
+
+.contactH {
+  color: rgba(253, 254, 255, 1);
+  font-family: Open Sans;
+  font-weight: SemiBold;
+  font-size: 60px;
+  text-align: left;
+}
+
+.form-control {
+  background: rgba(162, 178, 208, 1);
+  border-radius: 10px;
+  font-family: Open Sans;
+  font-weight: Italic;
+  font-size: 20px;
+  text-align: left;
+  color: rgba(253, 254, 255, 1);
+}
+.form-control::placeholder{
+  color: rgba(253, 254, 255, 1);
+  font-family: Open Sans;
+  font-weight: Italic;
+  font-size: 20px;
+  text-align: left;
+}
+
+
+.msg{
+  height: 200px;
+}
+
+.btn_send {
+  color: white;
+  width: 180px;
+  background: rgba(137, 197, 65, 1);
+  border-radius: 20px;
+  text-align: center;
+}
+
+.contactM {
+  color: rgba(253, 254, 255, 1);
+  font-family: Open Sans;
+  font-weight: Italic;
+  font-size: 16px;
+  text-align: left;
+}
