@@ -13,7 +13,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/pass', title: 'Pass management',  icon: 'ni-badge text-primary', class: '' },
     // { path: '/icons', title: 'Icons',  icon:'ni-planet text-blue', class: '' },
     // { path: '/maps', title: 'Maps',  icon:'ni-pin-3 text-orange', class: '' },
-    { path: '/admin', title: 'Admin',  icon:'ni-single-02 text-yellow', class: '' },
+    { path: '/admin', title: 'Profile Tag',  icon:'ni-single-02 text-yellow', class: '' },
+    { path: '/login', title: 'Log Out',  icon:'ni-single-02 text-yellow', class: '' },
     // { path: '/tables', title: 'Tables',  icon:'ni-bullet-list-67 text-red', class: '' },
     // { path: '/login', title: 'Login',  icon:'ni-key-25 text-info', class: '' },
     // { path: '/register', title: 'Register',  icon:'ni-circle-08 text-pink', class: '' }
@@ -22,7 +23,7 @@ export const ROUTES: RouteInfo[] = [
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
 
