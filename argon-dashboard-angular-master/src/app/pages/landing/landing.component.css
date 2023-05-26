@@ -75,9 +75,6 @@
   border-radius: 25px;
   text-align: center;
   margin-left: 80px;
-  font-family: Open Sans;
-  font-weight: SemiBold;
-  font-size: 18px;
 }
 
 .secondH {
@@ -107,14 +104,13 @@
 }
 
 .cardH {
-  width: 80%;
+  width: 100%;
   color: rgba(40, 40, 40, 1);
   font-family: Open Sans;
   font-weight: Regular;
   font-size: 32px;
   text-align: left;
   margin-bottom: 20px;
-  margin-left: -40px;
 }
 
 .cardP {
@@ -151,9 +147,13 @@
   color: rgba(253, 254, 255, 1);
   font-family: Open Sans;
   font-weight: Italic;
-  font-size: 15px;
+  font-size: 20px;
   text-align: left;
-  text-align: start;
+}
+
+
+.msg{
+  height: 200px;
 }
 
 .btn_send {
@@ -162,15 +162,12 @@
   background: rgba(137, 197, 65, 1);
   border-radius: 20px;
   text-align: center;
-  font-family: Open Sans;
-  font-weight: SemiBold;
-  font-size: 18px;
 }
 
 .contactM {
   color: rgba(253, 254, 255, 1);
   font-family: Open Sans;
   font-weight: Italic;
-  font-size: 14px;
+  font-size: 16px;
   text-align: left;
 }
