@@ -16,8 +16,8 @@
         </div>
       </div>
     </div>
-    <div class="col6">
-      <form class="navbar-search navbar-search-transparent form-inline mr-3 d-none d-md-flex ml-lg-auto ">
+    <div class="col6 d-flex justify-content-end">
+      <form class="navbar-search navbar-search-transparent form-inline  d-none d-md-flex ml-lg-auto ">
         <div class="form-group mb-0" [ngClass]="{ 'focused': focus === true } ">
           <div class="input-group input-group-alternative sSty">
             <div class="input-group-prepend">
@@ -35,13 +35,17 @@
       <li class="nav-item" ngbDropdown placement="bottom-right">
         <a class="nav-link pr-0" role="button" ngbDropdownToggle>
           <div class="media align-items-center">
-            <i class="bi bi-bell-slash"></i>
-            <span class="avatar avatar-sm rounded-circle">
-              <img alt="Image placeholder" src="./assets/img/brand/DelRio/icon.png">
-            </span>
-            <div class="media-body ml-2 d-none d-lg-block">
-              <span class="mb-0 text-sm  font-weight-bold">DelRio Admin</span>
+            <div class="p-3 mr-5">
+              <img width="200%" src="../../../assets/img/icons/dashboard/Group 38.svg">
+              <!-- <img src="../../../assets/img/icons/common/facebook.svg" alt="dkf"> -->
             </div>
+            <span class="avatar avatar-sm rounded-circle bg-white p-2 ">
+              <img src="../../../assets/img/icons/dashboard/Group 36.svg">
+              <!-- <img alt="Image placeholder" src="./assets/img/brand/DelRio/icon.png"> -->
+            </span>
+            <!-- <div class="media-body ml-2 d-none d-lg-block">
+              <span class="mb-0 text-sm  font-weight-bold">DelRio Admin</span>
+            </div> -->
           </div>
         </a>
         <div class="dropdown-menu-arrow dropdown-menu-right" ngbDropdownMenu>
