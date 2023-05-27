@@ -12,7 +12,7 @@ import { PassComponent } from 'src/app/pages/pass/pass.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AnalyticsComponent } from 'src/app/pages/analytics/analytics.component';
 import { IconsComponent } from 'src/app/pages/icons/icons.component';
-import { AnaImgComponent } from 'src/app/pages/analytics/anaImg/anaImg.component';
+import { AnalyticsNewComponent } from 'src/app/pages/analytics/analytics2/analytics2.component';
 
 @NgModule({
   imports: [
@@ -29,7 +29,8 @@ import { AnaImgComponent } from 'src/app/pages/analytics/anaImg/anaImg.component
     PassComponent,
     AnalyticsComponent,
     IconsComponent,
-    AnaImgComponent,
+    AnalyticsNewComponent,
+
   ]
 })
 
