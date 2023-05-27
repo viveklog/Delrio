@@ -1,0 +1,68 @@
+.cardStyle{
+    height: 400px;
+    background: rgba(253,254,255,1);
+    border-radius: 20px;
+    box-shadow: 2px 9px 18px rgba(0, 0, 0, 0.019999999552965164);
+}
+
+.cardImg1{
+    background-image: url(../../../../assets/img/theme/1.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.cardImg2{
+    background-image: url(../../../../assets/img/theme/2.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.cardImg3{
+    background-image: url(../../../../assets/img/theme/3.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.cardImg4{
+    background-image: url(../../../../assets/img/theme/4.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.cardImg5{
+    background-image: url(../../../../assets/img/theme/5.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.cardImg6{
+    background-image: url(../../../../assets/img/theme/6.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.cardImg7{
+    background-image: url(../../../../assets/img/theme/7.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.cardImg8{
+    background-image: url(../../../../assets/img/theme/8.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.cardImg9{
+    background-image: url(../../../../assets/img/theme/9.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.cardImg10{
+    background-image: url(../../../../assets/img/theme/10.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}

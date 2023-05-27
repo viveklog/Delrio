@@ -67,3 +67,60 @@
     font-size: 14px;
     text-align: left;
   }
+
+  .sP{
+    color: rgba(132,132,132,1);
+    margin-left: -50px
+  }
+  .mP{
+    color: rgba(53,53,105,1);
+  }
+  .eP{
+    color: rgba(132,132,132,1);
+    margin-right: -50px;
+  }
+
+  .proTitle{
+  color: rgba(53,53,105,1);
+  font-family: Open Sans;
+  font-weight: SemiBold;
+  font-size: 18px;
+  text-align: left;
+  }
+  .proS{
+    height: 15px;
+    border-radius: 10px;
+  }
+
+  .proSs{
+    background: rgba(137,197,65,1);
+    border-radius: 10px;
+
+  }
+
+  .proSr{
+    background: rgba(226,115,125,1);
+    border-radius: 10px;
+
+  }
+
+  .ctrText{
+    color: rgba(132,132,132,1);
+    font-family: Open Sans;
+    font-weight: Regular;
+    font-size: 14px;
+    text-align: left;
+  }
+
+.ctrBtn{
+    width: 89px;
+  height: 32px;
+  background: rgba(249,249,249,1);
+  color: rgba(53,53,105,1);
+border-radius: 10px;
+text-align: center;
+margin-left: 10px;
+font-family: Open Sans;
+    font-weight:SemiBold; 
+    font-size: 18px;
+}
