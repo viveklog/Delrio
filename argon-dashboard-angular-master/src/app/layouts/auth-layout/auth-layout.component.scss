@@ -1,0 +1,16 @@
+.imageclass{
+    width: 140%;
+    left: -115px;
+    top: 2px;
+}
+.navbar .container, .navbar .container-fluid, .navbar .container-sm, .navbar .container-md, .navbar .container-lg, .navbar .container-xl {
+    display: contents;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.main-content {
+    position: relative;
+    height: 720px !important;
+    overflow-y: hidden !important;
+}

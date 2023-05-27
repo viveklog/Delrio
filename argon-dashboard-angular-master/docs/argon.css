@@ -5813,14 +5813,14 @@ input[type='button'].btn-block
 
 .card-img
 {
-    width: 100%;
+   
 
     border-radius: calc(.375rem - 1px);
 }
 
 .card-img-top
 {
-    width: 100%;
+   
 
     border-top-left-radius: calc(.375rem - 1px);
     border-top-right-radius: calc(.375rem - 1px);
@@ -17577,11 +17577,11 @@ a.btn-icon-only
     position: absolute;
     z-index: 1;
     top: 0;
-    left: 0;
+    
 
     width: 100%;
     padding-right: 0 !important;
-    padding-left: 0 !important;
+    
 
     background-color: transparent;
 }
@@ -19186,7 +19186,10 @@ textarea[resize='horizontal']
 
     content: '';
 
+<<<<<<< HEAD
     
+=======
+>>>>>>> origin/Bharath_Delrio
 }
 .navbar-vertical .navbar-nav .nav-link > i
 {
