@@ -111,6 +111,11 @@
                     <span class="d-none d-md-block">Week</span>
                     <span class="d-md-none">W</span>
                   </a>
+                  <li class="nav-item" data-toggle="chart" data-target="#chart-sales"  (click)="data=datasets[1];updateOptions()">
+                    <a href="javascript:void(0)" class="nav-link py-2 px-3" [ngClass]="{'active':clicked1===true}" data-toggle="tab" (click)="clicked=false;clicked1=true">
+                      <span class="d-none d-md-block">Week</span>
+                      <span class="d-md-none">W</span>
+                    </a>
                 </li>
               </ul>
             </div>
