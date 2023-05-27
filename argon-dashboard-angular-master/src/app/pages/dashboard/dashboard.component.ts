@@ -21,26 +21,28 @@ export class DashboardComponent implements OnInit {
   public salesChart;
   public clicked: boolean = true;
   public clicked1: boolean = false;
+  public clicked2: boolean = false;
 
   ngOnInit() {
 
     this.datasets = [
-      [0, 20, 10, 30, 15, 40, 20, 60, 60],
-      [0, 20, 5, 25, 10, 30, 15, 40, 40]
+      [0, 20, 10, 30, 15, 40, 20, 60, 60,],
+      [0, 20, 5, 25, 10, 30, 15, 40, 40],
+      [0, 30, 15, 5, 10, 30, 25, 50, 60]
     ];
     this.data = this.datasets[0];
 
 
-    var chartOrders = document.getElementById('chart-orders');
+    // var chartOrders = document.getElementById('chart-orders');
 
     parseOptions(Chart, chartOptions());
 
 
-    var ordersChart = new Chart(chartOrders, {
-      type: 'bar',
-      options: chartExample2.options,
-      data: chartExample2.data
-    });
+    // var ordersChart = new Chart(chartOrders, {
+    //   type: 'bar',
+    //   options: chartExample2.options,
+    //   data: chartExample2.data
+    // });
 
     var chartSales = document.getElementById('chart-sales');
 
