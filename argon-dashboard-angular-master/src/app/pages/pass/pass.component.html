@@ -1,629 +1,640 @@
-<div class="container-fluid h-100vh">
-  <div class="row pt-7 px-5 d-flex justify-content-end">
-    <button type="button"  (click) = "navigationChange()" class="btn btn-primary btn-lg p-3 m-3">
-      <span class="btn-inner--icon px-3"><i class="fas fa-plus"></i></span>
-      <span class="btn-inner--text">Add Tag</span>
-    </button>
-    <button type="button" class="btn btn-info btn-lg p-3 m-3">
-      <span class="btn-inner--icon px-3"><i class="fas fa-pen"></i></span>
-      <span class="btn-inner--text">Update tag</span>
-    </button>
-    <button type="button" class="btn btn-warning btn-lg p-3 m-3">
-      <span class="btn-inner--icon px-3"><i class="fas fa-trash"></i></span>
-      <span class="btn-inner--text">Delete Tag</span>
-    </button>
-</div>
-
-<div class="row scroll">
-<div class="row px-5 pt-3">
-  <table class="table table-sm table-striped">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">PLAZA</th>
-        <th scope="col">LANE</th>
-        <th scope="col">MESSAGE TIME</th>
-        <th scope="col">ACCOUNT NUMBER</th>
-        <th scope="col">TAG AGENCY</th>
-        <th scope="col">TAG NUMBER</th>
-        <th scope="col">TAG STATUS</th>
-        <th scope="col">TOLL PAID</th>
-        <th scope="col">PRIOR BALANCE</th>
-        <th scope="col">NEW BALANCE</th>
-        <th scope="col">CLASS</th>
-        <th scope="col">NO. OF AXLES</th>
-        <th scope="col">VEHICLE SPEED</th>
-        <th scope="col">LICENSE PLATE</th>
-        <th scope="col">IMAGEURL1</th>
-        <th scope="col">IMAGEURL2</th>
-        <th scope="col">IMAGEURL3</th>
-        <th scope="col">IMAGEURL4</th>
-        <th scope="col">SOURCE IP ADDRESS</th>
-        <th scope="col">RECORD TRANSMIT TIME</th>
-        <th scope="col">RECORD RECIEVED TIME</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Delrio</td>
-        <td> LANE 2</td>
-        <td>00:00</td>
-        <td>457823</td>
-        <td>DelrioTag</td>
-        <td>DRBP00235</td>
-        <td>ACTIVE</td>
-        <td>$890</td>
-        <td>$7856</td>
-        <td>6540</td>
-        <td>xyz</td>
-        <td>00</td>
-        <td>70 mph</td>
-        <td>LHD8448</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleAddress</td>
-        <td>00:00</td>
-        <td>00:00</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Delrio</td>
-        <td> LANE 2</td>
-        <td>00:00</td>
-        <td>457823</td>
-        <td>DelrioTag</td>
-        <td>DRBP00235</td>
-        <td>ACTIVE</td>
-        <td>$890</td>
-        <td>$7856</td>
-        <td>6540</td>
-        <td>xyz</td>
-        <td>00</td>
-        <td>70 mph</td>
-        <td>LHD8448</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleAddress</td>
-        <td>00:00</td>
-        <td>00:00</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Delrio</td>
-        <td> LANE 2</td>
-        <td>00:00</td>
-        <td>457823</td>
-        <td>DelrioTag</td>
-        <td>DRBP00235</td>
-        <td>ACTIVE</td>
-        <td>$890</td>
-        <td>$7856</td>
-        <td>6540</td>
-        <td>xyz</td>
-        <td>00</td>
-        <td>70 mph</td>
-        <td>LHD8448</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleAddress</td>
-        <td>00:00</td>
-        <td>00:00</td>
-      </tr>
-      <tr>
-        <th scope="row">4</th>
-        <td>Delrio</td>
-        <td> LANE 2</td>
-        <td>00:00</td>
-        <td>457823</td>
-        <td>DelrioTag</td>
-        <td>DRBP00235</td>
-        <td>ACTIVE</td>
-        <td>$890</td>
-        <td>$7856</td>
-        <td>6540</td>
-        <td>xyz</td>
-        <td>00</td>
-        <td>70 mph</td>
-        <td>LHD8448</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleAddress</td>
-        <td>00:00</td>
-        <td>00:00</td>
-      </tr>
-      <tr>
-        <th scope="row">5</th>
-        <td>Delrio</td>
-        <td> LANE 2</td>
-        <td>00:00</td>
-        <td>457823</td>
-        <td>DelrioTag</td>
-        <td>DRBP00235</td>
-        <td>ACTIVE</td>
-        <td>$890</td>
-        <td>$7856</td>
-        <td>6540</td>
-        <td>xyz</td>
-        <td>00</td>
-        <td>70 mph</td>
-        <td>LHD8448</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleAddress</td>
-        <td>00:00</td>
-        <td>00:00</td>
-      </tr>
-      <tr>
-        <th scope="row">6</th>
-        <td>Delrio</td>
-        <td> LANE 2</td>
-        <td>00:00</td>
-        <td>457823</td>
-        <td>DelrioTag</td>
-        <td>DRBP00235</td>
-        <td>ACTIVE</td>
-        <td>$890</td>
-        <td>$7856</td>
-        <td>6540</td>
-        <td>xyz</td>
-        <td>00</td>
-        <td>70 mph</td>
-        <td>LHD8448</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleAddress</td>
-        <td>00:00</td>
-        <td>00:00</td>
-      </tr>
-      <tr>
-        <th scope="row">7</th>
-        <td>Delrio</td>
-        <td> LANE 2</td>
-        <td>00:00</td>
-        <td>457823</td>
-        <td>DelrioTag</td>
-        <td>DRBP00235</td>
-        <td>ACTIVE</td>
-        <td>$890</td>
-        <td>$7856</td>
-        <td>6540</td>
-        <td>xyz</td>
-        <td>00</td>
-        <td>70 mph</td>
-        <td>LHD8448</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleAddress</td>
-        <td>00:00</td>
-        <td>00:00</td>
-      </tr>
-      <tr>
-        <th scope="row">8</th>
-        <td>Delrio</td>
-        <td> LANE 2</td>
-        <td>00:00</td>
-        <td>457823</td>
-        <td>DelrioTag</td>
-        <td>DRBP00235</td>
-        <td>ACTIVE</td>
-        <td>$890</td>
-        <td>$7856</td>
-        <td>6540</td>
-        <td>xyz</td>
-        <td>00</td>
-        <td>70 mph</td>
-        <td>LHD8448</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleAddress</td>
-        <td>00:00</td>
-        <td>00:00</td>
-      </tr>
-      <tr>
-        <th scope="row">9</th>
-        <td>Delrio</td>
-        <td> LANE 2</td>
-        <td>00:00</td>
-        <td>457823</td>
-        <td>DelrioTag</td>
-        <td>DRBP00235</td>
-        <td>ACTIVE</td>
-        <td>$890</td>
-        <td>$7856</td>
-        <td>6540</td>
-        <td>xyz</td>
-        <td>00</td>
-        <td>70 mph</td>
-        <td>LHD8448</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleAddress</td>
-        <td>00:00</td>
-        <td>00:00</td>
-      </tr>
-      <tr>
-        <th scope="row">10</th>
-        <td>Delrio</td>
-        <td> LANE 2</td>
-        <td>00:00</td>
-        <td>457823</td>
-        <td>DelrioTag</td>
-        <td>DRBP00235</td>
-        <td>ACTIVE</td>
-        <td>$890</td>
-        <td>$7856</td>
-        <td>6540</td>
-        <td>xyz</td>
-        <td>00</td>
-        <td>70 mph</td>
-        <td>LHD8448</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleAddress</td>
-        <td>00:00</td>
-        <td>00:00</td>
-      </tr>
-      <tr>
-        <th scope="row">11</th>
-        <td>Delrio</td>
-        <td> LANE 2</td>
-        <td>00:00</td>
-        <td>457823</td>
-        <td>DelrioTag</td>
-        <td>DRBP00235</td>
-        <td>ACTIVE</td>
-        <td>$890</td>
-        <td>$7856</td>
-        <td>6540</td>
-        <td>xyz</td>
-        <td>00</td>
-        <td>70 mph</td>
-        <td>LHD8448</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleAddress</td>
-        <td>00:00</td>
-        <td>00:00</td>
-      </tr>
-      <tr>
-        <th scope="row">12</th>
-        <td>Delrio</td>
-        <td> LANE 2</td>
-        <td>00:00</td>
-        <td>457823</td>
-        <td>DelrioTag</td>
-        <td>DRBP00235</td>
-        <td>ACTIVE</td>
-        <td>$890</td>
-        <td>$7856</td>
-        <td>6540</td>
-        <td>xyz</td>
-        <td>00</td>
-        <td>70 mph</td>
-        <td>LHD8448</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleAddress</td>
-        <td>00:00</td>
-        <td>00:00</td>
-      </tr>
-      <tr>
-        <th scope="row">13</th>
-        <td>Delrio</td>
-        <td> LANE 2</td>
-        <td>00:00</td>
-        <td>457823</td>
-        <td>DelrioTag</td>
-        <td>DRBP00235</td>
-        <td>ACTIVE</td>
-        <td>$890</td>
-        <td>$7856</td>
-        <td>6540</td>
-        <td>xyz</td>
-        <td>00</td>
-        <td>70 mph</td>
-        <td>LHD8448</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleAddress</td>
-        <td>00:00</td>
-        <td>00:00</td>
-      </tr>
-      <tr>
-        <th scope="row">14</th>
-        <td>Delrio</td>
-        <td> LANE 2</td>
-        <td>00:00</td>
-        <td>457823</td>
-        <td>DelrioTag</td>
-        <td>DRBP00235</td>
-        <td>ACTIVE</td>
-        <td>$890</td>
-        <td>$7856</td>
-        <td>6540</td>
-        <td>xyz</td>
-        <td>00</td>
-        <td>70 mph</td>
-        <td>LHD8448</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleAddress</td>
-        <td>00:00</td>
-        <td>00:00</td>
-      </tr>
-      <tr>
-        <th scope="row">15</th>
-        <td>Delrio</td>
-        <td> LANE 2</td>
-        <td>00:00</td>
-        <td>457823</td>
-        <td>DelrioTag</td>
-        <td>DRBP00235</td>
-        <td>ACTIVE</td>
-        <td>$890</td>
-        <td>$7856</td>
-        <td>6540</td>
-        <td>xyz</td>
-        <td>00</td>
-        <td>70 mph</td>
-        <td>LHD8448</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleAddress</td>
-        <td>00:00</td>
-        <td>00:00</td>
-      </tr>
-      <tr>
-        <th scope="row">16</th>
-        <td>Delrio</td>
-        <td> LANE 2</td>
-        <td>00:00</td>
-        <td>457823</td>
-        <td>DelrioTag</td>
-        <td>DRBP00235</td>
-        <td>ACTIVE</td>
-        <td>$890</td>
-        <td>$7856</td>
-        <td>6540</td>
-        <td>xyz</td>
-        <td>00</td>
-        <td>70 mph</td>
-        <td>LHD8448</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleAddress</td>
-        <td>00:00</td>
-        <td>00:00</td>
-      </tr>
-      <tr>
-        <th scope="row">17</th>
-        <td>Delrio</td>
-        <td> LANE 2</td>
-        <td>00:00</td>
-        <td>457823</td>
-        <td>DelrioTag</td>
-        <td>DRBP00235</td>
-        <td>ACTIVE</td>
-        <td>$890</td>
-        <td>$7856</td>
-        <td>6540</td>
-        <td>xyz</td>
-        <td>00</td>
-        <td>70 mph</td>
-        <td>LHD8448</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleAddress</td>
-        <td>00:00</td>
-        <td>00:00</td>
-      </tr>
-      <tr>
-        <th scope="row">18</th>
-        <td>Delrio</td>
-        <td> LANE 2</td>
-        <td>00:00</td>
-        <td>457823</td>
-        <td>DelrioTag</td>
-        <td>DRBP00235</td>
-        <td>ACTIVE</td>
-        <td>$890</td>
-        <td>$7856</td>
-        <td>6540</td>
-        <td>xyz</td>
-        <td>00</td>
-        <td>70 mph</td>
-        <td>LHD8448</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleAddress</td>
-        <td>00:00</td>
-        <td>00:00</td>
-      </tr>
-      <tr>
-        <th scope="row">19</th>
-        <td>Delrio</td>
-        <td> LANE 2</td>
-        <td>00:00</td>
-        <td>457823</td>
-        <td>DelrioTag</td>
-        <td>DRBP00235</td>
-        <td>ACTIVE</td>
-        <td>$890</td>
-        <td>$7856</td>
-        <td>6540</td>
-        <td>xyz</td>
-        <td>00</td>
-        <td>70 mph</td>
-        <td>LHD8448</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleAddress</td>
-        <td>00:00</td>
-        <td>00:00</td>
-      </tr>
-      <tr>
-        <th scope="row">20</th>
-        <td>Delrio</td>
-        <td> LANE 2</td>
-        <td>00:00</td>
-        <td>457823</td>
-        <td>DelrioTag</td>
-        <td>DRBP00235</td>
-        <td>ACTIVE</td>
-        <td>$890</td>
-        <td>$7856</td>
-        <td>6540</td>
-        <td>xyz</td>
-        <td>00</td>
-        <td>70 mph</td>
-        <td>LHD8448</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleAddress</td>
-        <td>00:00</td>
-        <td>00:00</td>
-      </tr>
-      <tr>
-        <th scope="row">21</th>
-        <td>Delrio</td>
-        <td> LANE 2</td>
-        <td>00:00</td>
-        <td>457823</td>
-        <td>DelrioTag</td>
-        <td>DRBP00235</td>
-        <td>ACTIVE</td>
-        <td>$890</td>
-        <td>$7856</td>
-        <td>6540</td>
-        <td>xyz</td>
-        <td>00</td>
-        <td>70 mph</td>
-        <td>LHD8448</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleAddress</td>
-        <td>00:00</td>
-        <td>00:00</td>
-      </tr>
-      <tr>
-        <th scope="row">21</th>
-        <td>Delrio</td>
-        <td> LANE 2</td>
-        <td>00:00</td>
-        <td>457823</td>
-        <td>DelrioTag</td>
-        <td>DRBP00235</td>
-        <td>ACTIVE</td>
-        <td>$890</td>
-        <td>$7856</td>
-        <td>6540</td>
-        <td>xyz</td>
-        <td>00</td>
-        <td>70 mph</td>
-        <td>LHD8448</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleAddress</td>
-        <td>00:00</td>
-        <td>00:00</td>
-      </tr>
-      <tr>
-        <th scope="row">22</th>
-        <td>Delrio</td>
-        <td> LANE 2</td>
-        <td>00:00</td>
-        <td>457823</td>
-        <td>DelrioTag</td>
-        <td>DRBP00235</td>
-        <td>ACTIVE</td>
-        <td>$890</td>
-        <td>$7856</td>
-        <td>6540</td>
-        <td>xyz</td>
-        <td>00</td>
-        <td>70 mph</td>
-        <td>LHD8448</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleAddress</td>
-        <td>00:00</td>
-        <td>00:00</td>
-      </tr>
-      <tr>
-        <th scope="row">23</th>
-        <td>Delrio</td>
-        <td> LANE 2</td>
-        <td>00:00</td>
-        <td>457823</td>
-        <td>DelrioTag</td>
-        <td>DRBP00235</td>
-        <td>ACTIVE</td>
-        <td>$890</td>
-        <td>$7856</td>
-        <td>6540</td>
-        <td>xyz</td>
-        <td>00</td>
-        <td>70 mph</td>
-        <td>LHD8448</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleImage.url</td>
-        <td>sampleAddress</td>
-        <td>00:00</td>
-        <td>00:00</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-</div>
+<div class="container-fluid h-100vh p-8">
+  <div class="card p-3">
+    <div class="row px-5 d-flex justify-content-end">
+      <div class="col"><div class="tH d-flex justify-content-start">PASS MANAGEMENT</div></div>
+      <div class="col">
+        <button type="button"  (click) = "navigationChange()" class="btn btn-outline-success btnMain">
+          <span class="btn-inner--icon"><i class="fas fa-plus"></i></span>
+          <span class="btn-inner--text">Add Tag</span>
+        </button>
+        <button type="button" class="btn btn-outline-success btnMain">
+          <span class="btn-inner--icon"><i class="fas fa-pen"></i></span>
+          <span class="btn-inner--text">Update tag</span>
+        </button>
+        <button type="button" class="btn btn-outline-success btnMain">
+          <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
+          <span class="btn-inner--text">Delete Tag</span>
+        </button>
+        <button type="button" class="btn btn-outline-success btnMain">
+          <span class="btn-inner--icon"><i class="ni ni-cloud-download-95"></i></span>
+          <span class="btn-inner--text">Export CSV</span>
+        </button>
+      </div>
+     
+  </div>
+  
+  <div class="row scroll">
+  <div class="row px-5 pt-3">
+    <table class="table table-sm table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">PLAZA</th>
+          <th scope="col">LANE</th>
+          <th scope="col">MESSAGE TIME</th>
+          <th scope="col">ACCOUNT NUMBER</th>
+          <th scope="col">TAG AGENCY</th>
+          <th scope="col">TAG NUMBER</th>
+          <th scope="col">TAG STATUS</th>
+          <th scope="col">TOLL PAID</th>
+          <th scope="col">PRIOR BALANCE</th>
+          <th scope="col">NEW BALANCE</th>
+          <th scope="col">CLASS</th>
+          <th scope="col">NO. OF AXLES</th>
+          <th scope="col">VEHICLE SPEED</th>
+          <th scope="col">LICENSE PLATE</th>
+          <th scope="col">IMAGEURL1</th>
+          <th scope="col">IMAGEURL2</th>
+          <th scope="col">IMAGEURL3</th>
+          <th scope="col">IMAGEURL4</th>
+          <th scope="col">SOURCE IP ADDRESS</th>
+          <th scope="col">RECORD TRANSMIT TIME</th>
+          <th scope="col">RECORD RECIEVED TIME</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Delrio</td>
+          <td> LANE 2</td>
+          <td>00:00</td>
+          <td>457823</td>
+          <td>DelrioTag</td>
+          <td>DRBP00235</td>
+          <td>ACTIVE</td>
+          <td>$890</td>
+          <td>$7856</td>
+          <td>6540</td>
+          <td>xyz</td>
+          <td>00</td>
+          <td>70 mph</td>
+          <td>LHD8448</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleAddress</td>
+          <td>00:00</td>
+          <td>00:00</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Delrio</td>
+          <td> LANE 2</td>
+          <td>00:00</td>
+          <td>457823</td>
+          <td>DelrioTag</td>
+          <td>DRBP00235</td>
+          <td>ACTIVE</td>
+          <td>$890</td>
+          <td>$7856</td>
+          <td>6540</td>
+          <td>xyz</td>
+          <td>00</td>
+          <td>70 mph</td>
+          <td>LHD8448</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleAddress</td>
+          <td>00:00</td>
+          <td>00:00</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Delrio</td>
+          <td> LANE 2</td>
+          <td>00:00</td>
+          <td>457823</td>
+          <td>DelrioTag</td>
+          <td>DRBP00235</td>
+          <td>ACTIVE</td>
+          <td>$890</td>
+          <td>$7856</td>
+          <td>6540</td>
+          <td>xyz</td>
+          <td>00</td>
+          <td>70 mph</td>
+          <td>LHD8448</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleAddress</td>
+          <td>00:00</td>
+          <td>00:00</td>
+        </tr>
+        <tr>
+          <th scope="row">4</th>
+          <td>Delrio</td>
+          <td> LANE 2</td>
+          <td>00:00</td>
+          <td>457823</td>
+          <td>DelrioTag</td>
+          <td>DRBP00235</td>
+          <td>ACTIVE</td>
+          <td>$890</td>
+          <td>$7856</td>
+          <td>6540</td>
+          <td>xyz</td>
+          <td>00</td>
+          <td>70 mph</td>
+          <td>LHD8448</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleAddress</td>
+          <td>00:00</td>
+          <td>00:00</td>
+        </tr>
+        <tr>
+          <th scope="row">5</th>
+          <td>Delrio</td>
+          <td> LANE 2</td>
+          <td>00:00</td>
+          <td>457823</td>
+          <td>DelrioTag</td>
+          <td>DRBP00235</td>
+          <td>ACTIVE</td>
+          <td>$890</td>
+          <td>$7856</td>
+          <td>6540</td>
+          <td>xyz</td>
+          <td>00</td>
+          <td>70 mph</td>
+          <td>LHD8448</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleAddress</td>
+          <td>00:00</td>
+          <td>00:00</td>
+        </tr>
+        <tr>
+          <th scope="row">6</th>
+          <td>Delrio</td>
+          <td> LANE 2</td>
+          <td>00:00</td>
+          <td>457823</td>
+          <td>DelrioTag</td>
+          <td>DRBP00235</td>
+          <td>ACTIVE</td>
+          <td>$890</td>
+          <td>$7856</td>
+          <td>6540</td>
+          <td>xyz</td>
+          <td>00</td>
+          <td>70 mph</td>
+          <td>LHD8448</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleAddress</td>
+          <td>00:00</td>
+          <td>00:00</td>
+        </tr>
+        <tr>
+          <th scope="row">7</th>
+          <td>Delrio</td>
+          <td> LANE 2</td>
+          <td>00:00</td>
+          <td>457823</td>
+          <td>DelrioTag</td>
+          <td>DRBP00235</td>
+          <td>ACTIVE</td>
+          <td>$890</td>
+          <td>$7856</td>
+          <td>6540</td>
+          <td>xyz</td>
+          <td>00</td>
+          <td>70 mph</td>
+          <td>LHD8448</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleAddress</td>
+          <td>00:00</td>
+          <td>00:00</td>
+        </tr>
+        <tr>
+          <th scope="row">8</th>
+          <td>Delrio</td>
+          <td> LANE 2</td>
+          <td>00:00</td>
+          <td>457823</td>
+          <td>DelrioTag</td>
+          <td>DRBP00235</td>
+          <td>ACTIVE</td>
+          <td>$890</td>
+          <td>$7856</td>
+          <td>6540</td>
+          <td>xyz</td>
+          <td>00</td>
+          <td>70 mph</td>
+          <td>LHD8448</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleAddress</td>
+          <td>00:00</td>
+          <td>00:00</td>
+        </tr>
+        <tr>
+          <th scope="row">9</th>
+          <td>Delrio</td>
+          <td> LANE 2</td>
+          <td>00:00</td>
+          <td>457823</td>
+          <td>DelrioTag</td>
+          <td>DRBP00235</td>
+          <td>ACTIVE</td>
+          <td>$890</td>
+          <td>$7856</td>
+          <td>6540</td>
+          <td>xyz</td>
+          <td>00</td>
+          <td>70 mph</td>
+          <td>LHD8448</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleAddress</td>
+          <td>00:00</td>
+          <td>00:00</td>
+        </tr>
+        <tr>
+          <th scope="row">10</th>
+          <td>Delrio</td>
+          <td> LANE 2</td>
+          <td>00:00</td>
+          <td>457823</td>
+          <td>DelrioTag</td>
+          <td>DRBP00235</td>
+          <td>ACTIVE</td>
+          <td>$890</td>
+          <td>$7856</td>
+          <td>6540</td>
+          <td>xyz</td>
+          <td>00</td>
+          <td>70 mph</td>
+          <td>LHD8448</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleAddress</td>
+          <td>00:00</td>
+          <td>00:00</td>
+        </tr>
+        <tr>
+          <th scope="row">11</th>
+          <td>Delrio</td>
+          <td> LANE 2</td>
+          <td>00:00</td>
+          <td>457823</td>
+          <td>DelrioTag</td>
+          <td>DRBP00235</td>
+          <td>ACTIVE</td>
+          <td>$890</td>
+          <td>$7856</td>
+          <td>6540</td>
+          <td>xyz</td>
+          <td>00</td>
+          <td>70 mph</td>
+          <td>LHD8448</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleAddress</td>
+          <td>00:00</td>
+          <td>00:00</td>
+        </tr>
+        <tr>
+          <th scope="row">12</th>
+          <td>Delrio</td>
+          <td> LANE 2</td>
+          <td>00:00</td>
+          <td>457823</td>
+          <td>DelrioTag</td>
+          <td>DRBP00235</td>
+          <td>ACTIVE</td>
+          <td>$890</td>
+          <td>$7856</td>
+          <td>6540</td>
+          <td>xyz</td>
+          <td>00</td>
+          <td>70 mph</td>
+          <td>LHD8448</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleAddress</td>
+          <td>00:00</td>
+          <td>00:00</td>
+        </tr>
+        <tr>
+          <th scope="row">13</th>
+          <td>Delrio</td>
+          <td> LANE 2</td>
+          <td>00:00</td>
+          <td>457823</td>
+          <td>DelrioTag</td>
+          <td>DRBP00235</td>
+          <td>ACTIVE</td>
+          <td>$890</td>
+          <td>$7856</td>
+          <td>6540</td>
+          <td>xyz</td>
+          <td>00</td>
+          <td>70 mph</td>
+          <td>LHD8448</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleAddress</td>
+          <td>00:00</td>
+          <td>00:00</td>
+        </tr>
+        <tr>
+          <th scope="row">14</th>
+          <td>Delrio</td>
+          <td> LANE 2</td>
+          <td>00:00</td>
+          <td>457823</td>
+          <td>DelrioTag</td>
+          <td>DRBP00235</td>
+          <td>ACTIVE</td>
+          <td>$890</td>
+          <td>$7856</td>
+          <td>6540</td>
+          <td>xyz</td>
+          <td>00</td>
+          <td>70 mph</td>
+          <td>LHD8448</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleAddress</td>
+          <td>00:00</td>
+          <td>00:00</td>
+        </tr>
+        <tr>
+          <th scope="row">15</th>
+          <td>Delrio</td>
+          <td> LANE 2</td>
+          <td>00:00</td>
+          <td>457823</td>
+          <td>DelrioTag</td>
+          <td>DRBP00235</td>
+          <td>ACTIVE</td>
+          <td>$890</td>
+          <td>$7856</td>
+          <td>6540</td>
+          <td>xyz</td>
+          <td>00</td>
+          <td>70 mph</td>
+          <td>LHD8448</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleAddress</td>
+          <td>00:00</td>
+          <td>00:00</td>
+        </tr>
+        <tr>
+          <th scope="row">16</th>
+          <td>Delrio</td>
+          <td> LANE 2</td>
+          <td>00:00</td>
+          <td>457823</td>
+          <td>DelrioTag</td>
+          <td>DRBP00235</td>
+          <td>ACTIVE</td>
+          <td>$890</td>
+          <td>$7856</td>
+          <td>6540</td>
+          <td>xyz</td>
+          <td>00</td>
+          <td>70 mph</td>
+          <td>LHD8448</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleAddress</td>
+          <td>00:00</td>
+          <td>00:00</td>
+        </tr>
+        <tr>
+          <th scope="row">17</th>
+          <td>Delrio</td>
+          <td> LANE 2</td>
+          <td>00:00</td>
+          <td>457823</td>
+          <td>DelrioTag</td>
+          <td>DRBP00235</td>
+          <td>ACTIVE</td>
+          <td>$890</td>
+          <td>$7856</td>
+          <td>6540</td>
+          <td>xyz</td>
+          <td>00</td>
+          <td>70 mph</td>
+          <td>LHD8448</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleAddress</td>
+          <td>00:00</td>
+          <td>00:00</td>
+        </tr>
+        <tr>
+          <th scope="row">18</th>
+          <td>Delrio</td>
+          <td> LANE 2</td>
+          <td>00:00</td>
+          <td>457823</td>
+          <td>DelrioTag</td>
+          <td>DRBP00235</td>
+          <td>ACTIVE</td>
+          <td>$890</td>
+          <td>$7856</td>
+          <td>6540</td>
+          <td>xyz</td>
+          <td>00</td>
+          <td>70 mph</td>
+          <td>LHD8448</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleAddress</td>
+          <td>00:00</td>
+          <td>00:00</td>
+        </tr>
+        <tr>
+          <th scope="row">19</th>
+          <td>Delrio</td>
+          <td> LANE 2</td>
+          <td>00:00</td>
+          <td>457823</td>
+          <td>DelrioTag</td>
+          <td>DRBP00235</td>
+          <td>ACTIVE</td>
+          <td>$890</td>
+          <td>$7856</td>
+          <td>6540</td>
+          <td>xyz</td>
+          <td>00</td>
+          <td>70 mph</td>
+          <td>LHD8448</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleAddress</td>
+          <td>00:00</td>
+          <td>00:00</td>
+        </tr>
+        <tr>
+          <th scope="row">20</th>
+          <td>Delrio</td>
+          <td> LANE 2</td>
+          <td>00:00</td>
+          <td>457823</td>
+          <td>DelrioTag</td>
+          <td>DRBP00235</td>
+          <td>ACTIVE</td>
+          <td>$890</td>
+          <td>$7856</td>
+          <td>6540</td>
+          <td>xyz</td>
+          <td>00</td>
+          <td>70 mph</td>
+          <td>LHD8448</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleAddress</td>
+          <td>00:00</td>
+          <td>00:00</td>
+        </tr>
+        <tr>
+          <th scope="row">21</th>
+          <td>Delrio</td>
+          <td> LANE 2</td>
+          <td>00:00</td>
+          <td>457823</td>
+          <td>DelrioTag</td>
+          <td>DRBP00235</td>
+          <td>ACTIVE</td>
+          <td>$890</td>
+          <td>$7856</td>
+          <td>6540</td>
+          <td>xyz</td>
+          <td>00</td>
+          <td>70 mph</td>
+          <td>LHD8448</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleAddress</td>
+          <td>00:00</td>
+          <td>00:00</td>
+        </tr>
+        <tr>
+          <th scope="row">21</th>
+          <td>Delrio</td>
+          <td> LANE 2</td>
+          <td>00:00</td>
+          <td>457823</td>
+          <td>DelrioTag</td>
+          <td>DRBP00235</td>
+          <td>ACTIVE</td>
+          <td>$890</td>
+          <td>$7856</td>
+          <td>6540</td>
+          <td>xyz</td>
+          <td>00</td>
+          <td>70 mph</td>
+          <td>LHD8448</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleAddress</td>
+          <td>00:00</td>
+          <td>00:00</td>
+        </tr>
+        <tr>
+          <th scope="row">22</th>
+          <td>Delrio</td>
+          <td> LANE 2</td>
+          <td>00:00</td>
+          <td>457823</td>
+          <td>DelrioTag</td>
+          <td>DRBP00235</td>
+          <td>ACTIVE</td>
+          <td>$890</td>
+          <td>$7856</td>
+          <td>6540</td>
+          <td>xyz</td>
+          <td>00</td>
+          <td>70 mph</td>
+          <td>LHD8448</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleAddress</td>
+          <td>00:00</td>
+          <td>00:00</td>
+        </tr>
+        <tr>
+          <th scope="row">23</th>
+          <td>Delrio</td>
+          <td> LANE 2</td>
+          <td>00:00</td>
+          <td>457823</td>
+          <td>DelrioTag</td>
+          <td>DRBP00235</td>
+          <td>ACTIVE</td>
+          <td>$890</td>
+          <td>$7856</td>
+          <td>6540</td>
+          <td>xyz</td>
+          <td>00</td>
+          <td>70 mph</td>
+          <td>LHD8448</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleImage.url</td>
+          <td>sampleAddress</td>
+          <td>00:00</td>
+          <td>00:00</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+  </div>
+  
 
 </div>
 
