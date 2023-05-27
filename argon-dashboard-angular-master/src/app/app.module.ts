@@ -12,6 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ComponentsModule } from './components/components.module';
     ComponentsModule,
     NgbModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule
   ],
   declarations: [
     AppComponent,
