@@ -1,0 +1,95 @@
+.cardSty{
+    background: rgba(253,254,255,1);
+    border-radius: 20px;
+    box-shadow: 2px 9px 18px rgba(0, 0, 0, 0.019999999552965164);
+}
+
+.dH{
+  color: rgba(53,53,105,1);
+  font-family: Open Sans;
+  font-weight: SemiBold;
+  font-size: 24px;
+  text-align: left;
+}
+.dP{
+  color: rgba(132,132,132,1);
+  font-family: Open Sans;
+  font-weight: Regular;
+  font-size: 14px;
+  text-align: left;
+}
+
+.pUp{
+    color: rgba(137,197,65,1);
+    font-family: Open Sans;
+    font-weight: SemiBold;
+    font-size: 14px;
+    text-align: left;
+}
+.pDown{
+    color: rgba(226,115,125,1);
+    font-family: Open Sans;
+    font-weight: SemiBold;
+    font-size: 14px;
+    text-align: left;
+}
+.pt{
+    color: rgba(132,132,132,1);
+    font-family: Open Sans;
+    font-weight: Light;
+    font-size: 14px;
+    text-align: left;
+}
+
+.cT{
+  color: rgba(53,53,105,1);
+  font-family: Open Sans;
+  font-weight: SemiBold;
+  font-size: 24px;
+  text-align: left;
+}
+.cP{
+  color: rgba(132,132,132,1);
+  font-family: Open Sans;
+  font-weight: Regular;
+  font-size: 14px;
+  text-align: left;
+}
+
+.cH{
+  color: rgba(53,53,105,1);
+  font-family: Open Sans;
+  font-weight: SemiBold;
+  font-size: 18px;
+  text-align: left;
+}
+
+
+.cDbtn{
+    color: rgba(132,132,132,1);
+    font-family: Open Sans;
+    font-weight: SemiBold;
+    font-size: 12px;
+    text-align: left;
+    border-radius: 10px;
+}
+
+.btnPV{
+    color: rgba(253,254,255,1);
+    font-family: Open Sans;
+    font-weight: SemiBold;
+    font-size: 12px;
+    text-align: left;
+    background: rgba(137,197,65,1);
+    border-radius: 10px;
+}
+.btnCV{
+    color: rgba(253,254,255,1);
+    font-family: Open Sans;
+    font-weight: SemiBold;
+    font-size: 12px;
+    text-align: left;
+    background: rgba(53,53,105,1);
+    border-radius: 10px;
+  }
+
