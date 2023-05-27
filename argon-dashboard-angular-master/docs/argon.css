@@ -19186,7 +19186,10 @@ textarea[resize='horizontal']
 
     content: '';
 
+<<<<<<< HEAD
     
+=======
+>>>>>>> origin/Bharath_Delrio
 }
 .navbar-vertical .navbar-nav .nav-link > i
 {
@@ -19330,7 +19333,7 @@ textarea[resize='horizontal']
     left: 0;
 
     border-bottom: 0;
-    border-left: 2px solid #5e72e4;
+   
 }
 .navbar-vertical.navbar-expand-xs .navbar-nav .nav .nav-link
 {
@@ -19455,7 +19458,6 @@ textarea[resize='horizontal']
         left: 0;
 
         border-bottom: 0;
-        border-left: 2px solid #5e72e4;
     }
     .navbar-vertical.navbar-expand-sm .navbar-nav .nav .nav-link
     {
@@ -19581,7 +19583,7 @@ textarea[resize='horizontal']
         left: 0;
 
         border-bottom: 0;
-        border-left: 2px solid #5e72e4;
+        
     }
     .navbar-vertical.navbar-expand-md .navbar-nav .nav .nav-link
     {
@@ -19707,7 +19709,6 @@ textarea[resize='horizontal']
         left: 0;
 
         border-bottom: 0;
-        border-left: 2px solid #5e72e4;
     }
     .navbar-vertical.navbar-expand-lg .navbar-nav .nav .nav-link
     {
@@ -19833,7 +19834,7 @@ textarea[resize='horizontal']
         left: 0;
 
         border-bottom: 0;
-        border-left: 2px solid #5e72e4;
+       
     }
     .navbar-vertical.navbar-expand-xl .navbar-nav .nav .nav-link
     {
