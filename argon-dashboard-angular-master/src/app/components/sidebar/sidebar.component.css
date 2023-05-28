@@ -1,0 +1,31 @@
+.navStyle{
+    background: rgba(253,254,255,1);
+}
+
+.navI{
+    width: 90%;
+    color: rgba(40,40,40,1);
+    font-family: Open Sans;
+    font-weight: Regular;
+    font-size: 18px; 
+}
+
+
+.navI:hover{
+    border: 1px solid rgba(53,53,105,1);
+    border-radius: 15px;
+    
+}
+
+.navI .active{
+    color: rgba(249,249,249,1);
+    background: rgba(53,53,105,1);
+    border-radius: 15px;
+}
+    
+
+.dasLogo{
+    background-image: url(../../../assets/img/icons/dashboard/34.svg);
+    background-repeat: no-repeat;
+    color: rgba(40,40,40,1);
+}

@@ -1,0 +1,81 @@
+<nav class="navbar navbar-top navbar-expand-md navbar py-4" id="navbar-main" >
+  <div class="container-fluid">
+    <!-- Brand -->
+    <!-- <a class="h4 mb-0 text-dark text-uppercase d-none d-lg-inline-block" routerLinkActive="active" [routerLink]="['/dashboard']">{{getTitle()}}</a> -->
+    <!-- Form -->
+    <div class="col-6">
+      <div class="row">
+        <div class="col-2 d-flex justify-content-center align-items-center ">
+          <span class="avatar avatar-sm rounded-circle avaI">
+            <img alt="Image placeholder" src="./assets/img/brand/DelRio/icon.png">
+          </span>
+        </div>
+        <div class="col-10">
+          <div class="name">Welcome User</div>
+          <div class="desi">Admin</div>
+        </div>
+      </div>
+    </div>
+    <div class="col6 d-flex justify-content-end">
+      <form class="navbar-search navbar-search-transparent form-inline  d-none d-md-flex ml-lg-auto ">
+        <div class="form-group mb-0" [ngClass]="{ 'focused': focus === true } ">
+          <!-- <div class="input-group input-group-alternative sSty">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-search"></i></span>
+            </div>
+            <input class="form-control" placeholder="Search" type="text" (focus)="focus = true"
+            (blur)="focus = false">
+          </div> -->
+        </div>
+      </form>
+    </div>
+  
+    <!-- User -->
+    <ul class="navbar-nav align-items-center d-none d-md-flex">
+      <li class="nav-item" ngbDropdown placement="bottom-right">
+        <a class="nav-link pr-0" role="button" ngbDropdownToggle>
+          <div class="media align-items-center">
+            <div class="p-3 mr-5">
+              <img width="200%" src="../../../assets/img/icons/dashboard/Group 38.svg">
+              <!-- <img src="../../../assets/img/icons/common/facebook.svg" alt="dkf"> -->
+            </div>
+            <span class="avatar avatar-sm rounded-circle bg-white p-2 ">
+              <img src="../../../assets/img/icons/dashboard/Group 36.svg">
+              <!-- <img alt="Image placeholder" src="./assets/img/brand/DelRio/icon.png"> -->
+            </span>
+            <!-- <div class="media-body ml-2 d-none d-lg-block">
+              <span class="mb-0 text-sm  font-weight-bold">DelRio Admin</span>
+            </div> -->
+          </div>
+        </a>
+        <div class="dropdown-menu-arrow dropdown-menu-right" ngbDropdownMenu>
+          <div class=" dropdown-header noti-title">
+            <h6 class="text-overflow m-0">Welcome!</h6>
+          </div>
+          <a routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">
+            <i class="ni ni-single-02"></i>
+            <span>My profile</span>
+          </a>
+          <a routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">
+            <i class="ni ni-settings-gear-65"></i>
+            <span>Settings</span>
+          </a>
+          <a routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">
+            <i class="ni ni-calendar-grid-58"></i>
+            <span>Activity</span>
+          </a>
+          <a routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">
+            <i class="ni ni-support-16"></i>
+            <span>Support</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a routerLinkActive="active" [routerLink]="['/login']" class="dropdown-item">
+            <i class="ni ni-user-run"></i>
+            <span>Logout</span>
+          </a>
+          
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
