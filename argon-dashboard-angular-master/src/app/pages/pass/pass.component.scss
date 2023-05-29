@@ -1,15 +1,19 @@
-.scroll{
-    overflow-x: scroll !important;
-    overflow-y: scroll !important;
+// .scroll{
+//     overflow-x: scroll !important;
+//     overflow-y: scroll !important;
    
-}
+// }
 
-.btnMain{
-    border-radius: 10px;
-}
-.btn:not(:last-child) {
-    margin-right: 1.5rem;
-}
-.tableHeader{
-    font-weight: bold;
-}
+// .btnMain{
+//     border-radius: 10px;
+// }
+// .btn:not(:last-child) {
+//     margin-right: 1.5rem;
+// }
+// .tableHeader{
+//     font-weight: bold;
+// }
+
+.mat-table {
+    width: 100%;
+  }

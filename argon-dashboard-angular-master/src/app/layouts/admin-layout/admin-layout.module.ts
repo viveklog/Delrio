@@ -13,6 +13,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AnalyticsComponent } from 'src/app/pages/analytics/analytics.component';
 import { IconsComponent } from 'src/app/pages/icons/icons.component';
 import { AnalyticsNewComponent } from 'src/app/pages/analytics/analytics2/analytics2.component';
+import { MatTableModule } from '@angular/material/table';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { AddPassComponent } from 'src/app/pages/pass/addPass/addPass.component';
+
 
 @NgModule({
   imports: [
@@ -22,17 +30,24 @@ import { AnalyticsNewComponent } from 'src/app/pages/analytics/analytics2/analyt
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
-    ClipboardModule
+    ClipboardModule,
+    MatTableModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
   ],
   declarations: [
     DashboardComponent,
     UserProfileComponent,
     PassComponent,
+    AddPassComponent,
     AnalyticsComponent,
     IconsComponent,
     AnalyticsNewComponent,
-
-  ]
+  ],
+  entryComponents: [AddPassComponent]
 })
 
 export class AdminLayoutModule {}
