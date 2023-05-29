@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>{{data.item ? 'Update Data' : 'Add Data'}}</h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="dataForm">
+    <!-- <mat-form-field class="example-full-width">
+      <mat-label>ID</mat-label>
+      <input matInput type="text" formControlName="id" readonly>
+    </mat-form-field> -->
+    <mat-form-field class="example-full-width">
+      <mat-label>PLAZA</mat-label>
+      <input matInput type="text" formControlName="plaza">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>LANE</mat-label>
+      <input matInput type="text" formControlName="lane">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>MSG TIME</mat-label>
+      <input matInput type="text" formControlName="msgTime">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>ACCOUNT NUMBER</mat-label>
+      <input matInput type="text" formControlName="accNum">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>TAG AGE</mat-label>
+      <input matInput type="text" formControlName="tagAge">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>TAG NUMBER</mat-label>
+      <input matInput type="text" formControlName="tagNum">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>TAG STATUS</mat-label>
+      <input matInput type="text" formControlName="tagStatus">
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="dataForm.value">Submit</button>
+</mat-dialog-actions>

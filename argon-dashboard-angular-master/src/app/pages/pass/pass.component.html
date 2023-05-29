@@ -2,7 +2,7 @@
   <div class="card p-3">
     <div class="row px-5 d-flex justify-content-end">
       <div class="col"><div class="tH d-flex justify-content-start">PASS MANAGEMENT</div></div>
-      <div class="col-8">
+      <!-- <div class="col-8">
         <button type="button"  (click) = "openModal()" class="btn btn-outline-success btnMain">
           <span class="btn-inner--icon"><i class="fas fa-plus"></i></span>
           <span class="btn-inner--text">Add Tag</span>
@@ -19,13 +19,89 @@
           <span class="btn-inner--icon"><i class="ni ni-cloud-download-95"></i></span>
           <span class="btn-inner--text" (click) = "csvExport()">Export CSV</span>
         </button>
+      </div> -->
+
+      <div class="col-8">
+        <button type="button" (click)="openDialog()" class="btn btn-outline-success btnMain">
+          <span class="btn-inner--icon"><i class="fas fa-plus"></i></span>
+          <span class="btn-inner--text">Add Tag</span>
+        </button>
+      
+        <button type="button" *ngIf="isItemSelected" class="btn btn-outline-warning btnMain" 
+          (click)="openDialog()">
+          <span class="btn-inner--icon"><i class="fas fa-edit"></i></span>
+          <span class="btn-inner--text">Update Tag</span>
+        </button>
+        
+        <button type="button" *ngIf="isItemSelected" 
+          (click)="removeData()" class="btn btn-outline-danger btnMain">
+          <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
+          <span class="btn-inner--text">Remove Tag</span>
+        </button>
       </div>
      
   </div>
   
-  <div class="row scroll">
+  <!-- <div class="row scroll"> -->
   <div class="row px-5 pt-3">
-    <table class="table table-sm table-striped">
+
+    <mat-table [dataSource]="passData" class="mat-elevation-z8">
+
+      <!-- Checkbox Column -->
+      <ng-container matColumnDef="select">
+        <mat-header-cell *matHeaderCellDef> # </mat-header-cell>
+        <mat-cell *matCellDef="let element; index as i">
+          <mat-checkbox [checked]="element.select" (change)="onSelect(i)"></mat-checkbox>
+        </mat-cell>
+      </ng-container>
+  
+      <!-- Plaza Column -->
+      <ng-container matColumnDef="plaza">
+        <mat-header-cell *matHeaderCellDef> PLAZA </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.plaza}} </mat-cell>
+      </ng-container>
+  
+      <!-- Lane Column -->
+      <ng-container matColumnDef="lane">
+        <mat-header-cell *matHeaderCellDef> LANE </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.lane}} </mat-cell>
+      </ng-container>
+  
+      <!-- Message Time Column -->
+      <ng-container matColumnDef="msgTime">
+        <mat-header-cell *matHeaderCellDef> MESSAGE TIME </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.msgTime}} </mat-cell>
+      </ng-container>
+  
+      <!-- Account Number Column -->
+      <ng-container matColumnDef="accNum">
+        <mat-header-cell *matHeaderCellDef> ACCOUNT NUMBER </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.accNum}} </mat-cell>
+      </ng-container>
+  
+      <!-- Tag Agency Column -->
+      <ng-container matColumnDef="tagAge">
+        <mat-header-cell *matHeaderCellDef> TAG AGENCY </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.tagAge}} </mat-cell>
+      </ng-container>
+  
+      <!-- Tag Number Column -->
+      <ng-container matColumnDef="tagNum">
+        <mat-header-cell *matHeaderCellDef> TAG NUMBER </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.tagNum}} </mat-cell>
+      </ng-container>
+  
+      <!-- Tag Status Column -->
+      <ng-container matColumnDef="tagStatus">
+        <mat-header-cell *matHeaderCellDef> TAG STATUS </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.tagStatus}} </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <!-- <table class="table table-sm table-striped">
       <thead class="tableHeader">
         <tr>
           <th class="tableHeader btn" (click) = "toggleView()" scope="col">#</th>
@@ -71,15 +147,15 @@
           <td>{{p.tagStatus}}</td>
         </tr>
       </tbody>
-    </table>
+    </table> -->
   </div>
   </div>
-  </div>
+  <!-- </div> -->
 </div>
 
 
 
-<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+<!-- <div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
   <div class="modal-dialog" role="document">
         <div class="modal-content">
               <div class="modal-header p-1">
@@ -124,6 +200,6 @@
                   </div>
      </div>
       </div>
-</div>
+</div> -->
 
  
