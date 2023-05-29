@@ -15,28 +15,29 @@
           <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
           <span class="btn-inner--text" (click) = "removeData()">Delete Tag</span>
         </button>
-        <button type="button" class="btn btn-outline-success btnMain">
-          <span class="btn-inner--icon"><i class="ni ni-cloud-download-95"></i></span>
-          <span class="btn-inner--text" (click) = "csvExport()">Export CSV</span>
-        </button>
+        
       </div> -->
 
-      <div class="col-8">
-        <button type="button" (click)="openDialog()" class="btn btn-outline-success btnMain">
+      <div class="col-8 d-flex justify-content-end">
+        <button type="button" (click)="openDialog()" class="btn btn-primary btnMain">
           <span class="btn-inner--icon"><i class="fas fa-plus"></i></span>
           <span class="btn-inner--text">Add Tag</span>
         </button>
       
-        <button type="button" *ngIf="isItemSelected" class="btn btn-outline-warning btnMain" 
+        <button type="button" *ngIf="isItemSelected" class="btn btn-primary btnMain" 
           (click)="openDialog()">
           <span class="btn-inner--icon"><i class="fas fa-edit"></i></span>
           <span class="btn-inner--text">Update Tag</span>
         </button>
         
         <button type="button" *ngIf="isItemSelected" 
-          (click)="removeData()" class="btn btn-outline-danger btnMain">
+          (click)="removeData()" class="btn btn-primary btnMain">
           <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
           <span class="btn-inner--text">Remove Tag</span>
+        </button>
+        <button type="button" class="btn btn-primary btnMain">
+          <span class="btn-inner--icon"><i class="ni ni-cloud-download-95"></i></span>
+          <span class="btn-inner--text" (click) = "csvExport()">Export CSV</span>
         </button>
       </div>
      
