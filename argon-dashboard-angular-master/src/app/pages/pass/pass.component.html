@@ -46,61 +46,150 @@
   <!-- <div class="row scroll"> -->
   <div class="row px-5 pt-3">
 
-    <mat-table [dataSource]="passData" class="mat-elevation-z8">
+    <div class="mat-elevation-z8 m-12 table-container">
+      <table mat-table [dataSource]="passData" >
 
-      <!-- Checkbox Column -->
-      <ng-container matColumnDef="select">
-        <mat-header-cell *matHeaderCellDef> # </mat-header-cell>
-        <mat-cell *matCellDef="let element; index as i">
-          <mat-checkbox [checked]="element.select" (change)="onSelect(i)"></mat-checkbox>
-        </mat-cell>
-      </ng-container>
+        <!-- Checkbox Column -->
+        <ng-container matColumnDef="select">
+          <mat-header-cell *matHeaderCellDef> # </mat-header-cell>
+          <mat-cell *matCellDef="let element; index as i">
+            <mat-checkbox [checked]="element.select" (change)="onSelect(i)"></mat-checkbox>
+          </mat-cell>
+        </ng-container>
+    
+        <!-- Plaza Column -->
+        <ng-container matColumnDef="plaza">
+          <mat-header-cell *matHeaderCellDef> PLAZA </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.plaza}} </mat-cell>
+        </ng-container>
+    
+        <!-- Lane Column -->
+        <ng-container matColumnDef="lane">
+          <mat-header-cell *matHeaderCellDef> LANE </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.lane}} </mat-cell>
+        </ng-container>
+    
+        <!-- Message Time Column -->
+        <ng-container matColumnDef="msgTime">
+          <mat-header-cell *matHeaderCellDef> MESSAGE TIME </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.msgTime}} </mat-cell>
+        </ng-container>
+    
+        <!-- Account Number Column -->
+        <ng-container matColumnDef="accNum">
+          <mat-header-cell *matHeaderCellDef> ACCOUNT NUMBER </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.accNum}} </mat-cell>
+        </ng-container>
+    
+        <!-- Tag Agency Column -->
+        <ng-container matColumnDef="tagAge">
+          <mat-header-cell *matHeaderCellDef> TAG AGENCY </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.tagAge}} </mat-cell>
+        </ng-container>
+    
+        <!-- Tag Number Column -->
+        <ng-container matColumnDef="tagNum">
+          <mat-header-cell *matHeaderCellDef> TAG NUMBER </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.tagNum}} </mat-cell>
+        </ng-container>
+    
+        <!-- Tag Status Column -->
+        <ng-container matColumnDef="tagStatus">
+          <mat-header-cell *matHeaderCellDef> TAG STATUS </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.tagStatus}} </mat-cell>
+        </ng-container>
   
-      <!-- Plaza Column -->
-      <ng-container matColumnDef="plaza">
-        <mat-header-cell *matHeaderCellDef> PLAZA </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.plaza}} </mat-cell>
-      </ng-container>
+          <!-- Toll Paid Column -->
+          <ng-container matColumnDef="tollPaid">
+            <mat-header-cell *matHeaderCellDef> TOLL PAID </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.tollPaid}} </mat-cell>
+          </ng-container>
   
-      <!-- Lane Column -->
-      <ng-container matColumnDef="lane">
-        <mat-header-cell *matHeaderCellDef> LANE </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.lane}} </mat-cell>
-      </ng-container>
+          <!-- Prior Balance  Column -->
+          <ng-container matColumnDef="priorBalance">
+            <mat-header-cell *matHeaderCellDef> PRIOR BALANCE </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.priorBalance}} </mat-cell>
+          </ng-container>
   
-      <!-- Message Time Column -->
-      <ng-container matColumnDef="msgTime">
-        <mat-header-cell *matHeaderCellDef> MESSAGE TIME </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.msgTime}} </mat-cell>
-      </ng-container>
+          <!-- New Balance  Column -->
+          <ng-container matColumnDef="newBalance">
+            <mat-header-cell *matHeaderCellDef> NEW BALANCE </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.newBalance}} </mat-cell>
+          </ng-container>
   
-      <!-- Account Number Column -->
-      <ng-container matColumnDef="accNum">
-        <mat-header-cell *matHeaderCellDef> ACCOUNT NUMBER </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.accNum}} </mat-cell>
-      </ng-container>
+          <!-- Class  Column -->
+          <ng-container matColumnDef="class">
+            <mat-header-cell *matHeaderCellDef> CLASS </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.class}} </mat-cell>
+          </ng-container>
   
-      <!-- Tag Agency Column -->
-      <ng-container matColumnDef="tagAge">
-        <mat-header-cell *matHeaderCellDef> TAG AGENCY </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.tagAge}} </mat-cell>
-      </ng-container>
+          <!-- NO of Axles  Column -->
+          <ng-container matColumnDef="noAxles">
+            <mat-header-cell *matHeaderCellDef> NO. OF AXLES </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.noAxles}} </mat-cell>
+          </ng-container>
   
-      <!-- Tag Number Column -->
-      <ng-container matColumnDef="tagNum">
-        <mat-header-cell *matHeaderCellDef> TAG NUMBER </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.tagNum}} </mat-cell>
-      </ng-container>
+          <!-- Vehicle Speed  Column -->
+          <ng-container matColumnDef="vehicleSpeed">
+            <mat-header-cell *matHeaderCellDef> VEHICLE SPEED </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.vehicleSpeed}} </mat-cell>
+          </ng-container>
   
-      <!-- Tag Status Column -->
-      <ng-container matColumnDef="tagStatus">
-        <mat-header-cell *matHeaderCellDef> TAG STATUS </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.tagStatus}} </mat-cell>
-      </ng-container>
+          <!-- License Plate  Column -->
+          <ng-container matColumnDef="licensePlate">
+            <mat-header-cell *matHeaderCellDef> LICENSE PLATE</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.licensePlate}} </mat-cell>
+          </ng-container>
   
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>
+  
+          <!-- image url 1  Column -->
+          <ng-container matColumnDef="imgURL1">
+            <mat-header-cell *matHeaderCellDef> IMAGE URL </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.imgURL1}} </mat-cell>
+          </ng-container>
+  
+          <!-- image url 2  Column -->
+          <ng-container matColumnDef="imgURL2">
+            <mat-header-cell *matHeaderCellDef> IMAGE URL </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.imgURL2}} </mat-cell>
+          </ng-container>
+  
+           <!-- image url 3  Column -->
+           <ng-container matColumnDef="imgURL3">
+            <mat-header-cell *matHeaderCellDef> IMAGE URL </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.imgURL3}} </mat-cell>
+          </ng-container>
+  
+          <!-- image url 4  Column -->
+          <ng-container matColumnDef="imgURL4">
+            <mat-header-cell *matHeaderCellDef> IMAGE URL </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.imgURL4}} </mat-cell>
+          </ng-container>
+  
+          <!-- Source IP Address  Column -->
+          <ng-container matColumnDef="sourceAddress">
+            <mat-header-cell *matHeaderCellDef> SOURCE IP ADDRESS </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.sourceAddress}} </mat-cell>
+          </ng-container>
+  
+           <!-- Record Transmit Time  Column -->
+           <ng-container matColumnDef="rtTime">
+            <mat-header-cell *matHeaderCellDef> RECORD TRANSMIT TIME </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.rtTime}} </mat-cell>
+          </ng-container>
+  
+          <!-- Record Received Time  Column -->
+          <ng-container matColumnDef="rrTime">
+            <mat-header-cell *matHeaderCellDef> RECORD RECEIVED TIME </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.rrTime}} </mat-cell>
+          </ng-container>
+  
+  
+    
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </table>
+    </div>
 
     <!-- <table class="table table-sm table-striped">
       <thead class="tableHeader">
