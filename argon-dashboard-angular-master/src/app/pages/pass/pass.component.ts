@@ -500,7 +500,7 @@ export class PassComponent implements OnInit{
     },
    
   ];
-  // display = "none";
+  
   // togV= true;
   isItemSelected: boolean = false;
 
@@ -601,12 +601,14 @@ export class PassComponent implements OnInit{
     this.table.renderRows();
   }
 
-    // openModal() {
-    //   // this.display = "block";
-    // }
-    // onCloseHandled() {
-    //   this.display = "none";
-    // }
+  display = "none";
+
+    openModal() {
+      this.display = "block";
+    }
+    onCloseHandled() {
+      this.display = "none";
+    }
 
     // navigationChange(){
     //   this.router.navigateByUrl('/fare');

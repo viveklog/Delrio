@@ -2,21 +2,9 @@
   <div class="card p-3">
     <div class="row px-5 d-flex justify-content-end">
       <div class="col"><div class="tH d-flex justify-content-start">PASS MANAGEMENT</div></div>
-      <!-- <div class="col-8">
-        <button type="button"  (click) = "openModal()" class="btn btn-outline-success btnMain">
-          <span class="btn-inner--icon"><i class="fas fa-plus"></i></span>
-          <span class="btn-inner--text">Add Tag</span>
-        </button>
-        <button type="button" class="btn btn-outline-success btnMain">
-          <span class="btn-inner--icon"><i class="fas fa-pen"></i></span>
-          <span class="btn-inner--text" (click) = "updateData()">Update tag</span>
-        </button>
-        <button type="button" class="btn btn-outline-success btnMain">
-          <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
-          <span class="btn-inner--text" (click) = "removeData()">Delete Tag</span>
-        </button>
-        
-      </div> -->
+      <div class="col">
+        <button type="button"  (click) = "openModal()" class="btn btn-outline-success btnMain"> add col </button>
+      </div>
 
       <div class="col-8 d-flex justify-content-end">
         <button type="button" (click)="openDialog()" class="btn btn-primary btnMain">
@@ -42,8 +30,7 @@
       </div>
      
   </div>
-  
-  <!-- <div class="row scroll"> -->
+
   <div class="row px-5 pt-3">
 
     <div class="mat-elevation-z8 m-12 table-container">
@@ -191,61 +178,12 @@
       </table>
     </div>
 
-    <!-- <table class="table table-sm table-striped">
-      <thead class="tableHeader">
-        <tr>
-          <th class="tableHeader btn" (click) = "toggleView()" scope="col">#</th>
-          <th class="tableHeader" scope="col">PLAZA</th>
-          <th class="tableHeader" scope="col">LANE</th>
-          <th class="tableHeader" scope="col">MESSAGE TIME</th>
-          <th class="tableHeader" scope="col">ACCOUNT NUMBER</th>
-          <th class="tableHeader" scope="col">TAG AGENCY</th>
-          <th class="tableHeader" scope="col">TAG NUMBER</th>
-          <th class="tableHeader" scope="col">TAG STATUS</th>
-          <th class="tableHeader" scope="col">TOLL PAID</th>
-          <th class="tableHeader" scope="col">PRIOR BALANCE</th>
-          <th class="tableHeader" scope="col">NEW BALANCE</th>
-          <th class="tableHeader" scope="col">CLASS</th>
-          <th class="tableHeader" scope="col">NO. OF AXLES</th>
-          <th class="tableHeader" scope="col">VEHICLE SPEED</th>
-          <th class="tableHeader" scope="col">LICENSE PLATE</th>
-          <th class="tableHeader" scope="col">IMAGEURL1</th>
-          <th class="tableHeader" scope="col">IMAGEURL2</th>
-          <th class="tableHeader" scope="col">IMAGEURL3</th>
-          <th class="tableHeader" scope="col">IMAGEURL4</th>
-          <th class="tableHeader" scope="col">SOURCE IP ADDRESS</th>
-          <th class="tableHeader" scope="col">RECORD TRANSMIT TIME</th>
-          <th class="tableHeader" scope="col">RECORD RECIEVED TIME</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let p of passData; index as i">
-          <th scope="row">
-            <div class="d-none" id="numShow">
-              {{i+1}}
-            </div>
-            <div class="form-check d-block" id="checkShow">
-              <input class="form-check-input" type="checkbox" id="flexCheckDefault" [checked]="p.select" (change)="onSelect(i)" >
-            </div>
-          </th>
-          <td>{{p.plaza}}</td>
-          <td>{{p.lane}}</td>
-          <td>{{p.msgTime}}</td>
-          <td>{{p.accNum}}</td>
-          <td>{{p.tagAge}}</td>
-          <td>{{p.tagNum}}</td>
-          <td>{{p.tagStatus}}</td>
-        </tr>
-      </tbody>
-    </table> -->
   </div>
   </div>
-  <!-- </div> -->
 </div>
 
 
-
-<!-- <div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+ <div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
   <div class="modal-dialog" role="document">
         <div class="modal-content">
               <div class="modal-header p-1">
@@ -286,10 +224,8 @@
           </form>
               <div class="modal-footer">
                     <button type="button" class="btn btn-default" (click)="onCloseHandled()" >Close</button>
-                    <button type="submit" class="btn btn-primary" (click)="addData()" >Submit</button>
+                    <button type="submit" class="btn btn-primary" >Submit</button>
                   </div>
      </div>
       </div>
-</div> -->
-
- 
+</div>
