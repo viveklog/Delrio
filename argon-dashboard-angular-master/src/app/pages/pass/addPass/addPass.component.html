@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>{{data.item ? 'Update Data' : 'Add Data'}}</h2>
+<h2 mat-dialog-title>{{data.item ? 'Toll Pass Details' : 'Add Pass Details'}}</h2>
 <mat-dialog-content class="mat-typography">
   <form [formGroup]="dataForm">
     <!-- <mat-form-field class="example-full-width">
@@ -36,6 +36,6 @@
   </form>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="dataForm.value">Submit</button>
+  <button class="btn btn-primary" mat-button mat-dialog-close>Cancel</button>
+  <button class="btn btn-primary" mat-button [mat-dialog-close]="dataForm.value">Submit</button>
 </mat-dialog-actions>
