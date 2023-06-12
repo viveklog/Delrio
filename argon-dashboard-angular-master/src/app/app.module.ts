@@ -13,6 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { CommonModule } from '@angular/common';
+import { ColumnSelectionComponent } from './pages/pass/columnSelection/columnSelection.component';
 
 
 @NgModule({
@@ -24,12 +25,13 @@ import { CommonModule } from '@angular/common';
     NgbModule,
     RouterModule,
     AppRoutingModule,
-    CommonModule
+    CommonModule,
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+    ColumnSelectionComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

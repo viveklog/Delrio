@@ -5,6 +5,8 @@ import { FormBuilder, FormGroup, Validators, } from "@angular/forms";
 import { MatDialog } from '@angular/material/dialog';
 import { AddPassComponent } from "./addPass/addPass.component";
 import { MatTable } from "@angular/material/table";
+import { ColumnSelectionComponent } from "./columnSelection/columnSelection.component";
+
 
 const generateId = () => {
   // This will generate a random string of 24 characters
@@ -35,22 +37,52 @@ interface Tag {
   rtTime?: string;
   rrTime?: string;
   select?: boolean;
+  isExpanded: boolean;
 }
 
 
 @Component({
     selector: 'app-pass',
   templateUrl: './pass.component.html',
-  styleUrls: ['./pass.component.scss']
+  styleUrls: ['./pass.component.scss'],
 })
+
+
+
 export class PassComponent implements OnInit{
  
   dataForm: FormGroup;
   displayedColumns: string[] = ['select', 'plaza', 'lane', 'msgTime', 'accNum', 'tagAge', 'tagNum', 'tagStatus', 'tollPaid',
   'priorBalance', 'newBalance','class','noAxles', 'vehicleSpeed', 'licensePlate', 'imgURL1', 
-  'imgURL2','imgURL3','imgURL4','sourceAddress', 'rtTime', 'rrTime', 
+  'imgURL2','imgURL3','imgURL4','sourceAddress', 'rtTime', 'rrTime','isExpanded',
  ];
+//  expandedRow: Tag[] | null = null;
+
+
+toggleRowExpansion(row: Tag) {
+  // const row = this.passData[index];
+  row.isExpanded = !row.isExpanded;
+  console.log(row.isExpanded, row.id);
+  
+}
+
+// isRowExpanded = (_: number, row: Tag) => row.isExpanded;
+
+isRowExpanded(rowIndex: number, row: Tag): boolean {
+  return row.isExpanded[rowIndex];
+  console.log("hi", row.isExpanded[rowIndex]);
+}
+
+
+
+ checkedItems: boolean[] = new Array(this.displayedColumns.length).fill(true);
+ checkedItemsArray: string[] = [];
   // listData: any;
+
+  checkDisplayProperty = 'none';
+  editDisplayProperty = 'block';
+  saveDisplayProperty ='none';
+
 
   selectedIndex: number;
   num =1;
@@ -79,7 +111,8 @@ export class PassComponent implements OnInit{
       imgURL4: "image4_url",
       sourceAddress: "Source address 1",
       rtTime: "01:00",
-      rrTime: "02:00"
+      rrTime: "02:00",
+      isExpanded:false,
     },
    
 
@@ -106,7 +139,8 @@ export class PassComponent implements OnInit{
       imgURL4: "image4_url",
       sourceAddress: "Source address 1",
       rtTime: "01:00",
-      rrTime: "02:00"
+      rrTime: "02:00",
+      isExpanded:false,
     },
    
     {
@@ -132,7 +166,8 @@ export class PassComponent implements OnInit{
       imgURL4: "image4_url",
       sourceAddress: "Source address 1",
       rtTime: "01:00",
-      rrTime: "02:00"
+      rrTime: "02:00",
+      isExpanded:false,
     },
    
     {
@@ -158,7 +193,8 @@ export class PassComponent implements OnInit{
       imgURL4: "image4_url",
       sourceAddress: "Source address 1",
       rtTime: "01:00",
-      rrTime: "02:00"
+      rrTime: "02:00",
+      isExpanded:false,
     },
    
     {
@@ -184,7 +220,8 @@ export class PassComponent implements OnInit{
       imgURL4: "image4_url",
       sourceAddress: "Source address 1",
       rtTime: "01:00",
-      rrTime: "02:00"
+      rrTime: "02:00",
+      isExpanded:false,
     },
    
     {
@@ -210,7 +247,8 @@ export class PassComponent implements OnInit{
       imgURL4: "image4_url",
       sourceAddress: "Source address 1",
       rtTime: "01:00",
-      rrTime: "02:00"
+      rrTime: "02:00",
+      isExpanded:false,
     },
    
     {
@@ -236,7 +274,8 @@ export class PassComponent implements OnInit{
       imgURL4: "image4_url",
       sourceAddress: "Source address 1",
       rtTime: "01:00",
-      rrTime: "02:00"
+      rrTime: "02:00",
+      isExpanded:false,
     },
    
     {
@@ -262,7 +301,8 @@ export class PassComponent implements OnInit{
       imgURL4: "image4_url",
       sourceAddress: "Source address 1",
       rtTime: "01:00",
-      rrTime: "02:00"
+      rrTime: "02:00",
+      isExpanded:false,
     },
    
     {
@@ -288,7 +328,8 @@ export class PassComponent implements OnInit{
       imgURL4: "image4_url",
       sourceAddress: "Source address 1",
       rtTime: "01:00",
-      rrTime: "02:00"
+      rrTime: "02:00",
+      isExpanded:false,
     },
    
     {
@@ -314,7 +355,8 @@ export class PassComponent implements OnInit{
       imgURL4: "image4_url",
       sourceAddress: "Source address 1",
       rtTime: "01:00",
-      rrTime: "02:00"
+      rrTime: "02:00",
+      isExpanded:false,
     },
    
     {
@@ -340,7 +382,8 @@ export class PassComponent implements OnInit{
       imgURL4: "image4_url",
       sourceAddress: "Source address 1",
       rtTime: "01:00",
-      rrTime: "02:00"
+      rrTime: "02:00",
+      isExpanded:false,
     },
    
     {
@@ -366,7 +409,8 @@ export class PassComponent implements OnInit{
       imgURL4: "image4_url",
       sourceAddress: "Source address 1",
       rtTime: "01:00",
-      rrTime: "02:00"
+      rrTime: "02:00",
+      isExpanded:false,
     },
    
     {
@@ -392,7 +436,8 @@ export class PassComponent implements OnInit{
       imgURL4: "image4_url",
       sourceAddress: "Source address 1",
       rtTime: "01:00",
-      rrTime: "02:00"
+      rrTime: "02:00",
+      isExpanded:false,
     },
    
     {
@@ -418,7 +463,8 @@ export class PassComponent implements OnInit{
       imgURL4: "image4_url",
       sourceAddress: "Source address 1",
       rtTime: "01:00",
-      rrTime: "02:00"
+      rrTime: "02:00",
+      isExpanded:false,
     },
    
     {
@@ -444,7 +490,8 @@ export class PassComponent implements OnInit{
       imgURL4: "image4_url",
       sourceAddress: "Source address 1",
       rtTime: "01:00",
-      rrTime: "02:00"
+      rrTime: "02:00",
+      isExpanded:false,
     },
    
     {
@@ -470,7 +517,8 @@ export class PassComponent implements OnInit{
       imgURL4: "image4_url",
       sourceAddress: "Source address 1",
       rtTime: "01:00",
-      rrTime: "02:00"
+      rrTime: "02:00",
+      isExpanded:false,
     },
    
     {
@@ -496,12 +544,12 @@ export class PassComponent implements OnInit{
       imgURL4: "image4_url",
       sourceAddress: "Source address 1",
       rtTime: "01:00",
-      rrTime: "02:00"
+      rrTime: "02:00",
+      isExpanded:false,
     },
    
   ];
   
-  // togV= true;
   isItemSelected: boolean = false;
 
   @ViewChild(MatTable) table: MatTable<any>;
@@ -510,45 +558,43 @@ export class PassComponent implements OnInit{
   constructor(private router: Router, private fb:FormBuilder, private elRef: ElementRef, private dialog: MatDialog) {}
 
   ngOnInit(): void {
-    // this.listData = [];
-
-  //   this.dataForm = this.fb.group({
-  //     plaza: ['', Validators.required],
-  //     lane: ['', Validators.required],
-  //     msgTime:['', Validators.required],
-  //     accNum: ['', Validators.required],
-  //     tagAge: ['', Validators.required],
-  //     tagNum: ['', Validators.required],
-  //     tagStatus: ['', Validators.required],
-  //   });
   }
 
-  //  addData(){
-  //   this.passData.push(this.dataForm.value);
-  //   this.dataForm.reset();
-  //  }
-   
+  capitalizeString(value: string): string {
+    return value.charAt(0).toUpperCase() + value.slice(1);
+  }
 
-  //  removeData(){
-  //     this.passData.forEach((item)=>{
-  //       if(item.select == true){
-  //         this.passData.splice(this.selectedIndex,1);
-  //       }
-  //     }) 
-  //  }
+  openDialogCSList(): void{
+    const dialogRef = this.dialog.open(ColumnSelectionComponent, {
+      width: '250px',
+      data: {
+        displayedColumns: this.displayedColumns
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Dialog closed. Result:', result);
+      // Perform any necessary actions with the result
+    });
+  }
 
-  //  updateData(){
-  //   this.passData.forEach((item)=>{
-  //     if(item.select == true){
-  //       this.openModal();
-  //       return;
-  //     }else{
-  //       alert("Please select one row")
-  //       return;
-  //     }
-  //   }) 
+  
+  editColumn(){
+    this.checkDisplayProperty = 'block';
+    this.editDisplayProperty = 'none';
+    this.saveDisplayProperty = 'block';
+  }
 
-  //  }
+  saveColumn(){
+    this.checkedItemsArray = this.displayedColumns.filter((item, index) => this.checkedItems[index]);
+    console.log(this.checkedItemsArray);
+    this.checkedItems = new Array(this.displayedColumns.length).fill(true);
+    this.displayedColumns =this.checkedItemsArray;
+    this.checkDisplayProperty = 'none';
+    this.saveDisplayProperty = 'none';
+    this.editDisplayProperty = 'block';
+  }
+
+
   openDialog(): void {
     const selectedItem = this.passData.find(item => item.select);
     const dialogRef = this.dialog.open(AddPassComponent, {
@@ -564,20 +610,6 @@ export class PassComponent implements OnInit{
           tagAge: [selectedItem?.tagAge || '', Validators.required],
           tagNum: [selectedItem?.tagNum || '', Validators.required],
           tagStatus: [selectedItem?.tagStatus || '', Validators.required],
-          tollPaid: [selectedItem?.tollPaid || '', Validators.required],
-          priorBalance: [selectedItem?.priorBalance || '', Validators.required],
-          newBalance: [selectedItem?.newBalance || '', Validators.required],
-          class: [selectedItem?.class || '', Validators.required],
-          noAxles: [selectedItem?.noAxles || '', Validators.required],
-          vehicleSpeed: [selectedItem?.vehicleSpeed || '', Validators.required],
-          licensePlate: [selectedItem?.licensePlate || '', Validators.required],
-          imgURL1: [selectedItem?.imgURL1 || '', Validators.required],
-          imgURL2: [selectedItem?.imgURL2 || '', Validators.required],
-          imgURL3: [selectedItem?.imgURL3 || '', Validators.required],
-          imgURL4: [selectedItem?.imgURL4 || '', Validators.required],
-          sourceAddress: [selectedItem?.sourceAddress || '', Validators.required],
-          rtTime: [selectedItem?.rtTime || '', Validators.required],
-          rrTime: [selectedItem?.rrTime || '', Validators.required],
         }),
       },
     });
@@ -601,19 +633,6 @@ export class PassComponent implements OnInit{
     this.table.renderRows();
   }
 
-  display = "none";
-
-    openModal() {
-      this.display = "block";
-    }
-    onCloseHandled() {
-      this.display = "none";
-    }
-
-    // navigationChange(){
-    //   this.router.navigateByUrl('/fare');
-    // }
-
     onSelect(index){
 
       this.passData.map((item, i)=>{
@@ -628,37 +647,7 @@ export class PassComponent implements OnInit{
       this.updateItemSelection();
 
     }
-  
 
-    // toggleView(){
-    //   if(this.togV == true){
-    //     this.togV=false;
-    //     const numView = document.getElementById("numShow");
-    //     numView.classList.add("d-none");
-    //     numView.classList.remove("d-block");
-
-    //    const checkView = document.getElementById("checkShow");
-    //       checkView.classList.add("d-block");
-    //       checkView.classList.remove("d-none");
-        
-    //       return;
-    //   }
-      
-    //    if(this.togV == false){
-    //     console.log("222")
-    //     this.togV=true;
-    //     const numView = document.getElementById("numShow");
-    //     numView.classList.remove("d-none");
-    //     numView.classList.add("d-block");
-
-    //   const checkView = document.getElementById("checkShow");
-    //       checkView.classList.remove("d-block");
-    //       checkView.classList.add("d-none");
-
-    //       return;
-    //   }
-      
-    // }
 
     updateItemSelection(): void {
       this.isItemSelected = this.passData.some(item => item.select);
@@ -678,7 +667,7 @@ export class PassComponent implements OnInit{
         decimalseparator: '.',
         showLabels: true, 
         showTitle: true,
-        title: 'Your title',
+        title: 'Pass management data',
         useBom: true,
         noDownload: false,
         headers: ["First Name", "Last Name", "ID"]
@@ -687,9 +676,4 @@ export class PassComponent implements OnInit{
       new ngxCsv(this.passData,"report", options);
     }
     
-    // addData() {
-    //   const newItem = {...this.dataForm.value, id: generateId()};
-    //   this.passData.push(newItem);
-    //   this.dataForm.reset();
-    // }
 }
