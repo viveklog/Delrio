@@ -1,12 +1,13 @@
 <div class="container-fluid h-100vh p-8">
   <div class="card p-3">
     <div class="row px-5 d-flex justify-content-end">
-      <div class="col"><div class="tH d-flex justify-content-start">PASS MANAGEMENT</div></div>
+      <div class="col">
+        <div class="tH d-flex justify-content-start">PASS MANAGEMENT</div>
+      </div>
       <div class="col">
         <!-- <button type="button"   class="btn btn-outline-success btnMain"> add col </button> -->
         <button mat-button (click)="openDialogCSList()">Open dialog</button>
         <!-- <button mat-button (click)="openDiv()">OpenDiv</button> -->
-
       </div>
 
       <div class="col-8 d-flex justify-content-end">
@@ -14,240 +15,237 @@
           <span class="btn-inner--icon"><i class="fas fa-plus"></i></span>
           <span class="btn-inner--text">Add Tag</span>
         </button>
-      
-        <button type="button" *ngIf="isItemSelected" class="btn btn-primary btnMain" 
-          (click)="openDialog()">
+
+        <button type="button" *ngIf="isItemSelected" class="btn btn-primary btnMain" (click)="openDialog()">
           <span class="btn-inner--icon"><i class="fas fa-edit"></i></span>
           <span class="btn-inner--text">Update Tag</span>
         </button>
-        
-        <button type="button" *ngIf="isItemSelected" 
-          (click)="removeData()" class="btn btn-primary btnMain">
+
+        <button type="button" *ngIf="isItemSelected" (click)="removeData()" class="btn btn-primary btnMain">
           <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
           <span class="btn-inner--text">Remove Tag</span>
         </button>
         <button type="button" class="btn btn-primary btnMain">
           <span class="btn-inner--icon"><i class="ni ni-cloud-download-95"></i></span>
-          <span class="btn-inner--text" (click) = "csvExport()">Export CSV</span>
+          <span class="btn-inner--text" (click)="csvExport()">Export CSV</span>
         </button>
-        <button type="button"[style.display]="editDisplayProperty"  class="btn btn-primary btnMain" (click) = "editColumn()">
+        <button type="button" [style.display]="editDisplayProperty" class="btn btn-primary btnMain"
+          (click)="editColumn()">
           <!-- <span class="btn-inner--icon"><i class="ni ni-cloud-download-95"></i></span> -->
-          <span class="btn-inner--text" >Edit</span>
+          <span class="btn-inner--text">Edit</span>
         </button>
-        <button type="button" [style.display]="saveDisplayProperty" class="btn btn-success btnMain" (click) = "saveColumn()">
+        <button type="button" [style.display]="saveDisplayProperty" class="btn btn-success btnMain"
+          (click)="saveColumn()">
           <!-- <span class="btn-inner--icon"><i class="ni ni-cloud-download-95"></i></span> -->
-          <span class="btn-inner--text" >SAVE</span>
+          <span class="btn-inner--text">SAVE</span>
         </button>
       </div>
-     
-  </div>
+    </div>
 
-  <div class="row px-5 pt-3">
-    <div class="mat-elevation-z8 m-12 table-container">
-      <table mat-table [dataSource]="passData" class="mat-elevation-z8">
-        
-        <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns; index as i;">
+    <div class="row px-5 pt-3">
+      <div class="mat-elevation-z8 m-12 table-container">
+        <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+          <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns; index as i">
+            <th mat-header-cell *matHeaderCellDef>
+              <mat-checkbox [style.display]="checkDisplayProperty" [(ngModel)]="checkedItems[i]"></mat-checkbox>
+              {{ capitalizeString(column) }}
+            </th>
+            <!-- {{column | uppercase }} -->
+            <td mat-cell *matCellDef="let element">{{ element[column] }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="select">
+            <mat-header-cell *matHeaderCellDef> # </mat-header-cell>
+            <mat-cell *matCellDef="let element; index as i">
+              <mat-checkbox [checked]="element.select" (change)="onSelect(i)"></mat-checkbox>
+            </mat-cell>
+          </ng-container>
           
-          <th mat-header-cell *matHeaderCellDef>
-            <mat-checkbox [style.display]="checkDisplayProperty" [(ngModel)]="checkedItems[i]"></mat-checkbox>
-             {{capitalizeString(column) }} </th>
-             <!-- {{column | uppercase }} -->
-          <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="expandedRow">
-          <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
-            <div class="expanded-content" *ngIf="element.isExpanded(element)">
-              <!-- Add content for expanded row here -->
-              <h1>Hi I am working.....</h1>
-              <p>Expanded Content for Row {{element.id}}</p>
-            </div>
-          </td>
-        </ng-container>
-
-        <ng-container matColumnDef="select">
-          <mat-header-cell *matHeaderCellDef> # </mat-header-cell>
-          <mat-cell *matCellDef="let element; index as i">
-            <mat-checkbox [checked]="element.select" (change)="onSelect(i)"></mat-checkbox>
-          </mat-cell>
-        </ng-container>
-<!-- 
         <ng-container matColumnDef="expand">
           <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
           <td mat-cell *matCellDef="let element">
             <button mat-icon-button aria-label="expand row" (click)="(expandedElement = expandedElement === element ? null : element); $event.stopPropagation()">
-              <mat-icon *ngIf="expandedElement !== element">keyboard_arrow_down</mat-icon>
-              <mat-icon *ngIf="expandedElement === element">keyboard_arrow_up</mat-icon>
+              <mat-icon *ngIf="expandedElement !== element"><i class="fas fa-arrow-down"></i></mat-icon>
+              <mat-icon *ngIf="expandedElement === element"><i class="ni ni-bold-down"></i></mat-icon>
             </button>
           </td>
-        </ng-container> -->
+        </ng-container>
 
-      
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <!-- <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="toggleRowExpansion(row)"></tr>
-        <!-- <tr mat-row *matRowDef="let row; columns: displayedColumns; let i = index" [class.expanded]="isRowExpanded(row)" (click)="toggleRowExpansion(row)"></tr> -->
-        <tr mat-row *matRowDef="let row; columns: ['expandedRow']; when: isRowExpanded"></tr>
-      </table>
-    </div>
+          <ng-container matColumnDef="expandedDetail">
+            <td mat-cell *matCellDef="let element" [attr.colspan]="expandDisplayedColumns.length">
+              <div class="example-element-detail" [@detailExpand]="
+                  element == expandedElement ? 'expanded' : 'collapsed'
+                ">
+                <div class="row pl-8 p-3">
+                  <div class="col-3">
+                    <span class="avatar avatar-sm rounded-circle bg-white ">
+                      <img alt="Image placeholder" src="../../../assets/img/vivek.png">
+                    </span>
+                  </div>
+                  <div class="col-9">
+                    <h3>User Delrio Pass</h3>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </ng-container>
 
+          <tr mat-header-row *matHeaderRowDef="expandDisplayedColumns"></tr>
+          <tr mat-row *matRowDef="let element; columns: expandDisplayedColumns" class="example-element-row"
+            [class.example-expanded-row]="expandedElement === element" (click)="
+              expandedElement = expandedElement === element ? null : element
+            "></tr>
+          <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+        </table>
+      </div>
 
-   
-
-    
-
-    <!-- <div class="mat-elevation-z8 m-12 table-container">
+      <!-- <div class="mat-elevation-z8 m-12 table-container">
       <table mat-table [dataSource]="passData" > -->
 
-        <!-- Checkbox Column -->
-        <!-- <ng-container matColumnDef="select">
+      <!-- Checkbox Column -->
+      <!-- <ng-container matColumnDef="select">
           <mat-header-cell *matHeaderCellDef> # </mat-header-cell>
           <mat-cell *matCellDef="let element; index as i">
             <mat-checkbox [checked]="element.select" (change)="onSelect(i)"></mat-checkbox>
           </mat-cell>
         </ng-container> -->
 
-         <!-- <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
+      <!-- <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
           <mat-header-cell *matHeaderCellDef> {{columns}} </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element[columns]}} </mat-cell>
         </ng-container>
      -->
-    
-        <!-- Plaza Column -->
-        <!-- <ng-container matColumnDef="plaza">
+
+      <!-- Plaza Column -->
+      <!-- <ng-container matColumnDef="plaza">
           <mat-header-cell *matHeaderCellDef> PLAZA </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.plaza}} </mat-cell>
         </ng-container> -->
-    
-        <!-- Lane Column -->
-        <!-- <ng-container matColumnDef="lane">
+
+      <!-- Lane Column -->
+      <!-- <ng-container matColumnDef="lane">
           <mat-header-cell *matHeaderCellDef> LANE </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.lane}} </mat-cell>
         </ng-container> -->
-    
-        <!-- Message Time Column -->
-        <!-- <ng-container matColumnDef="msgTime">
+
+      <!-- Message Time Column -->
+      <!-- <ng-container matColumnDef="msgTime">
           <mat-header-cell *matHeaderCellDef> MESSAGE TIME </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.msgTime}} </mat-cell>
         </ng-container> -->
-    
-        <!-- Account Number Column -->
-        <!-- <ng-container matColumnDef="accNum">
+
+      <!-- Account Number Column -->
+      <!-- <ng-container matColumnDef="accNum">
           <mat-header-cell *matHeaderCellDef> ACCOUNT NUMBER </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.accNum}} </mat-cell>
         </ng-container> -->
-    
-        <!-- Tag Agency Column -->
-        <!-- <ng-container matColumnDef="tagAge">
+
+      <!-- Tag Agency Column -->
+      <!-- <ng-container matColumnDef="tagAge">
           <mat-header-cell *matHeaderCellDef> TAG AGENCY </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.tagAge}} </mat-cell>
         </ng-container> -->
-    
-        <!-- Tag Number Column -->
-        <!-- <ng-container matColumnDef="tagNum">
+
+      <!-- Tag Number Column -->
+      <!-- <ng-container matColumnDef="tagNum">
           <mat-header-cell *matHeaderCellDef> TAG NUMBER </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.tagNum}} </mat-cell>
         </ng-container> -->
-    
-        <!-- Tag Status Column -->
-        <!-- <ng-container matColumnDef="tagStatus">
+
+      <!-- Tag Status Column -->
+      <!-- <ng-container matColumnDef="tagStatus">
           <mat-header-cell *matHeaderCellDef> TAG STATUS </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.tagStatus}} </mat-cell>
         </ng-container> -->
-  
-          <!-- Toll Paid Column -->
-          <!-- <ng-container matColumnDef="tollPaid">
+
+      <!-- Toll Paid Column -->
+      <!-- <ng-container matColumnDef="tollPaid">
             <mat-header-cell *matHeaderCellDef> TOLL PAID </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.tollPaid}} </mat-cell>
           </ng-container> -->
-  
-          <!-- Prior Balance  Column -->
-          <!-- <ng-container matColumnDef="priorBalance">
+
+      <!-- Prior Balance  Column -->
+      <!-- <ng-container matColumnDef="priorBalance">
             <mat-header-cell *matHeaderCellDef> PRIOR BALANCE </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.priorBalance}} </mat-cell>
           </ng-container> -->
-  
-          <!-- New Balance  Column -->
-          <!-- <ng-container matColumnDef="newBalance">
+
+      <!-- New Balance  Column -->
+      <!-- <ng-container matColumnDef="newBalance">
             <mat-header-cell *matHeaderCellDef> NEW BALANCE </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.newBalance}} </mat-cell>
           </ng-container> -->
-  
-          <!-- Class  Column -->
-          <!-- <ng-container matColumnDef="class">
+
+      <!-- Class  Column -->
+      <!-- <ng-container matColumnDef="class">
             <mat-header-cell *matHeaderCellDef> CLASS </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.class}} </mat-cell>
           </ng-container> -->
-  
-          <!-- NO of Axles  Column -->
-          <!-- <ng-container matColumnDef="noAxles">
+
+      <!-- NO of Axles  Column -->
+      <!-- <ng-container matColumnDef="noAxles">
             <mat-header-cell *matHeaderCellDef> NO. OF AXLES </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.noAxles}} </mat-cell>
           </ng-container> -->
-  
-          <!-- Vehicle Speed  Column -->
-          <!-- <ng-container matColumnDef="vehicleSpeed">
+
+      <!-- Vehicle Speed  Column -->
+      <!-- <ng-container matColumnDef="vehicleSpeed">
             <mat-header-cell *matHeaderCellDef> VEHICLE SPEED </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.vehicleSpeed}} </mat-cell>
           </ng-container>
    -->
-          <!-- License Plate  Column -->
-          <!-- <ng-container matColumnDef="licensePlate">
+      <!-- License Plate  Column -->
+      <!-- <ng-container matColumnDef="licensePlate">
             <mat-header-cell *matHeaderCellDef> LICENSE PLATE</mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.licensePlate}} </mat-cell>
           </ng-container> -->
-  
-  
-          <!-- image url 1  Column -->
-          <!-- <ng-container matColumnDef="imgURL1">
+
+      <!-- image url 1  Column -->
+      <!-- <ng-container matColumnDef="imgURL1">
             <mat-header-cell *matHeaderCellDef> IMAGE URL </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.imgURL1}} </mat-cell>
           </ng-container> -->
-  
-          <!-- image url 2  Column -->
-          <!-- <ng-container matColumnDef="imgURL2">
+
+      <!-- image url 2  Column -->
+      <!-- <ng-container matColumnDef="imgURL2">
             <mat-header-cell *matHeaderCellDef> IMAGE URL </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.imgURL2}} </mat-cell>
           </ng-container> -->
-  
-           <!-- image url 3  Column -->
-           <!-- <ng-container matColumnDef="imgURL3">
+
+      <!-- image url 3  Column -->
+      <!-- <ng-container matColumnDef="imgURL3">
             <mat-header-cell *matHeaderCellDef> IMAGE URL </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.imgURL3}} </mat-cell>
           </ng-container> -->
-  
-          <!-- image url 4  Column -->
-          <!-- <ng-container matColumnDef="imgURL4">
+
+      <!-- image url 4  Column -->
+      <!-- <ng-container matColumnDef="imgURL4">
             <mat-header-cell *matHeaderCellDef> IMAGE URL </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.imgURL4}} </mat-cell>
           </ng-container> -->
-  
-          <!-- Source IP Address  Column -->
-          <!-- <ng-container matColumnDef="sourceAddress">
+
+      <!-- Source IP Address  Column -->
+      <!-- <ng-container matColumnDef="sourceAddress">
             <mat-header-cell *matHeaderCellDef> SOURCE IP ADDRESS </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.sourceAddress}} </mat-cell>
           </ng-container> -->
-  
-           <!-- Record Transmit Time  Column -->
-           <!-- <ng-container matColumnDef="rtTime">
+
+      <!-- Record Transmit Time  Column -->
+      <!-- <ng-container matColumnDef="rtTime">
             <mat-header-cell *matHeaderCellDef> RECORD TRANSMIT TIME </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.rtTime}} </mat-cell>
           </ng-container>
    -->
-          <!-- Record Received Time  Column -->
-          <!-- <ng-container matColumnDef="rrTime">
+      <!-- Record Received Time  Column -->
+      <!-- <ng-container matColumnDef="rrTime">
             <mat-header-cell *matHeaderCellDef> RECORD RECEIVED TIME </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.rrTime}} </mat-cell>
           </ng-container> -->
-  
-  
-    
-        <!-- <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+      <!-- <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
       </table> -->
-    <!-- </div> -->
-
-  </div>
+      <!-- </div> -->
+    </div>
   </div>
 </div>
-

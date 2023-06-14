@@ -14,6 +14,10 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { CommonModule } from '@angular/common';
 import { ColumnSelectionComponent } from './pages/pass/columnSelection/columnSelection.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {NgFor, NgIf} from '@angular/common';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -26,6 +30,11 @@ import { ColumnSelectionComponent } from './pages/pass/columnSelection/columnSel
     RouterModule,
     AppRoutingModule,
     CommonModule,
+    MatTableModule,
+    NgFor,
+    MatButtonModule,
+    NgIf,
+    MatIconModule
   ],
   declarations: [
     AppComponent,
