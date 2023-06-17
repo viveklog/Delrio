@@ -70,6 +70,7 @@ export class PassComponent implements OnInit{
  ];
  expandDisplayedColumns = [...this.displayedColumns,'expand'];
  expandedElement: Tag | null;
+ checkedColumns =this.displayedColumns;
 
 
 // toggleRowExpansion(row: Tag) {
@@ -133,13 +134,33 @@ export class PassComponent implements OnInit{
     this.checkDisplayProperty = 'block';
     this.editDisplayProperty = 'none';
     this.saveDisplayProperty = 'block';
+
+    const columnList= [];
+
+    for (const column of this.displayedColumns) {
+      // if(this.checkedItemsArray.includes(column)){
+      //   columnList.push({ column, checked: true });
+      // }
+      // else{
+      //   columnList.push({ column, checked: false });
+      // }
+      const checked = this.checkedItemsArray.includes(column);
+      columnList.push({ column, checked });
+    }
+
+    // this.checkedColumns = columnList.filter(item => item.checked).map(item => item.column);
+    this.checkedColumns = columnList.map(item => item.column);
+
+    // this.checkedColumns = this.displayedColumns;
+    console.log(columnList);
+    console.log(this.checkedColumns);
   }
 
   saveColumn(){
     this.checkedItemsArray = this.displayedColumns.filter((item, index) => this.checkedItems[index]);
-    console.log(this.checkedItemsArray);
     this.checkedItems = new Array(this.displayedColumns.length).fill(true);
-    this.displayedColumns =this.checkedItemsArray;
+    this.checkedColumns =this.checkedItemsArray;
+    this.expandDisplayedColumns = [...this.checkedColumns,'expand'];
     this.checkDisplayProperty = 'none';
     this.saveDisplayProperty = 'none';
     this.editDisplayProperty = 'block';
