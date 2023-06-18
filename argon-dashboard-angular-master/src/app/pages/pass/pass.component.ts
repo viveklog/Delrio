@@ -5,6 +5,10 @@ import { FormBuilder, FormGroup, Validators, } from "@angular/forms";
 import { MatDialog } from '@angular/material/dialog';
 import { AddPassComponent } from "./addPass/addPass.component";
 import { MatTable } from "@angular/material/table";
+import { ColumnSelectionComponent } from "./columnSelection/columnSelection.component";
+import {animate, state, style, transition, trigger} from '@angular/animations';
+
+
 
 const generateId = () => {
   // This will generate a random string of 24 characters
@@ -35,473 +39,69 @@ interface Tag {
   rtTime?: string;
   rrTime?: string;
   select?: boolean;
+  isExpanded: boolean;
 }
 
 
 @Component({
     selector: 'app-pass',
   templateUrl: './pass.component.html',
-  styleUrls: ['./pass.component.scss']
+  styleUrls: ['./pass.component.scss'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({height: '0px', minHeight: '0'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
+  // standalone: true,
+  // imports: [MatTableModule, NgFor, MatButtonModule, NgIf, MatIconModule],
 })
+
+
+
 export class PassComponent implements OnInit{
- 
-  dataForm: FormGroup;
+
+  dataSource = passData;
+  // dataForm: FormGroup;\
   displayedColumns: string[] = ['select', 'plaza', 'lane', 'msgTime', 'accNum', 'tagAge', 'tagNum', 'tagStatus', 'tollPaid',
   'priorBalance', 'newBalance','class','noAxles', 'vehicleSpeed', 'licensePlate', 'imgURL1', 
-  'imgURL2','imgURL3','imgURL4','sourceAddress', 'rtTime', 'rrTime', 
+  'imgURL2','imgURL3','imgURL4','sourceAddress', 'rtTime', 'rrTime','isExpanded',
  ];
+ expandDisplayedColumns = [...this.displayedColumns,'expand'];
+ expandedElement: Tag | null;
+ checkedColumns =this.displayedColumns;
+
+
+// toggleRowExpansion(row: Tag) {
+//   // const row = this.passData[index];
+//   row.isExpanded = !row.isExpanded;
+//   console.log(row.isExpanded, row.id);
+  
+// }
+
+// isRowExpanded = (_: number, row: Tag) => row.isExpanded;
+
+// isRowExpanded(rowIndex: number, row: Tag): boolean {
+//   return row.isExpanded[rowIndex];
+//   console.log("hi", row.isExpanded[rowIndex]);
+// }
+
+
+
+ checkedItems: boolean[] = new Array(this.displayedColumns.length).fill(true);
+ checkedItemsArray: string[] = [];
   // listData: any;
+
+  checkDisplayProperty = 'none';
+  editDisplayProperty = 'block';
+  saveDisplayProperty ='none';
+
 
   selectedIndex: number;
   num =1;
-  passData: Tag[] = [
+ 
   
-    {
-      id: generateId(),
-      select: false,
-      plaza: "Delrio2",
-      lane: "Lane 2",
-      msgTime: "00:00",
-      accNum: "123456",
-      tagAge: "DelrioToll",
-      tagNum: "DRBP00235",
-      tagStatus: "Active",
-      tollPaid: "15",
-      priorBalance: "100",
-      newBalance: "85",
-      class: "Class A",
-      noAxles: "4",
-      vehicleSpeed: "60",
-      licensePlate: "ABC 123",
-      imgURL1: "image1_url",
-      imgURL2: "image2_url",
-      imgURL3: "image3_url",
-      imgURL4: "image4_url",
-      sourceAddress: "Source address 1",
-      rtTime: "01:00",
-      rrTime: "02:00"
-    },
-   
-
-    {
-      id: generateId(),
-      select: false,
-      plaza: "Delrio2",
-      lane: "Lane 2",
-      msgTime: "00:00",
-      accNum: "123456",
-      tagAge: "DelrioToll",
-      tagNum: "DRBP00235",
-      tagStatus: "Active",
-      tollPaid: "15",
-      priorBalance: "100",
-      newBalance: "85",
-      class: "Class A",
-      noAxles: "4",
-      vehicleSpeed: "60",
-      licensePlate: "ABC 123",
-      imgURL1: "image1_url",
-      imgURL2: "image2_url",
-      imgURL3: "image3_url",
-      imgURL4: "image4_url",
-      sourceAddress: "Source address 1",
-      rtTime: "01:00",
-      rrTime: "02:00"
-    },
-   
-    {
-      id: generateId(),
-      select: false,
-      plaza: "Delrio2",
-      lane: "Lane 2",
-      msgTime: "00:00",
-      accNum: "123456",
-      tagAge: "DelrioToll",
-      tagNum: "DRBP00235",
-      tagStatus: "Active",
-      tollPaid: "15",
-      priorBalance: "100",
-      newBalance: "85",
-      class: "Class A",
-      noAxles: "4",
-      vehicleSpeed: "60",
-      licensePlate: "ABC 123",
-      imgURL1: "image1_url",
-      imgURL2: "image2_url",
-      imgURL3: "image3_url",
-      imgURL4: "image4_url",
-      sourceAddress: "Source address 1",
-      rtTime: "01:00",
-      rrTime: "02:00"
-    },
-   
-    {
-      id: generateId(),
-      select: false,
-      plaza: "Delrio2",
-      lane: "Lane 2",
-      msgTime: "00:00",
-      accNum: "123456",
-      tagAge: "DelrioToll",
-      tagNum: "DRBP00235",
-      tagStatus: "Active",
-      tollPaid: "15",
-      priorBalance: "100",
-      newBalance: "85",
-      class: "Class A",
-      noAxles: "4",
-      vehicleSpeed: "60",
-      licensePlate: "ABC 123",
-      imgURL1: "image1_url",
-      imgURL2: "image2_url",
-      imgURL3: "image3_url",
-      imgURL4: "image4_url",
-      sourceAddress: "Source address 1",
-      rtTime: "01:00",
-      rrTime: "02:00"
-    },
-   
-    {
-      id: generateId(),
-      select: false,
-      plaza: "Delrio2",
-      lane: "Lane 2",
-      msgTime: "00:00",
-      accNum: "123456",
-      tagAge: "DelrioToll",
-      tagNum: "DRBP00235",
-      tagStatus: "Active",
-      tollPaid: "15",
-      priorBalance: "100",
-      newBalance: "85",
-      class: "Class A",
-      noAxles: "4",
-      vehicleSpeed: "60",
-      licensePlate: "ABC 123",
-      imgURL1: "image1_url",
-      imgURL2: "image2_url",
-      imgURL3: "image3_url",
-      imgURL4: "image4_url",
-      sourceAddress: "Source address 1",
-      rtTime: "01:00",
-      rrTime: "02:00"
-    },
-   
-    {
-      id: generateId(),
-      select: false,
-      plaza: "Delrio2",
-      lane: "Lane 2",
-      msgTime: "00:00",
-      accNum: "123456",
-      tagAge: "DelrioToll",
-      tagNum: "DRBP00235",
-      tagStatus: "Active",
-      tollPaid: "15",
-      priorBalance: "100",
-      newBalance: "85",
-      class: "Class A",
-      noAxles: "4",
-      vehicleSpeed: "60",
-      licensePlate: "ABC 123",
-      imgURL1: "image1_url",
-      imgURL2: "image2_url",
-      imgURL3: "image3_url",
-      imgURL4: "image4_url",
-      sourceAddress: "Source address 1",
-      rtTime: "01:00",
-      rrTime: "02:00"
-    },
-   
-    {
-      id: generateId(),
-      select: false,
-      plaza: "Delrio2",
-      lane: "Lane 2",
-      msgTime: "00:00",
-      accNum: "123456",
-      tagAge: "DelrioToll",
-      tagNum: "DRBP00235",
-      tagStatus: "Active",
-      tollPaid: "15",
-      priorBalance: "100",
-      newBalance: "85",
-      class: "Class A",
-      noAxles: "4",
-      vehicleSpeed: "60",
-      licensePlate: "ABC 123",
-      imgURL1: "image1_url",
-      imgURL2: "image2_url",
-      imgURL3: "image3_url",
-      imgURL4: "image4_url",
-      sourceAddress: "Source address 1",
-      rtTime: "01:00",
-      rrTime: "02:00"
-    },
-   
-    {
-      id: generateId(),
-      select: false,
-      plaza: "Delrio2",
-      lane: "Lane 2",
-      msgTime: "00:00",
-      accNum: "123456",
-      tagAge: "DelrioToll",
-      tagNum: "DRBP00235",
-      tagStatus: "Active",
-      tollPaid: "15",
-      priorBalance: "100",
-      newBalance: "85",
-      class: "Class A",
-      noAxles: "4",
-      vehicleSpeed: "60",
-      licensePlate: "ABC 123",
-      imgURL1: "image1_url",
-      imgURL2: "image2_url",
-      imgURL3: "image3_url",
-      imgURL4: "image4_url",
-      sourceAddress: "Source address 1",
-      rtTime: "01:00",
-      rrTime: "02:00"
-    },
-   
-    {
-      id: generateId(),
-      select: false,
-      plaza: "Delrio2",
-      lane: "Lane 2",
-      msgTime: "00:00",
-      accNum: "123456",
-      tagAge: "DelrioToll",
-      tagNum: "DRBP00235",
-      tagStatus: "Active",
-      tollPaid: "15",
-      priorBalance: "100",
-      newBalance: "85",
-      class: "Class A",
-      noAxles: "4",
-      vehicleSpeed: "60",
-      licensePlate: "ABC 123",
-      imgURL1: "image1_url",
-      imgURL2: "image2_url",
-      imgURL3: "image3_url",
-      imgURL4: "image4_url",
-      sourceAddress: "Source address 1",
-      rtTime: "01:00",
-      rrTime: "02:00"
-    },
-   
-    {
-      id: generateId(),
-      select: false,
-      plaza: "Delrio2",
-      lane: "Lane 2",
-      msgTime: "00:00",
-      accNum: "123456",
-      tagAge: "DelrioToll",
-      tagNum: "DRBP00235",
-      tagStatus: "Active",
-      tollPaid: "15",
-      priorBalance: "100",
-      newBalance: "85",
-      class: "Class A",
-      noAxles: "4",
-      vehicleSpeed: "60",
-      licensePlate: "ABC 123",
-      imgURL1: "image1_url",
-      imgURL2: "image2_url",
-      imgURL3: "image3_url",
-      imgURL4: "image4_url",
-      sourceAddress: "Source address 1",
-      rtTime: "01:00",
-      rrTime: "02:00"
-    },
-   
-    {
-      id: generateId(),
-      select: false,
-      plaza: "Delrio2",
-      lane: "Lane 2",
-      msgTime: "00:00",
-      accNum: "123456",
-      tagAge: "DelrioToll",
-      tagNum: "DRBP00235",
-      tagStatus: "Active",
-      tollPaid: "15",
-      priorBalance: "100",
-      newBalance: "85",
-      class: "Class A",
-      noAxles: "4",
-      vehicleSpeed: "60",
-      licensePlate: "ABC 123",
-      imgURL1: "image1_url",
-      imgURL2: "image2_url",
-      imgURL3: "image3_url",
-      imgURL4: "image4_url",
-      sourceAddress: "Source address 1",
-      rtTime: "01:00",
-      rrTime: "02:00"
-    },
-   
-    {
-      id: generateId(),
-      select: false,
-      plaza: "Delrio2",
-      lane: "Lane 2",
-      msgTime: "00:00",
-      accNum: "123456",
-      tagAge: "DelrioToll",
-      tagNum: "DRBP00235",
-      tagStatus: "Active",
-      tollPaid: "15",
-      priorBalance: "100",
-      newBalance: "85",
-      class: "Class A",
-      noAxles: "4",
-      vehicleSpeed: "60",
-      licensePlate: "ABC 123",
-      imgURL1: "image1_url",
-      imgURL2: "image2_url",
-      imgURL3: "image3_url",
-      imgURL4: "image4_url",
-      sourceAddress: "Source address 1",
-      rtTime: "01:00",
-      rrTime: "02:00"
-    },
-   
-    {
-      id: generateId(),
-      select: false,
-      plaza: "Delrio2",
-      lane: "Lane 2",
-      msgTime: "00:00",
-      accNum: "123456",
-      tagAge: "DelrioToll",
-      tagNum: "DRBP00235",
-      tagStatus: "Active",
-      tollPaid: "15",
-      priorBalance: "100",
-      newBalance: "85",
-      class: "Class A",
-      noAxles: "4",
-      vehicleSpeed: "60",
-      licensePlate: "ABC 123",
-      imgURL1: "image1_url",
-      imgURL2: "image2_url",
-      imgURL3: "image3_url",
-      imgURL4: "image4_url",
-      sourceAddress: "Source address 1",
-      rtTime: "01:00",
-      rrTime: "02:00"
-    },
-   
-    {
-      id: generateId(),
-      select: false,
-      plaza: "Delrio2",
-      lane: "Lane 2",
-      msgTime: "00:00",
-      accNum: "123456",
-      tagAge: "DelrioToll",
-      tagNum: "DRBP00235",
-      tagStatus: "Active",
-      tollPaid: "15",
-      priorBalance: "100",
-      newBalance: "85",
-      class: "Class A",
-      noAxles: "4",
-      vehicleSpeed: "60",
-      licensePlate: "ABC 123",
-      imgURL1: "image1_url",
-      imgURL2: "image2_url",
-      imgURL3: "image3_url",
-      imgURL4: "image4_url",
-      sourceAddress: "Source address 1",
-      rtTime: "01:00",
-      rrTime: "02:00"
-    },
-   
-    {
-      id: generateId(),
-      select: false,
-      plaza: "Delrio2",
-      lane: "Lane 2",
-      msgTime: "00:00",
-      accNum: "123456",
-      tagAge: "DelrioToll",
-      tagNum: "DRBP00235",
-      tagStatus: "Active",
-      tollPaid: "15",
-      priorBalance: "100",
-      newBalance: "85",
-      class: "Class A",
-      noAxles: "4",
-      vehicleSpeed: "60",
-      licensePlate: "ABC 123",
-      imgURL1: "image1_url",
-      imgURL2: "image2_url",
-      imgURL3: "image3_url",
-      imgURL4: "image4_url",
-      sourceAddress: "Source address 1",
-      rtTime: "01:00",
-      rrTime: "02:00"
-    },
-   
-    {
-      id: generateId(),
-      select: false,
-      plaza: "Delrio2",
-      lane: "Lane 2",
-      msgTime: "00:00",
-      accNum: "123456",
-      tagAge: "DelrioToll",
-      tagNum: "DRBP00235",
-      tagStatus: "Active",
-      tollPaid: "15",
-      priorBalance: "100",
-      newBalance: "85",
-      class: "Class A",
-      noAxles: "4",
-      vehicleSpeed: "60",
-      licensePlate: "ABC 123",
-      imgURL1: "image1_url",
-      imgURL2: "image2_url",
-      imgURL3: "image3_url",
-      imgURL4: "image4_url",
-      sourceAddress: "Source address 1",
-      rtTime: "01:00",
-      rrTime: "02:00"
-    },
-   
-    {
-      id: generateId(),
-      select: false,
-      plaza: "Delrio2",
-      lane: "Lane 2",
-      msgTime: "00:00",
-      accNum: "123456",
-      tagAge: "DelrioToll",
-      tagNum: "DRBP00235",
-      tagStatus: "Active",
-      tollPaid: "15",
-      priorBalance: "100",
-      newBalance: "85",
-      class: "Class A",
-      noAxles: "4",
-      vehicleSpeed: "60",
-      licensePlate: "ABC 123",
-      imgURL1: "image1_url",
-      imgURL2: "image2_url",
-      imgURL3: "image3_url",
-      imgURL4: "image4_url",
-      sourceAddress: "Source address 1",
-      rtTime: "01:00",
-      rrTime: "02:00"
-    },
-   
-  ];
-  // display = "none";
-  // togV= true;
   isItemSelected: boolean = false;
 
   @ViewChild(MatTable) table: MatTable<any>;
@@ -510,47 +110,65 @@ export class PassComponent implements OnInit{
   constructor(private router: Router, private fb:FormBuilder, private elRef: ElementRef, private dialog: MatDialog) {}
 
   ngOnInit(): void {
-    // this.listData = [];
-
-  //   this.dataForm = this.fb.group({
-  //     plaza: ['', Validators.required],
-  //     lane: ['', Validators.required],
-  //     msgTime:['', Validators.required],
-  //     accNum: ['', Validators.required],
-  //     tagAge: ['', Validators.required],
-  //     tagNum: ['', Validators.required],
-  //     tagStatus: ['', Validators.required],
-  //   });
   }
 
-  //  addData(){
-  //   this.passData.push(this.dataForm.value);
-  //   this.dataForm.reset();
-  //  }
-   
+  capitalizeString(value: string): string {
+    return value.charAt(0).toUpperCase() + value.slice(1);
+  }
 
-  //  removeData(){
-  //     this.passData.forEach((item)=>{
-  //       if(item.select == true){
-  //         this.passData.splice(this.selectedIndex,1);
-  //       }
-  //     }) 
-  //  }
+  openDialogCSList(): void{
+    const dialogRef = this.dialog.open(ColumnSelectionComponent, {
+      width: '250px',
+      data: {
+        displayedColumns: this.displayedColumns
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Dialog closed. Result:', result);
+      // Perform any necessary actions with the result
+    });
+  }
 
-  //  updateData(){
-  //   this.passData.forEach((item)=>{
-  //     if(item.select == true){
-  //       this.openModal();
-  //       return;
-  //     }else{
-  //       alert("Please select one row")
-  //       return;
-  //     }
-  //   }) 
+  
+  editColumn(){
+    this.checkDisplayProperty = 'block';
+    this.editDisplayProperty = 'none';
+    this.saveDisplayProperty = 'block';
 
-  //  }
+    const columnList= [];
+
+    for (const column of this.displayedColumns) {
+      // if(this.checkedItemsArray.includes(column)){
+      //   columnList.push({ column, checked: true });
+      // }
+      // else{
+      //   columnList.push({ column, checked: false });
+      // }
+      const checked = this.checkedItemsArray.includes(column);
+      columnList.push({ column, checked });
+    }
+
+    // this.checkedColumns = columnList.filter(item => item.checked).map(item => item.column);
+    this.checkedColumns = columnList.map(item => item.column);
+
+    // this.checkedColumns = this.displayedColumns;
+    console.log(columnList);
+    console.log(this.checkedColumns);
+  }
+
+  saveColumn(){
+    this.checkedItemsArray = this.displayedColumns.filter((item, index) => this.checkedItems[index]);
+    this.checkedItems = new Array(this.displayedColumns.length).fill(true);
+    this.checkedColumns =this.checkedItemsArray;
+    this.expandDisplayedColumns = [...this.checkedColumns,'expand'];
+    this.checkDisplayProperty = 'none';
+    this.saveDisplayProperty = 'none';
+    this.editDisplayProperty = 'block';
+  }
+
+
   openDialog(): void {
-    const selectedItem = this.passData.find(item => item.select);
+    const selectedItem = this.dataSource.find(item => item.select);
     const dialogRef = this.dialog.open(AddPassComponent, {
       width: '450px',
       data: {
@@ -564,20 +182,6 @@ export class PassComponent implements OnInit{
           tagAge: [selectedItem?.tagAge || '', Validators.required],
           tagNum: [selectedItem?.tagNum || '', Validators.required],
           tagStatus: [selectedItem?.tagStatus || '', Validators.required],
-          tollPaid: [selectedItem?.tollPaid || '', Validators.required],
-          priorBalance: [selectedItem?.priorBalance || '', Validators.required],
-          newBalance: [selectedItem?.newBalance || '', Validators.required],
-          class: [selectedItem?.class || '', Validators.required],
-          noAxles: [selectedItem?.noAxles || '', Validators.required],
-          vehicleSpeed: [selectedItem?.vehicleSpeed || '', Validators.required],
-          licensePlate: [selectedItem?.licensePlate || '', Validators.required],
-          imgURL1: [selectedItem?.imgURL1 || '', Validators.required],
-          imgURL2: [selectedItem?.imgURL2 || '', Validators.required],
-          imgURL3: [selectedItem?.imgURL3 || '', Validators.required],
-          imgURL4: [selectedItem?.imgURL4 || '', Validators.required],
-          sourceAddress: [selectedItem?.sourceAddress || '', Validators.required],
-          rtTime: [selectedItem?.rtTime || '', Validators.required],
-          rrTime: [selectedItem?.rrTime || '', Validators.required],
         }),
       },
     });
@@ -586,10 +190,10 @@ export class PassComponent implements OnInit{
       console.log(result);
       if (result && result !== undefined) {
         if (selectedItem) {
-          const selectedIndex = this.passData.findIndex(item => item.select);
-          this.passData[selectedIndex] = result;
+          const selectedIndex = this.dataSource.findIndex(item => item.select);
+          this.dataSource[selectedIndex] = result;
         } else {
-          this.passData.push(result);
+          this.dataSource.push(result);
         }
         this.table.renderRows();
       }
@@ -597,24 +201,13 @@ export class PassComponent implements OnInit{
   }
 
   removeData() {
-    this.passData = this.passData.filter(item => !item.select);
+    this.dataSource = this.dataSource.filter(item => !item.select);
     this.table.renderRows();
   }
 
-    // openModal() {
-    //   // this.display = "block";
-    // }
-    // onCloseHandled() {
-    //   this.display = "none";
-    // }
-
-    // navigationChange(){
-    //   this.router.navigateByUrl('/fare');
-    // }
-
     onSelect(index){
 
-      this.passData.map((item, i)=>{
+      this.dataSource.map((item, i)=>{
         if ( i == index ){
           item.select=true;
           this.selectedIndex=index;
@@ -626,45 +219,15 @@ export class PassComponent implements OnInit{
       this.updateItemSelection();
 
     }
-  
 
-    // toggleView(){
-    //   if(this.togV == true){
-    //     this.togV=false;
-    //     const numView = document.getElementById("numShow");
-    //     numView.classList.add("d-none");
-    //     numView.classList.remove("d-block");
-
-    //    const checkView = document.getElementById("checkShow");
-    //       checkView.classList.add("d-block");
-    //       checkView.classList.remove("d-none");
-        
-    //       return;
-    //   }
-      
-    //    if(this.togV == false){
-    //     console.log("222")
-    //     this.togV=true;
-    //     const numView = document.getElementById("numShow");
-    //     numView.classList.remove("d-none");
-    //     numView.classList.add("d-block");
-
-    //   const checkView = document.getElementById("checkShow");
-    //       checkView.classList.remove("d-block");
-    //       checkView.classList.add("d-none");
-
-    //       return;
-    //   }
-      
-    // }
 
     updateItemSelection(): void {
-      this.isItemSelected = this.passData.some(item => item.select);
+      this.isItemSelected = this.dataSource.some(item => item.select);
     }
 
 
     selectItem(index: number): void {
-      this.passData[index].select = !this.passData[index].select;
+      this.dataSource[index].select = !this.dataSource[index].select;
       this.updateItemSelection();
     }
     
@@ -676,18 +239,477 @@ export class PassComponent implements OnInit{
         decimalseparator: '.',
         showLabels: true, 
         showTitle: true,
-        title: 'Your title',
+        title: 'Pass management data',
         useBom: true,
         noDownload: false,
         headers: ["First Name", "Last Name", "ID"]
       };
      
-      new ngxCsv(this.passData,"report", options);
+      new ngxCsv(this.dataSource,"report", options);
     }
     
-    // addData() {
-    //   const newItem = {...this.dataForm.value, id: generateId()};
-    //   this.passData.push(newItem);
-    //   this.dataForm.reset();
-    // }
 }
+
+const passData: Tag[] = [
+  
+  {
+    id: generateId(),
+    select: false,
+    plaza: "Delrio2",
+    lane: "Lane 2",
+    msgTime: "00:00",
+    accNum: "123456",
+    tagAge: "DelrioToll",
+    tagNum: "DRBP00235",
+    tagStatus: "Active",
+    tollPaid: "15",
+    priorBalance: "100",
+    newBalance: "85",
+    class: "Class A",
+    noAxles: "4",
+    vehicleSpeed: "60",
+    licensePlate: "ABC 123",
+    imgURL1: "image1_url",
+    imgURL2: "image2_url",
+    imgURL3: "image3_url",
+    imgURL4: "image4_url",
+    sourceAddress: "Source address 1",
+    rtTime: "01:00",
+    rrTime: "02:00",
+    isExpanded:false,
+  },
+ 
+
+  {
+    id: generateId(),
+    select: false,
+    plaza: "Delrio2",
+    lane: "Lane 2",
+    msgTime: "00:00",
+    accNum: "123456",
+    tagAge: "DelrioToll",
+    tagNum: "DRBP00235",
+    tagStatus: "Active",
+    tollPaid: "15",
+    priorBalance: "100",
+    newBalance: "85",
+    class: "Class A",
+    noAxles: "4",
+    vehicleSpeed: "60",
+    licensePlate: "ABC 123",
+    imgURL1: "image1_url",
+    imgURL2: "image2_url",
+    imgURL3: "image3_url",
+    imgURL4: "image4_url",
+    sourceAddress: "Source address 1",
+    rtTime: "01:00",
+    rrTime: "02:00",
+    isExpanded:false,
+  },
+ 
+  {
+    id: generateId(),
+    select: false,
+    plaza: "Delrio2",
+    lane: "Lane 2",
+    msgTime: "00:00",
+    accNum: "123456",
+    tagAge: "DelrioToll",
+    tagNum: "DRBP00235",
+    tagStatus: "Active",
+    tollPaid: "15",
+    priorBalance: "100",
+    newBalance: "85",
+    class: "Class A",
+    noAxles: "4",
+    vehicleSpeed: "60",
+    licensePlate: "ABC 123",
+    imgURL1: "image1_url",
+    imgURL2: "image2_url",
+    imgURL3: "image3_url",
+    imgURL4: "image4_url",
+    sourceAddress: "Source address 1",
+    rtTime: "01:00",
+    rrTime: "02:00",
+    isExpanded:false,
+  },
+ 
+  {
+    id: generateId(),
+    select: false,
+    plaza: "Delrio2",
+    lane: "Lane 2",
+    msgTime: "00:00",
+    accNum: "123456",
+    tagAge: "DelrioToll",
+    tagNum: "DRBP00235",
+    tagStatus: "Active",
+    tollPaid: "15",
+    priorBalance: "100",
+    newBalance: "85",
+    class: "Class A",
+    noAxles: "4",
+    vehicleSpeed: "60",
+    licensePlate: "ABC 123",
+    imgURL1: "image1_url",
+    imgURL2: "image2_url",
+    imgURL3: "image3_url",
+    imgURL4: "image4_url",
+    sourceAddress: "Source address 1",
+    rtTime: "01:00",
+    rrTime: "02:00",
+    isExpanded:false,
+  },
+ 
+  {
+    id: generateId(),
+    select: false,
+    plaza: "Delrio2",
+    lane: "Lane 2",
+    msgTime: "00:00",
+    accNum: "123456",
+    tagAge: "DelrioToll",
+    tagNum: "DRBP00235",
+    tagStatus: "Active",
+    tollPaid: "15",
+    priorBalance: "100",
+    newBalance: "85",
+    class: "Class A",
+    noAxles: "4",
+    vehicleSpeed: "60",
+    licensePlate: "ABC 123",
+    imgURL1: "image1_url",
+    imgURL2: "image2_url",
+    imgURL3: "image3_url",
+    imgURL4: "image4_url",
+    sourceAddress: "Source address 1",
+    rtTime: "01:00",
+    rrTime: "02:00",
+    isExpanded:false,
+  },
+ 
+  {
+    id: generateId(),
+    select: false,
+    plaza: "Delrio2",
+    lane: "Lane 2",
+    msgTime: "00:00",
+    accNum: "123456",
+    tagAge: "DelrioToll",
+    tagNum: "DRBP00235",
+    tagStatus: "Active",
+    tollPaid: "15",
+    priorBalance: "100",
+    newBalance: "85",
+    class: "Class A",
+    noAxles: "4",
+    vehicleSpeed: "60",
+    licensePlate: "ABC 123",
+    imgURL1: "image1_url",
+    imgURL2: "image2_url",
+    imgURL3: "image3_url",
+    imgURL4: "image4_url",
+    sourceAddress: "Source address 1",
+    rtTime: "01:00",
+    rrTime: "02:00",
+    isExpanded:false,
+  },
+ 
+  {
+    id: generateId(),
+    select: false,
+    plaza: "Delrio2",
+    lane: "Lane 2",
+    msgTime: "00:00",
+    accNum: "123456",
+    tagAge: "DelrioToll",
+    tagNum: "DRBP00235",
+    tagStatus: "Active",
+    tollPaid: "15",
+    priorBalance: "100",
+    newBalance: "85",
+    class: "Class A",
+    noAxles: "4",
+    vehicleSpeed: "60",
+    licensePlate: "ABC 123",
+    imgURL1: "image1_url",
+    imgURL2: "image2_url",
+    imgURL3: "image3_url",
+    imgURL4: "image4_url",
+    sourceAddress: "Source address 1",
+    rtTime: "01:00",
+    rrTime: "02:00",
+    isExpanded:false,
+  },
+ 
+  {
+    id: generateId(),
+    select: false,
+    plaza: "Delrio2",
+    lane: "Lane 2",
+    msgTime: "00:00",
+    accNum: "123456",
+    tagAge: "DelrioToll",
+    tagNum: "DRBP00235",
+    tagStatus: "Active",
+    tollPaid: "15",
+    priorBalance: "100",
+    newBalance: "85",
+    class: "Class A",
+    noAxles: "4",
+    vehicleSpeed: "60",
+    licensePlate: "ABC 123",
+    imgURL1: "image1_url",
+    imgURL2: "image2_url",
+    imgURL3: "image3_url",
+    imgURL4: "image4_url",
+    sourceAddress: "Source address 1",
+    rtTime: "01:00",
+    rrTime: "02:00",
+    isExpanded:false,
+  },
+ 
+  {
+    id: generateId(),
+    select: false,
+    plaza: "Delrio2",
+    lane: "Lane 2",
+    msgTime: "00:00",
+    accNum: "123456",
+    tagAge: "DelrioToll",
+    tagNum: "DRBP00235",
+    tagStatus: "Active",
+    tollPaid: "15",
+    priorBalance: "100",
+    newBalance: "85",
+    class: "Class A",
+    noAxles: "4",
+    vehicleSpeed: "60",
+    licensePlate: "ABC 123",
+    imgURL1: "image1_url",
+    imgURL2: "image2_url",
+    imgURL3: "image3_url",
+    imgURL4: "image4_url",
+    sourceAddress: "Source address 1",
+    rtTime: "01:00",
+    rrTime: "02:00",
+    isExpanded:false,
+  },
+ 
+  {
+    id: generateId(),
+    select: false,
+    plaza: "Delrio2",
+    lane: "Lane 2",
+    msgTime: "00:00",
+    accNum: "123456",
+    tagAge: "DelrioToll",
+    tagNum: "DRBP00235",
+    tagStatus: "Active",
+    tollPaid: "15",
+    priorBalance: "100",
+    newBalance: "85",
+    class: "Class A",
+    noAxles: "4",
+    vehicleSpeed: "60",
+    licensePlate: "ABC 123",
+    imgURL1: "image1_url",
+    imgURL2: "image2_url",
+    imgURL3: "image3_url",
+    imgURL4: "image4_url",
+    sourceAddress: "Source address 1",
+    rtTime: "01:00",
+    rrTime: "02:00",
+    isExpanded:false,
+  },
+ 
+  {
+    id: generateId(),
+    select: false,
+    plaza: "Delrio2",
+    lane: "Lane 2",
+    msgTime: "00:00",
+    accNum: "123456",
+    tagAge: "DelrioToll",
+    tagNum: "DRBP00235",
+    tagStatus: "Active",
+    tollPaid: "15",
+    priorBalance: "100",
+    newBalance: "85",
+    class: "Class A",
+    noAxles: "4",
+    vehicleSpeed: "60",
+    licensePlate: "ABC 123",
+    imgURL1: "image1_url",
+    imgURL2: "image2_url",
+    imgURL3: "image3_url",
+    imgURL4: "image4_url",
+    sourceAddress: "Source address 1",
+    rtTime: "01:00",
+    rrTime: "02:00",
+    isExpanded:false,
+  },
+ 
+  {
+    id: generateId(),
+    select: false,
+    plaza: "Delrio2",
+    lane: "Lane 2",
+    msgTime: "00:00",
+    accNum: "123456",
+    tagAge: "DelrioToll",
+    tagNum: "DRBP00235",
+    tagStatus: "Active",
+    tollPaid: "15",
+    priorBalance: "100",
+    newBalance: "85",
+    class: "Class A",
+    noAxles: "4",
+    vehicleSpeed: "60",
+    licensePlate: "ABC 123",
+    imgURL1: "image1_url",
+    imgURL2: "image2_url",
+    imgURL3: "image3_url",
+    imgURL4: "image4_url",
+    sourceAddress: "Source address 1",
+    rtTime: "01:00",
+    rrTime: "02:00",
+    isExpanded:false,
+  },
+ 
+  {
+    id: generateId(),
+    select: false,
+    plaza: "Delrio2",
+    lane: "Lane 2",
+    msgTime: "00:00",
+    accNum: "123456",
+    tagAge: "DelrioToll",
+    tagNum: "DRBP00235",
+    tagStatus: "Active",
+    tollPaid: "15",
+    priorBalance: "100",
+    newBalance: "85",
+    class: "Class A",
+    noAxles: "4",
+    vehicleSpeed: "60",
+    licensePlate: "ABC 123",
+    imgURL1: "image1_url",
+    imgURL2: "image2_url",
+    imgURL3: "image3_url",
+    imgURL4: "image4_url",
+    sourceAddress: "Source address 1",
+    rtTime: "01:00",
+    rrTime: "02:00",
+    isExpanded:false,
+  },
+ 
+  {
+    id: generateId(),
+    select: false,
+    plaza: "Delrio2",
+    lane: "Lane 2",
+    msgTime: "00:00",
+    accNum: "123456",
+    tagAge: "DelrioToll",
+    tagNum: "DRBP00235",
+    tagStatus: "Active",
+    tollPaid: "15",
+    priorBalance: "100",
+    newBalance: "85",
+    class: "Class A",
+    noAxles: "4",
+    vehicleSpeed: "60",
+    licensePlate: "ABC 123",
+    imgURL1: "image1_url",
+    imgURL2: "image2_url",
+    imgURL3: "image3_url",
+    imgURL4: "image4_url",
+    sourceAddress: "Source address 1",
+    rtTime: "01:00",
+    rrTime: "02:00",
+    isExpanded:false,
+  },
+ 
+  {
+    id: generateId(),
+    select: false,
+    plaza: "Delrio2",
+    lane: "Lane 2",
+    msgTime: "00:00",
+    accNum: "123456",
+    tagAge: "DelrioToll",
+    tagNum: "DRBP00235",
+    tagStatus: "Active",
+    tollPaid: "15",
+    priorBalance: "100",
+    newBalance: "85",
+    class: "Class A",
+    noAxles: "4",
+    vehicleSpeed: "60",
+    licensePlate: "ABC 123",
+    imgURL1: "image1_url",
+    imgURL2: "image2_url",
+    imgURL3: "image3_url",
+    imgURL4: "image4_url",
+    sourceAddress: "Source address 1",
+    rtTime: "01:00",
+    rrTime: "02:00",
+    isExpanded:false,
+  },
+ 
+  {
+    id: generateId(),
+    select: false,
+    plaza: "Delrio2",
+    lane: "Lane 2",
+    msgTime: "00:00",
+    accNum: "123456",
+    tagAge: "DelrioToll",
+    tagNum: "DRBP00235",
+    tagStatus: "Active",
+    tollPaid: "15",
+    priorBalance: "100",
+    newBalance: "85",
+    class: "Class A",
+    noAxles: "4",
+    vehicleSpeed: "60",
+    licensePlate: "ABC 123",
+    imgURL1: "image1_url",
+    imgURL2: "image2_url",
+    imgURL3: "image3_url",
+    imgURL4: "image4_url",
+    sourceAddress: "Source address 1",
+    rtTime: "01:00",
+    rrTime: "02:00",
+    isExpanded:false,
+  },
+ 
+  {
+    id: generateId(),
+    select: false,
+    plaza: "Delrio2",
+    lane: "Lane 2",
+    msgTime: "00:00",
+    accNum: "123456",
+    tagAge: "DelrioToll",
+    tagNum: "DRBP00235",
+    tagStatus: "Active",
+    tollPaid: "15",
+    priorBalance: "100",
+    newBalance: "85",
+    class: "Class A",
+    noAxles: "4",
+    vehicleSpeed: "60",
+    licensePlate: "ABC 123",
+    imgURL1: "image1_url",
+    imgURL2: "image2_url",
+    imgURL3: "image3_url",
+    imgURL4: "image4_url",
+    sourceAddress: "Source address 1",
+    rtTime: "01:00",
+    rrTime: "02:00",
+    isExpanded:false,
+  },
+ 
+];
