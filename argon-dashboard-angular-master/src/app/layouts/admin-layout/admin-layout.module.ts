@@ -20,6 +20,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { AddPassComponent } from 'src/app/pages/pass/addPass/addPass.component';
+import { VideoComponent } from 'src/app/pages/video/video.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { AddPassComponent } from 'src/app/pages/pass/addPass/addPass.component';
     AnalyticsComponent,
     IconsComponent,
     AnalyticsNewComponent,
+    VideoComponent,
   ],
   entryComponents: [AddPassComponent]
 })

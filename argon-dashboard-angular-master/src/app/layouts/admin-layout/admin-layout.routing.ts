@@ -6,6 +6,7 @@ import { FareComponent } from 'src/app/pages/fare/fare.component';
 import { PassComponent } from 'src/app/pages/pass/pass.component';
 import { AnalyticsComponent } from 'src/app/pages/analytics/analytics.component';
 import { AnalyticsNewComponent } from 'src/app/pages/analytics/analytics2/analytics2.component';
+import { VideoComponent } from 'src/app/pages/video/video.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -15,4 +16,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'admin',           component: UserProfileComponent },
     { path: 'analytics',       component: AnalyticsComponent},
     { path: 'analytics2',      component: AnalyticsNewComponent},
+    { path: 'video',           component: VideoComponent},
 ];
