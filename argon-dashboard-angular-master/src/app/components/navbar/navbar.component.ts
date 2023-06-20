@@ -2,6 +2,9 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { saveAs } from 'file-saver';
+
 
 @Component({
   selector: 'app-navbar',
@@ -9,13 +12,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  
   public focus;
   public listTitles: any[];
   public location: Location;
-  constructor(location: Location,  private element: ElementRef, private router: Router) {
+  constructor(location: Location,  private element: ElementRef, private router: Router,private http: HttpClient) {
     this.location = location;
   }
 
+
+  downloadPDF(): void {
+    const filePath = '../../../assets/pdf/myPdf.pdf'; // Provide the path to the PDF file within your project
+
+    const link = document.createElement('a');
+    link.href = filePath;
+    link.target = '_blank';
+    link.download = 'document.pdf';
+    link.click();
+  }
   ngOnInit() {
     this.listTitles = ROUTES.filter(listTitle => listTitle);
   }

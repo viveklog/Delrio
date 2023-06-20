@@ -34,7 +34,7 @@ import {MatTableModule} from '@angular/material/table';
     NgFor,
     MatButtonModule,
     NgIf,
-    MatIconModule
+    MatIconModule,
   ],
   declarations: [
     AppComponent,

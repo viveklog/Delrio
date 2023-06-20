@@ -39,7 +39,6 @@ interface Tag {
   rtTime?: string;
   rrTime?: string;
   select?: boolean;
-  isExpanded: boolean;
 }
 
 
@@ -66,32 +65,17 @@ export class PassComponent implements OnInit{
   // dataForm: FormGroup;\
   displayedColumns: string[] = ['select', 'plaza', 'lane', 'msgTime', 'accNum', 'tagAge', 'tagNum', 'tagStatus', 'tollPaid',
   'priorBalance', 'newBalance','class','noAxles', 'vehicleSpeed', 'licensePlate', 'imgURL1', 
-  'imgURL2','imgURL3','imgURL4','sourceAddress', 'rtTime', 'rrTime','isExpanded',
+  'imgURL2','imgURL3','imgURL4','sourceAddress', 'rtTime', 'rrTime',
  ];
  expandDisplayedColumns = [...this.displayedColumns,'expand'];
  expandedElement: Tag | null;
  checkedColumns =this.displayedColumns;
 
 
-// toggleRowExpansion(row: Tag) {
-//   // const row = this.passData[index];
-//   row.isExpanded = !row.isExpanded;
-//   console.log(row.isExpanded, row.id);
-  
-// }
-
-// isRowExpanded = (_: number, row: Tag) => row.isExpanded;
-
-// isRowExpanded(rowIndex: number, row: Tag): boolean {
-//   return row.isExpanded[rowIndex];
-//   console.log("hi", row.isExpanded[rowIndex]);
-// }
-
-
 
  checkedItems: boolean[] = new Array(this.displayedColumns.length).fill(true);
  checkedItemsArray: string[] = [];
-  // listData: any;
+
 
   checkDisplayProperty = 'none';
   editDisplayProperty = 'block';
@@ -129,6 +113,8 @@ export class PassComponent implements OnInit{
     });
   }
 
+
+
   
   editColumn(){
     this.checkDisplayProperty = 'block';
@@ -138,20 +124,11 @@ export class PassComponent implements OnInit{
     const columnList= [];
 
     for (const column of this.displayedColumns) {
-      // if(this.checkedItemsArray.includes(column)){
-      //   columnList.push({ column, checked: true });
-      // }
-      // else{
-      //   columnList.push({ column, checked: false });
-      // }
       const checked = this.checkedItemsArray.includes(column);
       columnList.push({ column, checked });
     }
-
-    // this.checkedColumns = columnList.filter(item => item.checked).map(item => item.column);
     this.checkedColumns = columnList.map(item => item.column);
 
-    // this.checkedColumns = this.displayedColumns;
     console.log(columnList);
     console.log(this.checkedColumns);
   }
@@ -205,8 +182,8 @@ export class PassComponent implements OnInit{
     this.table.renderRows();
   }
 
-    onSelect(index){
-
+    onSelect(index ){
+      console.log(index)
       this.dataSource.map((item, i)=>{
         if ( i == index ){
           item.select=true;
@@ -215,7 +192,7 @@ export class PassComponent implements OnInit{
           item.select=false;
         }
       })
-
+      console.log(this.dataSource);
       this.updateItemSelection();
 
     }
@@ -276,7 +253,6 @@ const passData: Tag[] = [
     sourceAddress: "Source address 1",
     rtTime: "01:00",
     rrTime: "02:00",
-    isExpanded:false,
   },
  
 
@@ -304,7 +280,6 @@ const passData: Tag[] = [
     sourceAddress: "Source address 1",
     rtTime: "01:00",
     rrTime: "02:00",
-    isExpanded:false,
   },
  
   {
@@ -331,7 +306,6 @@ const passData: Tag[] = [
     sourceAddress: "Source address 1",
     rtTime: "01:00",
     rrTime: "02:00",
-    isExpanded:false,
   },
  
   {
@@ -358,7 +332,6 @@ const passData: Tag[] = [
     sourceAddress: "Source address 1",
     rtTime: "01:00",
     rrTime: "02:00",
-    isExpanded:false,
   },
  
   {
@@ -385,7 +358,6 @@ const passData: Tag[] = [
     sourceAddress: "Source address 1",
     rtTime: "01:00",
     rrTime: "02:00",
-    isExpanded:false,
   },
  
   {
@@ -412,7 +384,6 @@ const passData: Tag[] = [
     sourceAddress: "Source address 1",
     rtTime: "01:00",
     rrTime: "02:00",
-    isExpanded:false,
   },
  
   {
@@ -439,7 +410,6 @@ const passData: Tag[] = [
     sourceAddress: "Source address 1",
     rtTime: "01:00",
     rrTime: "02:00",
-    isExpanded:false,
   },
  
   {
@@ -466,7 +436,6 @@ const passData: Tag[] = [
     sourceAddress: "Source address 1",
     rtTime: "01:00",
     rrTime: "02:00",
-    isExpanded:false,
   },
  
   {
@@ -493,7 +462,6 @@ const passData: Tag[] = [
     sourceAddress: "Source address 1",
     rtTime: "01:00",
     rrTime: "02:00",
-    isExpanded:false,
   },
  
   {
@@ -520,7 +488,6 @@ const passData: Tag[] = [
     sourceAddress: "Source address 1",
     rtTime: "01:00",
     rrTime: "02:00",
-    isExpanded:false,
   },
  
   {
@@ -547,7 +514,6 @@ const passData: Tag[] = [
     sourceAddress: "Source address 1",
     rtTime: "01:00",
     rrTime: "02:00",
-    isExpanded:false,
   },
  
   {
@@ -574,7 +540,6 @@ const passData: Tag[] = [
     sourceAddress: "Source address 1",
     rtTime: "01:00",
     rrTime: "02:00",
-    isExpanded:false,
   },
  
   {
@@ -601,7 +566,6 @@ const passData: Tag[] = [
     sourceAddress: "Source address 1",
     rtTime: "01:00",
     rrTime: "02:00",
-    isExpanded:false,
   },
  
   {
@@ -628,7 +592,6 @@ const passData: Tag[] = [
     sourceAddress: "Source address 1",
     rtTime: "01:00",
     rrTime: "02:00",
-    isExpanded:false,
   },
  
   {
@@ -655,7 +618,6 @@ const passData: Tag[] = [
     sourceAddress: "Source address 1",
     rtTime: "01:00",
     rrTime: "02:00",
-    isExpanded:false,
   },
  
   {
@@ -682,7 +644,6 @@ const passData: Tag[] = [
     sourceAddress: "Source address 1",
     rtTime: "01:00",
     rrTime: "02:00",
-    isExpanded:false,
   },
  
   {
@@ -709,7 +670,6 @@ const passData: Tag[] = [
     sourceAddress: "Source address 1",
     rtTime: "01:00",
     rrTime: "02:00",
-    isExpanded:false,
   },
  
 ];
