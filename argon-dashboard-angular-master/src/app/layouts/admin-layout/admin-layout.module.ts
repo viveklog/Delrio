@@ -21,6 +21,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { AddPassComponent } from 'src/app/pages/pass/addPass/addPass.component';
 import { VideoComponent } from 'src/app/pages/video/video.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { UserProfileDataComponent } from 'src/app/pages/userProfile/userProfileData.component';
+import {MatRadioModule} from '@angular/material/radio';
+
+
 
 
 @NgModule({
@@ -37,7 +42,9 @@ import { VideoComponent } from 'src/app/pages/video/video.component';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTabsModule,
+    MatRadioModule,
   ],
   declarations: [
     DashboardComponent,
@@ -48,6 +55,7 @@ import { VideoComponent } from 'src/app/pages/video/video.component';
     IconsComponent,
     AnalyticsNewComponent,
     VideoComponent,
+    UserProfileDataComponent,
   ],
   entryComponents: [AddPassComponent]
 })

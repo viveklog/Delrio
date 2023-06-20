@@ -1,14 +1,12 @@
 <div class="container-fluid h-100vh p-8">
   <div class="card p-3">
     <div class="row px-5 d-flex justify-content-end">
-      <div class="col">
+      <!-- <div class="col">
         <div class="tH d-flex justify-content-start">PASS MANAGEMENT</div>
-      </div>
-      <div class="col">
-        <!-- <button type="button"   class="btn btn-outline-success btnMain"> add col </button> -->
+      </div> -->
+      <!-- <div class="col">
         <button mat-button (click)="openDialogCSList()">Open dialog</button>
-        <!-- <button mat-button (click)="openDiv()">OpenDiv</button> -->
-      </div>
+      </div> -->
 
       <div class="col-8 d-flex justify-content-end">
         <button type="button" (click)="openDialog()" class="btn btn-primary btnMain">
@@ -45,7 +43,7 @@
     <div class="row px-5 pt-3">
       <div class="mat-elevation-z8 m-12 table-container">
         <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
-          <ng-container [matColumnDef]="column" *ngFor="let column of checkedColumns; index as i">
+          <ng-container [matColumnDef]="column" *ngFor="let column of checkedColumns; index as i;">
             <th mat-header-cell *matHeaderCellDef>
               <mat-checkbox [style.display]="checkDisplayProperty" [(ngModel)]="checkedItems[i]"></mat-checkbox>
               {{ capitalizeString(column) }}
@@ -56,9 +54,9 @@
 
           <ng-container matColumnDef="select">
             <mat-header-cell *matHeaderCellDef> # </mat-header-cell>
-            <mat-cell *matCellDef="let element; index as i">
-              <mat-checkbox [checked]="element.select" (change)="onSelect(i)"></mat-checkbox>
-            </mat-cell>
+          <mat-cell *matCellDef="let element; index as i;">
+            <mat-checkbox [checked]="element.select" (change)="onSelect(i)" ></mat-checkbox>
+          </mat-cell>
           </ng-container>
           
         <ng-container matColumnDef="expand">
@@ -76,15 +74,63 @@
               <div class="example-element-detail" [@detailExpand]="
                   element == expandedElement ? 'expanded' : 'collapsed'
                 ">
-                <div class="row pl-8 p-3">
-                  <div class="col-3">
-                    <span class="avatar avatar-sm rounded-circle bg-white ">
-                      <img alt="Image placeholder" src="../../../assets/img/vivek.png">
-                    </span>
+                <div class="container-fluid pl-8 p-3">
+                  <div class="row">
+                    <div class="col-3">
+                      <div class="row">
+                        <div class="col-3 d-flex justify-content-end">
+                          <span class="avatar avatar-sm rounded-circle bg-white ">
+                            <img alt="Image placeholder" src="../../../assets/img/vivek.png">
+                          </span>
+                        </div>
+                        <div class="col-9">
+                          <h3>User Delrio Pass</h3>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-8">
+                      <div class="row">
+                        <div class="col-2">
+                          <h3>Tag Number: </h3>
+                          <h5>DRBP00235</h5>
+                        </div>
+                        <div class="col-2">
+                          <h3>Tag Status: </h3>
+                          <h5>Active</h5>
+                        </div>
+                        <div class="col-2">
+                          <h3>Account Number: </h3>
+                          <h5>123456</h5>
+                        </div>
+                        <div class="col-2">
+                          <h3>Balance: </h3>
+                          <h5>$85</h5>
+                        </div>
+                        <div class="col-4"></div>
+                      </div>
+                      <div class="row pt-3">
+                        <div class="col-2">
+                          <h3>Image-1: </h3>
+                          <img class="imgEX" src="../../../assets/img/theme/imgWall.jpg">
+                        </div>
+                        <div class="col-2">
+                          <h3>Image-2: </h3>
+                          <img class="imgEX" src="../../../assets/img/theme/imgWall.jpg">
+                        </div>
+                        <div class="col-2">
+                          <h3>Image-3: </h3>
+                          <img class="imgEX" src="../../../assets/img/theme/imgWall.jpg">
+                        </div>
+                        <div class="col-2">
+                          <h3>Image-4: </h3>
+                          <img class="imgEX" src="../../../assets/img/theme/imgWall.jpg">
+                        </div>
+                        <div class="col-4"></div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="col-9">
-                    <h3>User Delrio Pass</h3>
-                  </div>
+                  
+                  
                 </div>
               </div>
             </td>

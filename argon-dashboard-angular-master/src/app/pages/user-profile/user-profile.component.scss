@@ -12,3 +12,16 @@
   font-weight: SemiBold;
   font-size: 15px;
 }
+
+.Video{
+  height: 680px;
+  width: 80vw;
+  z-index: -10;
+}
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}

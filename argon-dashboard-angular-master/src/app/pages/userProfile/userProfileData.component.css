@@ -1,0 +1,108 @@
+.head{
+    height: 120px;
+    background: rgba(53,53,105,1);
+    position: relative;
+    left: 0;
+    top: 150px;
+    z-index: -1;
+    
+}
+
+.cardStyle1{
+    height: 400px;
+    background: rgba(253,254,255,1);
+    border-radius: 20px;
+    box-shadow: 2px 9px 18px rgba(0, 0, 0, 0.019999999552965164);
+    width: 100%;
+}
+
+.cardStyle{
+    height: 500px;
+    background: rgba(253,254,255,1);
+    border-radius: 20px;
+    box-shadow: 2px 9px 18px rgba(0, 0, 0, 0.019999999552965164);
+    width: 100%;
+}
+
+.cardS{
+    height: 300px;
+    background: rgba(253,254,255,1);
+    border-radius: 20px;
+    box-shadow: 2px 9px 18px rgba(0, 0, 0, 0.019999999552965164);
+    width: 100%;
+}
+
+.cardSB{
+    border: 3px solid rgba(137,197,65,1);
+}
+
+.cardImg1{
+    background-image: url(../../../assets/userProfile/01.jpg);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.cardImg2{
+    background-image: url(../../../assets/userProfile/02.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.cardImgth1{
+    width: 100%;
+    background-image: url(../../../assets/userProfile/th1.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.cardImgth2{
+    width: 100%;
+    background-image: url(../../../assets/userProfile/th2.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.cardImgth3{
+    width: 100%;
+    background-image: url(../../../assets/userProfile/th3.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.btnPV{
+    color: rgba(253,254,255,1);
+    font-family: Open Sans;
+    font-weight: SemiBold;
+    font-size: 12px;
+    text-align: left;
+    background: rgba(137,197,65,1);
+    border-radius: 10px;
+}
+
+.cardTopH{
+    color: rgba(53,53,105,1);
+    font-family: Open Sans;
+    font-weight: SemiBold;
+    font-size: 24px;
+    text-align: left;
+  }
+
+  .CardH{
+    color: rgba(53,53,105,1);
+    font-family: Open Sans;
+    font-weight: SemiBold;
+    font-size: 18px;
+    text-align: left;
+    }
+    
+    .CardP{
+      color: rgba(132,132,132,1);
+      font-family: Open Sans;
+      font-weight: SemiBold;
+      font-size: 14px;
+      text-align: left;
+    }
+
+   
