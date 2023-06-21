@@ -2,7 +2,79 @@
     <div class="head"></div>
     <div class="pt-6 p-4">
         <div class="row p-3">
-            <div class="card p-3 cardStyle1 cardImg1">
+            <div class="card p-3 cardStyle1 d-flex justify-content-center" [ngClass]="{'defaultTheme': selectedTheme === 'default', 'casualTheme': selectedTheme === 'casual', 'darkTheme': selectedTheme === 'dark'}">
+                <form class="formMain">
+                    <div class="row">
+                      <div class="col">
+                            <div class="form-group row pl-8">
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">First Name</label>
+                            <div class="col-sm-9">
+                              <input type="email" class="form-control" id="inputEmail3" placeholder="Charlotte">
+                            </div>
+                            </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group row pr-8">
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">Last Name</label>
+                            <div class="col-sm-9">
+                              <input type="email" class="form-control" id="inputEmail3" placeholder="Blackwood">
+                            </div>
+                            </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                              <div class="form-group row pl-8">
+                              <label for="inputEmail3" class="col-sm-3 col-form-label">Employee ID</label>
+                              <div class="col-sm-9">
+                                <input type="email" class="form-control" id="inputEmail3" placeholder="DLR001">
+                              </div>
+                              </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-group row pr-8">
+                              <label for="inputEmail3" class="col-sm-3 col-form-label">User Name</label>
+                              <div class="col-sm-9">
+                                <input type="email" class="form-control" id="inputEmail3" placeholder="DelCharlotte">
+                              </div>
+                              </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                              <div class="form-group row pl-8">
+                              <label for="inputEmail3" class="col-sm-3 col-form-label">Contact Num.</label>
+                              <div class="col-sm-9">
+                                <input type="email" class="form-control" id="inputEmail3" placeholder="+1 3234 122334">
+                              </div>
+                              </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-group row pr-8">
+                              <label for="inputEmail3" class="col-sm-3 col-form-label">Email ID</label>
+                              <div class="col-sm-9">
+                                <input type="email" class="form-control" id="inputEmail3" placeholder="mail@delrio.us">
+                              </div>
+                              </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                              <div class="form-group row pl-8">
+                              <label for="inputEmail3" class="col-sm-3 col-form-label">Designation</label>
+                              <div class="col-sm-9">
+                                <input type="email" class="form-control" id="inputEmail3" placeholder="Employee">
+                              </div>
+                              </div>
+                        </div>
+                        <div class="col">
+                            <div class="row d-flex justify-content-center">
+                                <div class="btn ml-5 btnPV"> Edit</div>
+                            </div>
+                           
+                        </div>
+                      </div>
+                  </form>
             </div>
         </div>
         <!-- <div class="row p-3">
@@ -13,7 +85,7 @@
             <div class="card p-3 cardStyle">
                 <div class="row px-8 py-3">
                         <div class="cardTopH">Select Theme</div>
-                        <div class="btn ml-5 btnPV"> Save</div>
+                        <div class="btn ml-5 btnPV"> Apply</div>
                 </div>
                 <div class="row px-5">
                     <div class="col-4">
