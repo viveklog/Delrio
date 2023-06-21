@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <button class="btnSt" (click)="showCamera()">Show Camera</button>
+    </div>
+    <div class="col">
+      <button class="btnSt" (click)="hideCamera()">Hide Camera</button>
+    </div>
+  </div>
+  <div class="row">
+    <video #videoElement *ngIf="isCameraVisible" autoplay></video>
+  </div>
+</div>
