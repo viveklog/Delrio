@@ -3,20 +3,34 @@ import { ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { saveAs } from 'file-saver';
+import { ConfigService } from 'src/app/services/config.service';
 
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  
+
+  selectedTheme: string = 'default';
+
+  fetchData() {
+    this.selectedTheme = this.configService.getObjectProperty();
+    console.log(this.configService.getObjectProperty());
+
+  }
+    
+
   public focus;
   public listTitles: any[];
   public location: Location;
-  constructor(location: Location,  private element: ElementRef, private router: Router,private http: HttpClient) {
+  constructor(location: Location, 
+              private element: ElementRef, 
+              private router: Router,
+              private http: HttpClient,
+              private configService: ConfigService,
+              ) {
     this.location = location;
   }
 
@@ -31,6 +45,9 @@ export class NavbarComponent implements OnInit {
     link.click();
   }
   ngOnInit() {
+    this.selectedTheme = this.configService.getObjectProperty();
+    // this.selectedTheme = "dark"
+
     this.listTitles = ROUTES.filter(listTitle => listTitle);
   }
   getTitle(){

@@ -1,8 +1,9 @@
 
-  <div class="container-fluid pt-5 pt-md-8" style="background: rgba(249,249,249,1);">
+  <div class="container-fluid pt-5 pt-md-8"
+  [ngClass]="{'defaultTheme': selectedTheme === 'default', 'casualTheme': selectedTheme === 'casual', 'darkTheme': selectedTheme === 'dark'}">
     <div class="header-body">
       <!-- Card stats -->
-      <div class="row">
+      <div class="row pt-5">
         <div class="col-xl-3 col-lg-6">
           <div class="card card-stats mb-4 mb-xl-0 cardTop">
             <div class="card-body">
@@ -179,8 +180,8 @@
             </div>
           </div>
         </div>
-        <div class="col px-4">
-          <div class="row py-2">
+        <div class="col px-4 cardPb">
+          <div class="row py-2 ">
             <div class="col-5">Recently Added Account</div>
             <div class="col-2 d-flex justify-content-end proTitle">6708</div>
             <div class="col-5 align-containt-center">
@@ -210,7 +211,7 @@
         </div>
       </div>
     </div>
-    <div class="col-xl-4">
+    <div class="col-xl-4 cardPb">
       <div class="card p-3 cardTop">
         <div class="card-header border-0 pb-3">
           <div class="row align-items-center">
@@ -240,7 +241,7 @@
 
 </div>
 
-<div class="row my-5">
+<div class="row my-5 pb-8">
   <div class="col">
     <div class="card cardTop p-3">
       <div class=" pl-4 CardH">
@@ -248,25 +249,25 @@
       </div>
       <div class="row">
         <div class="col">
-          <div class="card border-light  p-3 m-3">
+          <div class="card border-light  p-3 m-3 cardTop">
             <div class="cardTopH p2">2,345,678</div>
             <div class="cardTopP">TOTAL EMPLOYEES</div>
           </div>
         </div>
         <div class="col">
-          <div class="card border-light  p-3 m-3">
+          <div class="card border-light  p-3 m-3 cardTop">
             <div class="cardTopH p2">5,678</div>
             <div class="cardTopP">RECENTLY ADDED</div>
           </div>
         </div>
         <div class="col">
-          <div class="card border-light p-3 m-3">
+          <div class="card border-light p-3 m-3 cardTop">
             <div class="cardTopH p2">678</div>
             <div class="cardTopP">FLAGGED EMPLOYEES</div>
           </div>
         </div>
-        <div class="col cardTopH d-flex align-items-center">
-          <i class="ni ni-fat-add"></i>
+        <div class="col addbt d-flex align-items-center">
+          <i class="ni ni-fat-add " ></i>
           Add new  Employee
         </div>
       </div>

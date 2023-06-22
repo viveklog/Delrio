@@ -1,0 +1,283 @@
+.defaultTheme{
+    background: #efefef;
+
+    .cardTop{
+        background: rgba(253,254,255,1);
+        border-radius: 20px;
+        box-shadow: 2px 9px 18px rgba(0, 0, 0, 0.019999999552965164);
+      }
+      
+      
+      .cardTopH{
+        color: rgba(53,53,105,1);
+        font-family: Open Sans;
+        font-weight: SemiBold;
+        font-size: 24px;
+        text-align: left;
+      }
+      
+      .cardTopP{
+        color: rgba(132,132,132,1);
+        font-family: Open Sans;
+        font-weight: Regular;
+        font-size: 14px;
+        text-align: left;
+      }
+      .cardFooterUp{
+        color: rgba(137,197,65,1);
+        font-family: Open Sans;
+        font-weight: SemiBold;
+        font-size: 14px;
+        text-align: left;
+      
+      }
+      
+      .cardFooterDown{
+      color: rgba(226,115,125,1);
+      font-family: Open Sans;
+      font-weight: SemiBold;
+      font-size: 14px;
+      text-align: left;
+      }
+
+      .CardH{
+        color: rgba(53,53,105,1);
+        font-family: Open Sans;
+        font-weight: SemiBold;
+        font-size: 18px;
+        text-align: left;
+        }
+        .CardP{
+          color: rgba(132,132,132,1);
+          font-family: Open Sans;
+          font-weight: SemiBold;
+          font-size: 14px;
+          text-align: left;
+        }
+        .chartButton .active{
+          background: rgba(137,197,65,1);
+          border-radius: 10px;
+        }
+        .proS{
+          height: 15px;
+          border-radius: 10px;
+        }
+        
+        .proSs{
+          background: rgba(137,197,65,1);
+          border-radius: 10px;
+        
+        }
+        
+        .proSr{
+          background: rgba(226,115,125,1);
+          border-radius: 10px;
+        
+        }
+        .sP{
+          color: rgba(132,132,132,1);
+          margin-left: -50px
+        }
+        .mP{
+          color: rgba(53,53,105,1);
+        }
+        .eP{
+          color: rgba(132,132,132,1);
+          margin-right: -50px;
+        }
+        
+        .proTitle{
+        color: rgba(53,53,105,1);
+        font-family: Open Sans;
+        font-weight: SemiBold;
+        font-size: 18px;
+        text-align: left;
+        }
+       
+        
+        .ctrText{
+          color: rgba(132,132,132,1);
+          font-family: Open Sans;
+          font-weight: Regular;
+          font-size: 14px;
+          text-align: left;
+        }
+        
+        .ctrBtn{
+          width: 89px;
+        height: 32px;
+        background: rgba(249,249,249,1);
+        color: rgba(53,53,105,1);
+        border-radius: 10px;
+        text-align: center;
+        margin-left: 10px;
+        font-family: Open Sans;
+          font-weight:SemiBold; 
+          font-size: 18px;
+        }
+}
+
+
+.casualTheme{
+    background: #932a2a;
+}
+
+
+.darkTheme{
+    background: #363636;   
+
+    .cardTop{
+        background: #4E4E4E;
+        border-radius: 20px;
+        box-shadow: 2px 9px 18px rgba(0, 0, 0, 0.019999999552965164);
+      }
+      .cardTop>*{
+        background: #4E4E4E;
+      }
+      
+      
+      .cardTopH{
+        color: #efefef;
+        font-family: Open Sans;
+        font-weight: SemiBold;
+        font-size: 24px;
+        text-align: left;
+      }
+      
+      .cardTopP{
+        color: #BCBCBC;
+        font-family: Open Sans;
+        font-weight: Regular;
+        font-size: 14px;
+        text-align: left;
+      }
+      .cardFooterUp{
+        color: #A7CB7B;
+        font-family: Open Sans;
+        font-weight: SemiBold;
+        font-size: 14px;
+        text-align: left;
+      
+      }
+      
+      .cardFooterDown{
+      color: rgba(226,115,125,1);
+      font-family: Open Sans;
+      font-weight: SemiBold;
+      font-size: 14px;
+      text-align: left;
+      }
+
+      .CardH{
+        color: #efefef;
+        font-family: Open Sans;
+        font-weight: SemiBold;
+        font-size: 18px;
+        text-align: left;
+        }
+        .CardP{
+          color: #BCBCBC;
+          font-family: Open Sans;
+          font-weight: SemiBold;
+          font-size: 14px;
+          text-align: left;
+        }
+        .cardPb{
+          color: #BCBCBC;
+          font-family: Open Sans;
+          font-weight: SemiBold;
+          font-size: 16px;
+          text-align: left;
+        }
+        .chartButton .active{
+          background: #A7CB7B;
+          border-radius: 10px;
+        }
+        .proS{
+          height: 15px;
+          border-radius: 10px;
+        }
+        
+        .proSs{
+          background: #A7CB7B;
+          border-radius: 10px;
+        
+        }
+        
+        .proSr{
+          background: rgba(226,115,125,1);
+          border-radius: 10px;
+        
+        }
+        .sP{
+          color: #BCBCBC;
+          margin-left: -50px
+        }
+        .mP{
+          color: #BCBCBC;
+        }
+        .eP{
+          color: #BCBCBC;
+          margin-right: -50px;
+        }
+        
+        .proTitle{
+          color: #BCBCBC;
+        font-family: Open Sans;
+        font-weight: SemiBold;
+        font-size: 18px;
+        text-align: left;
+        }
+       
+        
+        .ctrText{
+          color: #BCBCBC;
+          font-family: Open Sans;
+          font-weight: Regular;
+          font-size: 14px;
+          text-align: left;
+        }
+        
+        .ctrBtn{
+          width: 89px;
+        height: 32px;
+        background: rgba(249,249,249,1);
+        color: #BCBCBC;
+        border-radius: 10px;
+        text-align: center;
+        margin-left: 10px;
+        font-family: Open Sans;
+          font-weight:SemiBold; 
+          font-size: 18px;
+        }
+
+        .addbt{
+          color: #BCBCBC;
+          font-family: Open Sans;
+          font-weight: SemiBold;
+          font-size: 24px;
+          text-align: left;
+        }
+       
+}
+
+
+  
+  
+  
+  .chartButton{
+    
+    border-radius: 10px;
+  }
+  
+  .chartButton:hover{
+    
+    border-radius: 15px;
+  }
+  
+ 
+ 
+  
+ 
+  
+ 
