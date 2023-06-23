@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, OnChanges, SimpleChanges, Input  } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
@@ -11,9 +11,10 @@ import { ConfigService } from 'src/app/services/config.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnChanges {
 
   selectedTheme: string = 'default';
+  @Input() inputTheme: string;
 
   fetchData() {
     this.selectedTheme = this.configService.getObjectProperty();
@@ -50,6 +51,14 @@ export class NavbarComponent implements OnInit {
 
     this.listTitles = ROUTES.filter(listTitle => listTitle);
   }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.inputTheme) {
+      this.selectedTheme = `${this.inputTheme}`;
+    }
+  }
+
+  
   getTitle(){
     var titlee = this.location.prepareExternalUrl(this.location.path());
     if(titlee.charAt(0) === '#'){

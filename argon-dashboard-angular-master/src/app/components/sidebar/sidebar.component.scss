@@ -1,0 +1,78 @@
+.defaultTheme{
+    background: #F9F9F9;
+    .navI{
+        width: 90%;
+        color: rgba(40,40,40,1);
+        font-family: Open Sans;
+        font-weight: Regular;
+        font-size: 18px; 
+    }
+    
+    
+    .navI:hover{
+        border: 1px solid rgba(53,53,105,1);
+        border-radius: 15px;
+        
+    }
+    
+    .navI .active{
+        color: rgba(249,249,249,1);
+        background: rgba(53,53,105,1);
+        border-radius: 15px;
+    }
+
+}
+.casualTheme{
+    background: #F9F9F9;
+    .navI{
+        width: 90%;
+        color: rgba(40,40,40,1);
+        font-family: Open Sans;
+        font-weight: Regular;
+        font-size: 18px; 
+    }
+    
+    
+    .navI:hover{
+        border: 1px solid rgba(53,53,105,1);
+        border-radius: 15px;
+        
+    }
+    
+    .navI .active{
+        color: rgba(249,249,249,1);
+        background: rgba(53,53,105,1);
+        border-radius: 15px;
+    }
+        
+
+
+}
+.darkTheme{
+    background: #4E4E4E;
+    .navI{
+        width: 90%;
+        color: #EFEFEF;
+        font-family: Open Sans;
+        font-weight: Regular;
+        font-size: 18px; 
+    }
+    
+    
+    .navI:hover{
+        border: 1px solid #5A91EC;
+        border-radius: 15px;
+        
+    }
+    
+    .navI .active{
+        color: rgba(249,249,249,1);
+        background: #5A91EC;
+        border-radius: 15px;
+    }
+
+    .nav-link{
+        color: #EFEFEF;
+    }
+        
+}

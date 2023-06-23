@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges, Input  } from '@angular/core';
 import { Router } from '@angular/router';
 
 declare interface RouteInfo {
@@ -27,19 +27,34 @@ export const ROUTES: RouteInfo[] = [
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit {
+
+export class SidebarComponent implements OnInit, OnChanges{
+
+  selectedTheme: string = 'default';
+  @Input() inputTheme: string;
+
+
+ 
+
+
 
   public menuItems: any[];
   public isCollapsed = true;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router ) { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
     this.router.events.subscribe((event) => {
       this.isCollapsed = true;
    });
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.inputTheme) {
+      this.selectedTheme = `${this.inputTheme}`;
+    }
   }
 }

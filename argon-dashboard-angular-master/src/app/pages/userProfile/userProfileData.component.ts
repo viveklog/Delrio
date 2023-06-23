@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfigService } from 'src/app/services/config.service';
+import { Router } from '@angular/router';
 
 
 
@@ -11,7 +12,7 @@ import { ConfigService } from 'src/app/services/config.service';
 })
 export class UserProfileDataComponent implements OnInit{
 
-  constructor(private configService: ConfigService) { }
+  constructor(private configService: ConfigService, private router: Router) { }
 
   theme = "cd1";
   selectedTheme: string = 'default';
@@ -59,18 +60,20 @@ if(data == 'cd3'){
 applyTheme(){
   if(this.theme == 'cd1'){
     this.configService.setObjectProperty('default');
-    console.log(this.configService.getObjectProperty());
+    this.configService.updateTheme('default');
   }
   if(this.theme == 'cd2'){
     this.configService.setObjectProperty('casual');
-    console.log(this.configService.getObjectProperty());
+    this.configService.updateTheme('casual');
   }
   if(this.theme == 'cd3'){
     this.configService.setObjectProperty('dark');
-    console.log(this.configService.getObjectProperty());
-  }
+    this.configService.updateTheme('dark');
+    }
 
   alert("selected theme applied");
+  this.router.navigate(['/dashboard']);
+
 }
 
 
