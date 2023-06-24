@@ -7,7 +7,7 @@ import { DataService } from 'src/app/services/data.service';
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
-  styleUrls: ['./report.component.css']
+  styleUrls: ['./report.component.scss']
 })
 
 
@@ -53,6 +53,7 @@ export class ReportComponent implements OnInit{
 
       const element = this.reportContentRef.nativeElement;
       const options = {
+        margin:	2,
         filename: 'report.pdf',
         image: { type: 'jpeg', quality: 1 },
         html2canvas: { scale: 2 },
