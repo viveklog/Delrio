@@ -23,7 +23,8 @@ import { AddPassComponent } from 'src/app/pages/pass/addPass/addPass.component';
 import { VideoComponent } from 'src/app/pages/video/video.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { UserProfileDataComponent } from 'src/app/pages/userProfile/userProfileData.component';
-import {MatRadioModule} from '@angular/material/radio';
+import { MatRadioModule } from '@angular/material/radio';
+import { ReportComponent } from 'src/app/pages/report/report.component';
 
 
 
@@ -56,6 +57,7 @@ import {MatRadioModule} from '@angular/material/radio';
     AnalyticsNewComponent,
     VideoComponent,
     UserProfileDataComponent,
+    ReportComponent,
   ],
   entryComponents: [AddPassComponent]
 })

@@ -18,6 +18,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {NgFor, NgIf} from '@angular/common';
 import {MatTableModule} from '@angular/material/table';
+import { DataService } from './services/data.service';
 
 
 @NgModule({
@@ -42,7 +43,7 @@ import {MatTableModule} from '@angular/material/table';
     AuthLayoutComponent,
     ColumnSelectionComponent
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
