@@ -10,6 +10,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 
 
 
+
 const generateId = () => {
   // This will generate a random string of 24 characters
   return Math.random().toString(36).substr(2, 24);
@@ -91,9 +92,14 @@ export class PassComponent implements OnInit{
   @ViewChild(MatTable) table: MatTable<any>;
 
 
-  constructor(private router: Router, private fb:FormBuilder, private elRef: ElementRef, private dialog: MatDialog) {}
+  constructor(private router: Router, 
+              private fb:FormBuilder, 
+              private elRef: ElementRef, 
+              private dialog: MatDialog,
+              ) {}
 
   ngOnInit(): void {
+
   }
 
   capitalizeString(value: string): string {

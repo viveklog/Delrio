@@ -18,7 +18,9 @@ export const ROUTES: RouteInfo[] = [
     { path: '/analytics2', title: 'Analytics2',  icon:'', class: '' },
     { path: '/video', title: 'Video', icon:'', class:'',},
     { path: '/user', title: 'UserProfile',  icon:'', class: '' },
+    { path: '/report', title: 'Report', icon: '', class: ''},
     { path: '/landing', title: 'Log Out',  icon:'', class: '' },
+
     // { path: '/tables', title: 'Tables',  icon:'ni-bullet-list-67 text-red', class: '' },
     // { path: '/login', title: 'Login',  icon:'ni-key-25 text-info', class: '' },
     // { path: '/register', title: 'Register',  icon:'ni-circle-08 text-pink', class: '' }

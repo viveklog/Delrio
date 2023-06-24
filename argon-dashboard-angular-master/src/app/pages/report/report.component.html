@@ -1,0 +1,61 @@
+
+  <div class="container-fluid p-8">
+        <div class="row p-5 justify-content-end">
+            <button class="btnGen" (click)="generateReport()">Generate Report</button>
+        </div>
+        <div class="row"><div>Select column</div></div>
+        <div class="row">
+              <div class="col p-2 px-5" *ngFor="let data of columnList"> <mat-checkbox (change)="toggleSelection(data)">{{ capitalizeString(data) }}</mat-checkbox></div>
+      </div>
+        <div class="row">
+            <div #reportContent>
+               <div class="container-fluid">
+               </div>
+               <div class="container-fluid p-8">
+                <div class="report-header">
+                    <h1>Report</h1>
+                </div>
+                <mat-table [dataSource]="tableData" class="custom-table" >
+                  <!-- Generate table columns based on selected columns -->
+                  <ng-container *ngFor="let column of selectedColumns">
+                    <ng-container matColumnDef="{{ column }}">
+                      <mat-header-cell *matHeaderCellDef>{{ column }}</mat-header-cell>
+                      <mat-cell *matCellDef="let element">{{ element[column] }}</mat-cell>
+                    </ng-container>
+                  </ng-container>
+                
+                  <!-- Generate table headers -->
+                  <mat-header-row *matHeaderRowDef="selectedColumns"></mat-header-row>
+                  <!-- Generate table rows -->
+                  <mat-row *matRowDef="let row; columns: selectedColumns;"></mat-row>
+                </mat-table>
+                <!-- <table class="report-table">
+                    <thead>
+                      <tr>
+                        <th>Product</th>
+                        <th>Quantity Sold</th>
+                        <th>Revenue</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Product A</td>
+                        <td>100</td>
+                        <td>$1000</td>
+                      </tr>
+                      <tr>
+                        <td>Product B</td>
+                        <td>75</td>
+                        <td>$750</td>
+                      </tr>
+                      <tr>
+                        <td>Product C</td>
+                        <td>50</td>
+                        <td>$500</td>
+                      </tr>
+                    </tbody>
+                  </table> -->
+            </div>
+              </div>    
+        </div>    
+  </div>
