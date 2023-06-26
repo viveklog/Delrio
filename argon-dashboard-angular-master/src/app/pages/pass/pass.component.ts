@@ -9,8 +9,6 @@ import { ColumnSelectionComponent } from "./columnSelection/columnSelection.comp
 import {animate, state, style, transition, trigger} from '@angular/animations';
 
 
-
-
 const generateId = () => {
   // This will generate a random string of 24 characters
   return Math.random().toString(36).substr(2, 24);
@@ -44,7 +42,7 @@ interface Tag {
 
 
 @Component({
-    selector: 'app-pass',
+  selector: 'app-pass',
   templateUrl: './pass.component.html',
   styleUrls: ['./pass.component.scss'],
   animations: [
@@ -57,20 +55,17 @@ interface Tag {
   // standalone: true,
   // imports: [MatTableModule, NgFor, MatButtonModule, NgIf, MatIconModule],
 })
-
-
-
 export class PassComponent implements OnInit{
 
   dataSource = passData;
   // dataForm: FormGroup;\
   displayedColumns: string[] = ['select', 'plaza', 'lane', 'msgTime', 'accNum', 'tagAge', 'tagNum', 'tagStatus', 'tollPaid',
-  'priorBalance', 'newBalance','class','noAxles', 'vehicleSpeed', 'licensePlate', 'imgURL1', 
+  'priorBalance', 'newBalance','class','noAxles', 'vehicleSpeed', 'licensePlate', 'imgURL1',
   'imgURL2','imgURL3','imgURL4','sourceAddress', 'rtTime', 'rrTime',
- ];
- expandDisplayedColumns = [...this.displayedColumns,'expand'];
- expandedElement: Tag | null;
- checkedColumns =this.displayedColumns;
+  ];
+  expandDisplayedColumns = [...this.displayedColumns,'expand'];
+  expandedElement: Tag | null;
+  checkedColumns = this.displayedColumns;
 
 
 
@@ -85,16 +80,16 @@ export class PassComponent implements OnInit{
 
   selectedIndex: number;
   num =1;
- 
-  
+
+
   isItemSelected: boolean = false;
 
   @ViewChild(MatTable) table: MatTable<any>;
 
 
-  constructor(private router: Router, 
-              private fb:FormBuilder, 
-              private elRef: ElementRef, 
+  constructor(private router: Router,
+              private fb:FormBuilder,
+              private elRef: ElementRef,
               private dialog: MatDialog,
               ) {}
 
@@ -121,7 +116,7 @@ export class PassComponent implements OnInit{
 
 
 
-  
+
   editColumn(){
     this.checkDisplayProperty = 'block';
     this.editDisplayProperty = 'none';
@@ -168,7 +163,7 @@ export class PassComponent implements OnInit{
         }),
       },
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
       if (result && result !== undefined) {
@@ -186,55 +181,55 @@ export class PassComponent implements OnInit{
   removeData() {
     this.dataSource = this.dataSource.filter(item => !item.select);
     this.table.renderRows();
+    this.updateItemSelection();
   }
 
-    onSelect(index ){
-      console.log(index)
-      this.dataSource.map((item, i)=>{
-        if ( i == index ){
-          item.select=true;
-          this.selectedIndex=index;
-        } else{
-          item.select=false;
-        }
-      })
-      console.log(this.dataSource);
-      this.updateItemSelection();
+  onSelect(index ){
+    console.log(index)
+    this.dataSource.map((item, i)=>{
+      if ( i == index ){
+        item.select=true;
+        this.selectedIndex=index;
+      } else{
+        item.select=false;
+      }
+    })
+    console.log(this.dataSource);
+    this.updateItemSelection();
 
-    }
-
-
-    updateItemSelection(): void {
-      this.isItemSelected = this.dataSource.some(item => item.select);
-    }
+  }
 
 
-    selectItem(index: number): void {
-      this.dataSource[index].select = !this.dataSource[index].select;
-      this.updateItemSelection();
-    }
-    
-    
-    csvExport(){
-      var options = { 
-        fieldSeparator: ',',
-        quoteStrings: '"',
-        decimalseparator: '.',
-        showLabels: true, 
-        showTitle: true,
-        title: 'Pass management data',
-        useBom: true,
-        noDownload: false,
-        headers: ["First Name", "Last Name", "ID"]
-      };
-     
-      new ngxCsv(this.dataSource,"report", options);
-    }
-    
+  updateItemSelection(): void {
+    this.isItemSelected = this.dataSource.some(item => item.select);
+  }
+
+
+  selectItem(index: number): void {
+    this.dataSource[index].select = !this.dataSource[index].select;
+    this.updateItemSelection();
+  }
+
+
+  csvExport(){
+    var options = {
+      fieldSeparator: ',',
+      quoteStrings: '"',
+      decimalseparator: '.',
+      showLabels: true,
+      showTitle: true,
+      title: 'Pass management data',
+      useBom: true,
+      noDownload: false,
+      headers: ["First Name", "Last Name", "ID"]
+    };
+
+    new ngxCsv(this.dataSource,"report", options);
+  }
+
 }
 
 const passData: Tag[] = [
-  
   {
     id: generateId(),
     select: false,
@@ -260,7 +255,7 @@ const passData: Tag[] = [
     rtTime: "01:00",
     rrTime: "02:00",
   },
- 
+
 
   {
     id: generateId(),
@@ -287,7 +282,7 @@ const passData: Tag[] = [
     rtTime: "01:00",
     rrTime: "02:00",
   },
- 
+
   {
     id: generateId(),
     select: false,
@@ -313,7 +308,7 @@ const passData: Tag[] = [
     rtTime: "01:00",
     rrTime: "02:00",
   },
- 
+
   {
     id: generateId(),
     select: false,
@@ -339,7 +334,7 @@ const passData: Tag[] = [
     rtTime: "01:00",
     rrTime: "02:00",
   },
- 
+
   {
     id: generateId(),
     select: false,
@@ -365,7 +360,7 @@ const passData: Tag[] = [
     rtTime: "01:00",
     rrTime: "02:00",
   },
- 
+
   {
     id: generateId(),
     select: false,
@@ -391,7 +386,7 @@ const passData: Tag[] = [
     rtTime: "01:00",
     rrTime: "02:00",
   },
- 
+
   {
     id: generateId(),
     select: false,
@@ -417,7 +412,7 @@ const passData: Tag[] = [
     rtTime: "01:00",
     rrTime: "02:00",
   },
- 
+
   {
     id: generateId(),
     select: false,
@@ -443,7 +438,7 @@ const passData: Tag[] = [
     rtTime: "01:00",
     rrTime: "02:00",
   },
- 
+
   {
     id: generateId(),
     select: false,
@@ -469,7 +464,7 @@ const passData: Tag[] = [
     rtTime: "01:00",
     rrTime: "02:00",
   },
- 
+
   {
     id: generateId(),
     select: false,
@@ -495,7 +490,7 @@ const passData: Tag[] = [
     rtTime: "01:00",
     rrTime: "02:00",
   },
- 
+
   {
     id: generateId(),
     select: false,
@@ -521,7 +516,7 @@ const passData: Tag[] = [
     rtTime: "01:00",
     rrTime: "02:00",
   },
- 
+
   {
     id: generateId(),
     select: false,
@@ -547,7 +542,7 @@ const passData: Tag[] = [
     rtTime: "01:00",
     rrTime: "02:00",
   },
- 
+
   {
     id: generateId(),
     select: false,
@@ -573,7 +568,7 @@ const passData: Tag[] = [
     rtTime: "01:00",
     rrTime: "02:00",
   },
- 
+
   {
     id: generateId(),
     select: false,
@@ -599,7 +594,7 @@ const passData: Tag[] = [
     rtTime: "01:00",
     rrTime: "02:00",
   },
- 
+
   {
     id: generateId(),
     select: false,
@@ -625,7 +620,7 @@ const passData: Tag[] = [
     rtTime: "01:00",
     rrTime: "02:00",
   },
- 
+
   {
     id: generateId(),
     select: false,
@@ -651,7 +646,7 @@ const passData: Tag[] = [
     rtTime: "01:00",
     rrTime: "02:00",
   },
- 
+
   {
     id: generateId(),
     select: false,
@@ -677,5 +672,5 @@ const passData: Tag[] = [
     rtTime: "01:00",
     rrTime: "02:00",
   },
- 
+
 ];
