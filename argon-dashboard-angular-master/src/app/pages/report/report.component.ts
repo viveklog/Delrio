@@ -47,13 +47,70 @@ export class ReportComponent implements OnInit{
         }
       }
 
+
+
+      showCodeBlock1 = false;
+      showCodeBlock2 = false;
+      showCodeBlock3 = false;
+      showCodeBlock4 = false;
+      showCodeBlock5 = false;
+      showCodeBlock6 = false;
+      showCodeBlock7 = false;
+      showCodeBlock8 = false;
+      showCodeBlock9= false;
+      showCodeBlock10 = false;
+
+  toggleCodeBlock1(event: any) {
+    this.showCodeBlock1 = event.checked;
+  }
+
+  toggleCodeBlock2(event: any) {
+    this.showCodeBlock2 = event.checked;
+  }
+
+  toggleCodeBlock3(event: any) {
+    this.showCodeBlock3 = event.checked;
+  }
+
+  toggleCodeBlock4(event: any) {
+    this.showCodeBlock4 = event.checked;
+  }
+
+  toggleCodeBlock5(event: any) {
+    this.showCodeBlock5 = event.checked;
+  }
+
+  toggleCodeBlock6(event: any) {
+    this.showCodeBlock6 = event.checked;
+  }
+
+  toggleCodeBlock7(event: any) {
+    this.showCodeBlock7 = event.checked;
+  }
+
+  toggleCodeBlock8(event: any) {
+    this.showCodeBlock8 = event.checked;
+  }
+
+  toggleCodeBlock9(event: any) {
+    this.showCodeBlock9 = event.checked;
+  }
+
+  toggleCodeBlock10(event: any) {
+    this.showCodeBlock10 = event.checked;
+  }
+
+  
+
+  
+
     generateReport() {
 
       console.log(this.selectedColumns);
 
       const element = this.reportContentRef.nativeElement;
       const options = {
-        margin:	2,
+        margin:	5,
         filename: 'report.pdf',
         image: { type: 'jpeg', quality: 1 },
         html2canvas: { scale: 2 },

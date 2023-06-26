@@ -1,6 +1,6 @@
 
 .reportPDF{
-  width: 775px;
+  width: 770px;
   height: auto;
 
 
@@ -18,14 +18,19 @@
   }
 
   .imgCl{
-    max-height: 200px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
   }
 
   .imgST{
-    width: 100%;
-    height: auto;
+    max-height: 100%;
+    max-width: 100%;
   }
-
+  .image-container {
+    page-break-after: always; 
+  }
 }
 
 

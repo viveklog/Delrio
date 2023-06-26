@@ -9,11 +9,63 @@
         </div>
         <div class="row">
           <div class="col">
-            <div class="card imgCl">
-            <mat-checkbox>TOTAL NUMBER OF TAGS ISSUED</mat-checkbox>
-            <div class="card-body">
-              <img class="imgST" src="../../../assets/pdf/img/001.png" alt="img">
+            <div class="card p-1 ">
+            <mat-checkbox (change)="toggleCodeBlock1($event)">Total Number of Tags Issued</mat-checkbox>
+              <img style="height: 150px;" src="../../../assets/pdf/img/001.png" alt="img">
             </div>
+          </div>
+          <div class="col">
+            <div class="card p-1 ">
+            <mat-checkbox (change)="toggleCodeBlock2($event)">Issued Tag Type</mat-checkbox>
+              <img style="height: 150px;" src="../../../assets/pdf/img/002.png" alt="img">
+            </div>
+          </div>
+          <div class="col">
+            <div class="card p-1 ">
+            <mat-checkbox (change)="toggleCodeBlock3($event)">Tags Issued</mat-checkbox>
+              <img style="height: 150px;" src="../../../assets/pdf/img/003.png" alt="img">
+            </div>
+          </div>
+          <div class="col p-3">
+            <div class="card p-1 ">
+            <mat-checkbox (change)="toggleCodeBlock4($event)">Total Number of Account</mat-checkbox>
+              <img style="height: 150px;" src="../../../assets/pdf/img/004.png" alt="img">
+            </div>
+          </div>
+          <div class="col">
+            <div class="card p-1 ">
+            <mat-checkbox (change)="toggleCodeBlock5($event)">Total Transactions</mat-checkbox>   
+              <img style="height: 150px;" src="../../../assets/pdf/img/005.png" alt="img">
+            </div>
+          </div>
+          <div class="col">
+            <div class="card p-1 ">
+            <mat-checkbox (change)="toggleCodeBlock6($event)">Issued Tag Type</mat-checkbox>
+              <img style="height: 150px;" src="../../../assets/pdf/img/006.png" alt="img">
+            </div>
+          </div>
+          <div class="col">
+            <div class="card p-1 ">
+            <mat-checkbox (change)="toggleCodeBlock7($event)">Recharge per Account</mat-checkbox>
+              <img style="height: 150px;" src="../../../assets/pdf/img/007.png" alt="img">
+            </div>
+          </div>
+          <div class="col">
+            <div class="card p-1 ">
+            <mat-checkbox (change)="toggleCodeBlock8($event)">Revenue Generated</mat-checkbox>
+              <img style="height: 150px;" src="../../../assets/pdf/img/008.png" alt="img">
+            </div>
+          </div>
+          <div class="col">
+            <div class="card p-1 ">
+            <mat-checkbox (change)="toggleCodeBlock9($event)">Total Collection</mat-checkbox>
+              <img style="height: 150px;" src="../../../assets/pdf/img/009.png" alt="img">
+            </div>
+          </div>
+          <div class="col">
+            <div class="card p-1 ">
+            <mat-checkbox (change)="toggleCodeBlock10($event)">Top rev. gen. Vehicles</mat-checkbox>
+              <img style="height: 150px;" src="../../../assets/pdf/img/010.png" alt="img">
             </div>
           </div>
         </div>
@@ -33,6 +85,58 @@
                   <mat-header-row *matHeaderRowDef="selectedColumns"></mat-header-row>
                   <mat-row *matRowDef="let row; columns: selectedColumns;"></mat-row>
                 </mat-table>
+                <div class="row">
+                  <div class="col-8 image-container" *ngIf="showCodeBlock1">
+                    <div class="card p-1 ">
+                      <img style="height: 250px;" src="../../../assets/pdf/img/001.png" alt="img">
+                    </div>
+                  </div>
+                  <div class="col-4 image-container" *ngIf="showCodeBlock2">
+                    <div class="card p-1 ">
+                      <img style="height: 250px;" src="../../../assets/pdf/img/002.png" alt="img">
+                    </div>
+                  </div>
+                  <div class="col-6 image-container" *ngIf="showCodeBlock3">
+                    <div class="card p-1 ">
+                      <img style="height: 250px;" src="../../../assets/pdf/img/003.png" alt="img">
+                    </div>
+                  </div>
+                  <div class="col-6 image-container" *ngIf="showCodeBlock4">
+                    <div class="card p-1 ">
+                      <img style="height: 250px;" src="../../../assets/pdf/img/004.png" alt="img">
+                    </div>
+                  </div>
+                  <div class="col-8 image-container" *ngIf="showCodeBlock5">
+                    <div class="card p-1 ">
+                      <img style="height: 150px;" src="../../../assets/pdf/img/005.png" alt="img">
+                    </div>
+                  </div>
+                  <div class="col-4 image-container" *ngIf="showCodeBlock6">
+                    <div class="card p-1 ">
+                      <img style="height: 150px;" src="../../../assets/pdf/img/006.png" alt="img">
+                    </div>
+                  </div>
+                  <div class="col-6 image-container" *ngIf="showCodeBlock7">
+                    <div class="card p-1 ">
+                      <img style="height: 150px;" src="../../../assets/pdf/img/007.png" alt="img">
+                    </div>
+                  </div>
+                  <div class="col-6 image-container" *ngIf="showCodeBlock8">
+                    <div class="card p-1 ">
+                      <img style="height: 150px;" src="../../../assets/pdf/img/008.png" alt="img">
+                    </div>
+                  </div>
+                  <div class="col-8 image-container" *ngIf="showCodeBlock9">
+                    <div class="card p-1 ">
+                      <img style="height: 150px;" src="../../../assets/pdf/img/009.png" alt="img">
+                    </div>
+                  </div>
+                  <div class="col-4 image-container" *ngIf="showCodeBlock10">
+                    <div class="card p-1 ">
+                      <img style="height: 150px;" src="../../../assets/pdf/img/010.png" alt="img">
+                    </div>
+                  </div>
+                </div>
             </div>
               </div>    
         </div>    
