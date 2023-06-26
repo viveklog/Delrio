@@ -20,6 +20,7 @@ export class VideoComponent implements OnInit{
       height: { min: 576, ideal: 720, max: 1080 }
     }
   };
+  
 
   ngAfterViewInit(): void {
     this.video = this.videoElement.nativeElement;

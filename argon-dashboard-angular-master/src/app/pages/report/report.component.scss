@@ -1,0 +1,60 @@
+
+.reportPDF{
+  width: 770px;
+  height: auto;
+
+
+  .custom-table {
+    table-layout: fixed;
+    width: 100%;
+  }
+  
+  .custom-table mat-cell,
+  .custom-table mat-header-cell {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 10px;
+  }
+
+  .imgCl{
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .imgST{
+    max-height: 100%;
+    max-width: 100%;
+  }
+  .image-container {
+    page-break-after: always; 
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
