@@ -3,72 +3,80 @@
         <div class="row p-5 justify-content-end">
             <button class="btnGen" (click)="generateReport()">Generate Report</button>
         </div>
-        <div class="row"><div>Select column</div></div>
-        <div class="row">
-              <div class="col p-2 px-5" *ngFor="let data of columnList"> <mat-checkbox (change)="toggleSelection(data)">{{ capitalizeString(data) }}</mat-checkbox></div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <div class="card p-1 ">
-            <mat-checkbox (change)="toggleCodeBlock1($event)">Total Number of Tags Issued</mat-checkbox>
-              <img style="height: 150px;" src="../../../assets/pdf/img/001.png" alt="img">
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-1 ">
-            <mat-checkbox (change)="toggleCodeBlock2($event)">Issued Tag Type</mat-checkbox>
-              <img style="height: 150px;" src="../../../assets/pdf/img/002.png" alt="img">
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-1 ">
-            <mat-checkbox (change)="toggleCodeBlock3($event)">Tags Issued</mat-checkbox>
-              <img style="height: 150px;" src="../../../assets/pdf/img/003.png" alt="img">
-            </div>
-          </div>
-          <div class="col p-3">
-            <div class="card p-1 ">
-            <mat-checkbox (change)="toggleCodeBlock4($event)">Total Number of Account</mat-checkbox>
-              <img style="height: 150px;" src="../../../assets/pdf/img/004.png" alt="img">
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-1 ">
-            <mat-checkbox (change)="toggleCodeBlock5($event)">Total Transactions</mat-checkbox>   
-              <img style="height: 150px;" src="../../../assets/pdf/img/005.png" alt="img">
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-1 ">
-            <mat-checkbox (change)="toggleCodeBlock6($event)">Issued Tag Type</mat-checkbox>
-              <img style="height: 150px;" src="../../../assets/pdf/img/006.png" alt="img">
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-1 ">
-            <mat-checkbox (change)="toggleCodeBlock7($event)">Recharge per Account</mat-checkbox>
-              <img style="height: 150px;" src="../../../assets/pdf/img/007.png" alt="img">
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-1 ">
-            <mat-checkbox (change)="toggleCodeBlock8($event)">Revenue Generated</mat-checkbox>
-              <img style="height: 150px;" src="../../../assets/pdf/img/008.png" alt="img">
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-1 ">
-            <mat-checkbox (change)="toggleCodeBlock9($event)">Total Collection</mat-checkbox>
-              <img style="height: 150px;" src="../../../assets/pdf/img/009.png" alt="img">
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-1 ">
-            <mat-checkbox (change)="toggleCodeBlock10($event)">Top rev. gen. Vehicles</mat-checkbox>
-              <img style="height: 150px;" src="../../../assets/pdf/img/010.png" alt="img">
-            </div>
+        <div class="container p-5">
+          <div class="row"><h2>Select column</h2></div>
+          <div class="row">
+                <div class="col-2 p-2 px-5" *ngFor="let data of columnList"> <mat-checkbox (change)="toggleSelection(data)">{{ capitalizeString(data) }}</mat-checkbox></div>
           </div>
         </div>
+        <div class="container pb-5">
+          <div class="row">
+            <h2>Select Chart</h2>
+          </div>
+          <div class="row">
+            <div class="col py-2">
+              <div class="card p-1 ">
+              <mat-checkbox (change)="toggleCodeBlock1($event)">Total Number of Tags Issued</mat-checkbox>
+                <img style="height: 100px;" src="../../../assets/pdf/img/001.png" alt="img">
+              </div>
+            </div>
+            <div class="col py-2">
+              <div class="card p-1 ">
+              <mat-checkbox (change)="toggleCodeBlock2($event)">Issued Tag Type</mat-checkbox>
+                <img style="height: 100px;" src="../../../assets/pdf/img/002.png" alt="img">
+              </div>
+            </div>
+            <div class="col py-2">
+              <div class="card p-1 ">
+              <mat-checkbox (change)="toggleCodeBlock3($event)">Tags Issued</mat-checkbox>
+                <img style="height: 100px;" src="../../../assets/pdf/img/003.png" alt="img">
+              </div>
+            </div>
+            <div class="col py-2">
+              <div class="card p-1 ">
+              <mat-checkbox (change)="toggleCodeBlock4($event)">Total Number of Account</mat-checkbox>
+                <img style="height: 100px;" src="../../../assets/pdf/img/004.png" alt="img">
+              </div>
+            </div>
+            <div class="col py-2">
+              <div class="card p-1 ">
+              <mat-checkbox (change)="toggleCodeBlock5($event)">Total Transactions</mat-checkbox>   
+                <img style="height: 100px;" src="../../../assets/pdf/img/005.png" alt="img">
+              </div>
+            </div>
+            <div class="col py-2">
+              <div class="card p-1 ">
+              <mat-checkbox (change)="toggleCodeBlock6($event)">Issued Tag Type</mat-checkbox>
+                <img style="height: 100px;" src="../../../assets/pdf/img/006.png" alt="img">
+              </div>
+            </div>
+            <div class="col py-2">
+              <div class="card p-1 ">
+              <mat-checkbox (change)="toggleCodeBlock7($event)">Recharge per Account</mat-checkbox>
+                <img style="height: 100px;" src="../../../assets/pdf/img/007.png" alt="img">
+              </div>
+            </div>
+            <div class="col py-2">
+              <div class="card p-1 ">
+              <mat-checkbox (change)="toggleCodeBlock8($event)">Revenue Generated</mat-checkbox>
+                <img style="height: 100px;" src="../../../assets/pdf/img/008.png" alt="img">
+              </div>
+            </div>
+            <div class="col py-2">
+              <div class="card p-1 ">
+              <mat-checkbox (change)="toggleCodeBlock9($event)">Total Collection</mat-checkbox>
+                <img style="height: 100px;" src="../../../assets/pdf/img/009.png" alt="img">
+              </div>
+            </div>
+            <div class="col py-2">
+              <div class="card p-1 ">
+              <mat-checkbox (change)="toggleCodeBlock10($event)">Top rev. gen. Vehicles</mat-checkbox>
+                <img style="height: 100px;" src="../../../assets/pdf/img/010.png" alt="img">
+              </div>
+            </div>
+          </div>
+        </div>
+       
         <div class="row">
             <div class="card reportPDF" #reportContent>
                <div class="container-fluid">
