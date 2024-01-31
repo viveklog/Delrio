@@ -79,10 +79,14 @@
        
         <div class="row">
             <div class="card reportPDF" #reportContent>
-               <div class="container-fluid">
-                <div class="report-header">
-                    <h1>Report</h1>
+               <div class="container-fluid justify-content-around">
+                <div class="row d-flex p-3">
+                  <img height="auto" src="./assets/img/brand/DelRio/logo.png" class="repImg" alt="...">
+                  <div class="report-header">
+                    <h1>Toll Usage Report</h1>
                 </div>
+                </div>
+                
                 <mat-table [dataSource]="tableData" class="custom-table" >
                   <ng-container *ngFor="let column of selectedColumns">
                     <ng-container matColumnDef="{{ column }}">

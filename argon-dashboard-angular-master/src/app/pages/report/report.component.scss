@@ -28,9 +28,40 @@
     max-height: 100%;
     max-width: 100%;
   }
-  .image-container {
-    // page-break-after: always; 
+
+  .repImg{
+    width: 200px;
+    height: 39px;
   }
+
+
+  .report-header{
+    margin: auto;
+    h1{
+      font-size: 40px;
+      color: #4d4c4c;
+    }
+  }
+
+    .mat-row:nth-child(even){
+    background-color: #ccc;
+}
+        
+.mat-row:nth-child(odd){
+    background-color: #efefef;
+}
+
+.mat-header-row{
+  background-color: #656464;
+}
+
+.mat-header-cell{
+  background-color: #656464;
+  color: white;
+  font-size: 15px;
+  font-weight: 300;
+}
+ 
 }
 
 
